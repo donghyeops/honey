@@ -1,0 +1,162 @@
+body {
+		background-image: url(/honey/comb/img/HoneyPattern.jpg);
+
+		background-size: 2000px 2000px;
+}
+
+ul {
+    	/*list-style-type: none;*/
+    	margin: 0;							/*바깥쪽 여백*/
+    	/*padding: 0px 10% 0px 10%;	*/		/*안쪽 여백*/
+    	/*overflow: hidden;*/
+   		background-image: url(/honey/comb/img/Honey.png);
+    	background-position: left top;			/*배경이미지 위치*/
+    	background-size: 100% 120px;		
+    	font-weight: bold;
+    	/*position: fixed;	*/		/*태그의 위치 표시 상태 fixed였다.*/
+    	top: 0;						/*화면 맨 위쪽으로부터 태그 객체 위쪽 모서리까지의 거리*/
+    	/*left: 0;			*/		/*화면 맨 왼쪽으로부터 태그 객체 왼쪽 모서리까지의 거리*/
+    	/*width: 2000px;	*/			/*가로*/
+    	height: 120px;				/*세로*/
+}
+
+	li {
+		position: relative;			/*relative였다. 상대위치 static위치 사용시 있던 위치를 기준으로 이동*/
+		display:inline;
+		vertical-align:20%;
+		align: 50%;
+		margin: 0px 0px 0px 0px;
+    	float: left;
+	}
+
+	li a {
+    	display: block;
+    	color: black;            /* color는 텍스트의 색*/
+    	text-align: center;
+    	text-decoration: none;
+	}
+	
+	li a:hover:not(.active) {
+	}
+
+	.active {
+    background-color: #4CAF50;
+	}
+
+/*   id부분 설정하는 부분   id="" -id는 한번만가능   */
+	#HoneyBar {
+		position: static;
+		align: middle;
+	}
+	
+	#SearchBox {
+		margin: 30px 20px 0px 20px; 
+	}
+	
+	#HoneyButton {
+		margin: 30px 1% 0px 1%;
+	}
+	
+		
+/* 클래스 설정하는부분    class="" -class는 여러개를 사용가능 */
+	.w3-lobster {
+    font-family: "Lobster", Sans-serif;
+	}
+	
+	.dropbtn {
+    
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+	}
+
+	.dropdown {
+    position: fixed;
+    display: inline-block;
+	}
+
+	.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 123px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    background-color: #ffffff;
+	}
+
+	.dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+	}
+	
+	
+
+	.dropdown:hover .dropdown-content {
+    	display: block;
+	}
+	
+	/**/
+	.rinkbutton {
+  border-radius: 4px;
+  background-color: #f4511e;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.rinkbutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.rinkbutton span:after {
+  content: '»';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.rinkbutton:hover span {
+  padding-right: 25px;
+}
+
+.rinkbutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+	
+	
+	/**/
+	
+	
+	
+	
+	
+	
+	@media screen and (max-width:480px) {
+        #Honeybar {
+          width: auto;
+        }
+        #jb-content {
+          float: none;
+          width: auto;
+        }
+        #jb-sidebar {
+          float: none;
+          width: auto;
+        }
+      }
+	
+	
+	
