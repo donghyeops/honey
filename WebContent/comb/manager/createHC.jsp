@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="honey.Mgr_bean" import="java.util.ArrayList"%>
+    pageEncoding="UTF-8" import="honey.Mgr_bean" import="java.util.ArrayList" import="honey.SMTPMail"%>
 <jsp:useBean id="HC" class="honey.Mgr_bean" scope="session"></jsp:useBean>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -13,12 +13,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
 <body>
+
+
+
+	
+	
 <%
 	String mode = (String)request.getAttribute("mode");
 	if (mode == null || !mode.equals("edit")) {
 		mode = "create";
 	}
 %>
+
 
 
 
