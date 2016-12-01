@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" import="honey.SMTPMail"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -104,6 +104,16 @@ function w3_close() {
       <span onclick="document.getElementById('SignUp').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
     </div>
     
+    
+    
+    <script language="javaScript">
+    function sendMail() {
+    	<% SMTPMail.getInstance().sendHi(); System.out.println("됨");%>
+    }
+    </script>
+    
+    
+    
      <!-- 회원가입 폼 -->
     <form class="w3-container"  method="post" action="/honey/HoneyControlB">
       <div class="w3-section">
@@ -117,6 +127,8 @@ function w3_close() {
         <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Nickname" name="member_name" required>
         <label><b>메일</b></label>
         <input class="w3-input w3-border" type="text" placeholder="Enter mail address" name="member_mail" required>
+        
+        <button class="w3-btn-block w3-amber w3-section w3-padding" onclick=sendMail()>으아아앙</button>
         
          <input type="hidden" name="action" value="gojoin">
         <button class="w3-btn-block w3-amber w3-section w3-padding" type="submit">회원가입</button>
