@@ -8,80 +8,66 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/honey/comb/css/HoneyStyle.css">
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- background-color:rgba( 255, 255, 255, 0 );배경투명색 -->
 <script  type = "text/javascript">
-function ranking(){
-	var div1 = document.getElementById("rank");
-	var div2 = document.getElementById("newv");
-	var div3 = document.getElementById("pan");
-		 div1.style.background="orange";
-		 div2.style.background="rgba( 255, 255, 255, 0 )";
-		 div3.style.background="rgba( 255, 255, 255, 0 )";
-	}
-	function newvideo(){
-	var div1 = document.getElementById("rank");
-	var div2 = document.getElementById("newv");
-	var div3 = document.getElementById("pan");
-		div1.style.background="rgba( 255, 255, 255, 0 )";
-		div2.style.background="orange";
-		div3.style.background="rgba( 255, 255, 255, 0 )";
-	}
-	function makepan(){
-	var div1 = document.getElementById("rank");
-	var div2 = document.getElementById("newv");
-	var div3 = document.getElementById("pan");
-		div1.style.background="rgba( 255, 255, 255, 0 )";
-		div2.style.background="rgba( 255, 255, 255, 0 )";
-		div3.style.background="orange";
-	}
+function myFunction() {
+    var x = document.getElementById("demo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("mySidenav").style.width = "25%";
+  document.getElementById("mySidenav").style.display = "block";
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("mySidenav").style.display = "none";
+}
 </script>
 	
 </head>
 <body>
 
-<ul>
-<div class="w3-row"  style="margin:0px 0px 0px 0px;height:90px">
+<nav class="w3-sidenav w3-white w3-card-2" style="display:none" id="mySidenav">
+  <a href="javascript:void(0)" 
+  onclick="w3_close()"
+  class="w3-closenav w3-large w3-black"><b>Close &times;</b></a>
+  <a href="#" class="w3-amber" value="로그인" onclick="document.getElementById('LogIn').style.display='block'"><b>로그인</b></a>
+  <a href="HoneyControlB?action=ranking"><b>랭킹</b></a>
+  <a href="HoneyControlB?action=newvideo"><b>최신 영상</b></a>
+  <a href="HoneyControlB?action=hccreate"><b>꿀통 작성</b></a>
+  <a href="#" value="업로드" onclick="document.getElementById('LogIn').style.display='block'"><b>업로드</b></a>
+</nav>
 
-  <!-- 아이콘 -->
-  <div class="w3-display-container w3-left w3-col" style="height:90px;width:12.5%">
-  <div class="w3-display-middle"><a href="/honey/HoneyControlB?action=Main"><img src="/honey/comb/img/HoneyComb.png" width=90px height=90px></a></div>
-  </div>
-   <!-- 검색,랭킹,최신 -->
-  <div class="w3-col w3-left " style="width:50%">
-    <div class="w3-display-container w3-col w3-center" style="height:45px">
-   		<span class="w3-display-middle w3-col">
-   		<form action="#" method="post">
-			<input  style="width:95%" type="text" placeholder="키워드 검색" name="sentence">
-		</form>	
-		</span>
-    </div>
-    <div class="w3-display-container w3-half w3-center" style="height:45px">
-     	<span class="w3-display-middle"><a href="HoneyControlB?action=ranking"><button class="w3-btn w3-text-black w3-hover-orange" id="rank" style="background:rgba( 255, 255, 255, 0 )">인기순</button></a></span>
-    </div>
-    <div class="w3-display-container w3-half w3-center" style="height:45px">
-    	<span class="w3-display-middle"><a href="HoneyControlB?action=newvideo"><button class="w3-btn  w3-text-black w3-hover-orange" id="newv" style="background:rgba( 255, 255, 255, 0 )">최신순</button></a></span>
-    </div>
-  </div>
-  <!-- 벌집 작성작성 -->
-  <div class="w3-display-container w3-left w3-col w3-center" style="height:90px;width:12.5%">
-  	<span class="w3-display-middle"><a href="HoneyControlB?action=hccreate"><button class="w3-btn  w3-text-black w3-hover-orange" id="pan" style="background:rgba( 255, 255, 255, 0 )">꿀통 작성</button></a></span>
-  </div>
-  <!-- 업로드 -->
-  <div class="w3-display-container w3-left w3-col w3-center" style="height:90px;width:12.5%">
-  	<span class="w3-display-middle"><input type="button" class="w3-btn w3-text-black w3-hover-orange" style="background:rgba( 255, 255, 255, 0 )" value="업로드" onclick="document.getElementById('LogIn').style.display='block'"></span>
-  </div>
-  <!-- 로그인 로그아웃  -->
-  <div class="w3-left" style="width:12.5%">
-  	<div class=" w3-display-container w3-col w3-center" style="height:45px">
-  	  <span class="w3-display-middle"><input type="button" class="w3-btn w3-text-black w3-hover-orange" style="background:rgba( 255, 255, 255, 0 )" value="로그인" onclick="document.getElementById('LogIn').style.display='block'"></span>
-  	</div>
-  	<div class="w3-display-container w3-col w3-center" style="height:45px">
-  	  <span class="w3-display-middle"><input type="button" class="w3-btn w3-text-black w3-hover-orange" style="background:rgba( 255, 255, 255, 0 )" value="회원가입" onclick="document.getElementById('SignUp').style.display='block'"></span>
-  	</div>
-  </div>
-
-</div>
+<div id="main">
+<ul class="w3-navbar w3-yellow w3-card-8">
+  <li><a href="/honey/HoneyControlB?action=Main" class=" w3-medium"><img src="/honey/comb/img/HoneyComb.png" width=70px height=70px></a></li>
+  <li class="w3-hide-medium w3-hide-large w3-black w3-opennav ">
+    <a href="#" class="w3-opennav w3-xlarge" onclick="w3_open()" id="openNav">☰</a>
+  </li>
+  <li class="w3-hide-small" style="width:100px"><a href="HoneyControlB?action=ranking" class="w3-padding-32" ><b>랭킹</b></a></li>
+  <li class="w3-hide-small" style="width:100px"><a href="HoneyControlB?action=newvideo" class="w3-padding-32" ><b>최신 영상</b></a></li>
+  <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><input type="text" class="w3-light-gray w3-input w3-padding-16" placeholder="키워드 검색" style="width:250px; height:60px"></li>
+  <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><button class="w3-btn w3-amber w3-padding-16" style="height:60px">Go</button></li>
+  <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="#" class="w3-padding-32" value="로그인" onclick="document.getElementById('LogIn').style.display='block'"><b>로그인</b></a></li>
+  <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="#" class="w3-padding-32" value="업로드" onclick="document.getElementById('LogIn').style.display='block'"><b>업로드</b></a></li>
+  <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="HoneyControlB?action=hccreate" class="w3-padding-32"><b>꿀통 작성</b></a></li>
+  <li class="w3-hide-large w3-hide-small w3-dropdown-click w3-right">
+      <a onclick="myFunction()" href="#" class="w3-padding-32" style="width: 10%"><i class="fa fa-search"></i></a>
+      <div id="demo" class="w3-dropdown-content w3-white w3-card-4" style="width:50%; right:252px">
+      <ul class="w3-navbar">
+        <li><input type="text" class="w3-input" placeholder="키워드 검색" ></li>
+  <li class="w3-right"><button class="w3-btn w3-amber">Go</button></li>
+  </ul>
+      </div>
+    </li>
 </ul>
+</div>
 
 
  <div id="LogIn" class="w3-modal">
@@ -137,7 +123,6 @@ function ranking(){
 
   </div>
 </div>
-
 </body>
 </html>
 

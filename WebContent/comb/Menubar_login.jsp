@@ -4,115 +4,86 @@
 <html>
 <head> 
 <title>허니::honeycomb</title>
-	<link rel="stylesheet" href="/honey/comb/css/HoneyStyle.css">
-	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/honey/comb/css/HoneyStyle.css">
+	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <!-- background-color:rgba( 255, 255, 255, 0 );배경투명색 -->
 <script  type = "text/javascript">
-function ranking(){
-	var div1 = document.getElementById("rank");
-	var div2 = document.getElementById("newv");
-	var div3 = document.getElementById("pan");
-	var div4 = document.getElementById("upload");
-		 div1.style.background="orange";
-		 div2.style.background="rgba( 255, 255, 255, 0 )";
-		 div3.style.background="rgba( 255, 255, 255, 0 )";
-		 div4.style.background="rgba( 255, 255, 255, 0 )";
-	}
-	function newvideo(){
-	var div1 = document.getElementById("rank");
-	var div2 = document.getElementById("newv");
-	var div3 = document.getElementById("pan");
-	var div4 = document.getElementById("upload");
-		div1.style.background="rgba( 255, 255, 255, 0 )";
-		div2.style.background="orange";
-		div3.style.background="rgba( 255, 255, 255, 0 )";
-		 div4.style.background="rgba( 255, 255, 255, 0 )";
-	}
-	function makepan(){
-	var div1 = document.getElementById("rank");
-	var div2 = document.getElementById("newv");
-	var div3 = document.getElementById("pan");
-	var div4 = document.getElementById("upload");
-		div1.style.background="rgba( 255, 255, 255, 0 )";
-		div2.style.background="rgba( 255, 255, 255, 0 )";
-		div3.style.background="orange";
-		 div4.style.background="rgba( 255, 255, 255, 0 )";
-	}
-	function uplist(){
-		var div1 = document.getElementById("rank");
-		var div2 = document.getElementById("newv");
-		var div3 = document.getElementById("pan");
-		var div4 = document.getElementById("upload");
-			div1.style.background="rgba( 255, 255, 255, 0 )";
-			div2.style.background="rgba( 255, 255, 255, 0 )";
-			div3.style.background="rgba( 255, 255, 255, 0 )";
-			 div4.style.background="orange";
-		}
-	function myFunction() {
-	    var x = document.getElementById("myaccount");
-	    if (x.className.indexOf("w3-show") == -1) {
-	        x.className += " w3-show";
-	    } else { 
-	        x.className = x.className.replace(" w3-show", "");
-	    }
-	}
+function myFunction() {
+    var x = document.getElementById("demo");
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+    }
+}
+function w3_open() {
+  document.getElementById("main").style.marginLeft = "25%";
+  document.getElementById("mySidenav").style.width = "25%";
+  document.getElementById("mySidenav").style.display = "block";
+}
+function w3_close() {
+  document.getElementById("main").style.marginLeft = "0%";
+  document.getElementById("mySidenav").style.display = "none";
+}
+function w3_Useropen() {
+    document.getElementById("UserSidenav").style.display = "block";
+}
+function w3_Userclose() {
+    document.getElementById("UserSidenav").style.display = "none";
+}
 </script>
+	
 </head>
-
-
 <body>
-<ul>
-<div class="w3-row w3-display-topmiddle" style="margin:0px 0px 0px 0px;height:90px;width:100%">
-  <!-- 아이콘 -->
-  <div class="w3-display-container w3-left w3-col" style="height:90px;width:12.5%">
-  <div class="w3-display-middle"><a href="/honey/HoneyControlB?action=Main"><img src="/honey/comb/img/HoneyComb.png" width=90px height=90px></a></div>
-  </div>
-   <!-- 검색,랭킹,최신 -->
-  <div class="w3-col w3-left " style="width:50%">
-    <div class="w3-display-container w3-col w3-center" style="height:45px">
-   		<span class="w3-display-middle w3-col">
-   		<form action="#" method="post">
-			<input  style="width:95%" type="text" placeholder="키워드 검색" name="sentence">
-		</form>	
-		</span>
-    </div>
-    <div class="w3-display-container w3-half w3-center" style="height:45px">
-     	<span class="w3-display-middle"><a href="HoneyControlB?action=ranking"><button class="w3-btn w3-text-black w3-hover-orange" id="rank" style="background:rgba( 255, 255, 255, 0 )">인기순</button></a></span>
-    </div>
-    <div class="w3-display-container w3-half w3-center" style="height:45px">
-    	<span class="w3-display-middle"><a href="HoneyControlB?action=newvideo"><button class="w3-btn  w3-text-black w3-hover-orange" id="newv" style="background:rgba( 255, 255, 255, 0 )">최신순</button></a></span>
-    </div>
-  </div>
-  <!-- 벌집 작성작성 -->
-  <div class="w3-display-container w3-left w3-col w3-center" style="height:90px;width:12.5%">
-  	<span class="w3-display-middle"><a href="HoneyControlB?action=hccreate"><button class="w3-btn  w3-text-black w3-hover-orange" id="pan" style="background:rgba( 255, 255, 255, 0 )">꿀통 작성</button></a></span>
-  </div>
-  <!-- 업로드 -->
-  <div class="w3-display-container w3-left w3-col w3-center" style="height:90px;width:12.5%">
-  	<span class="w3-display-middle"><a href="HoneyControlB?action=upload"><button class="w3-btn w3-text-black w3-hover-orange" id="upload" style="background:rgba( 255, 255, 255, 0 )" >업로드</button></a></span>
-  </div>
-  <!-- 회원  -->
-  <div class="w3-display-container w3-left w3-col w3-center" style="height:90px;width:12.5%">
-  	<span class="w3-display-middle">	
- 		 <div class="w3-dropdown-click">
-    		<button onclick="myFunction()" class="w3-btn w3-text-black w3-hover-orange" style="background:rgba( 255, 255, 255, 0 )" ><%=session.getAttribute("member_id")%>님</button>
-    			<div id="myaccount" class="w3-dropdown-content w3-border" style="right:0">
-    			<a href="HoneyControlB?action=myhoneycomb">내 꿀통</a>
-    			<a href="HoneyControlB?action=favoritehoneycomb">몰래 가져온 꿀통 </a>
-   				<a href="HoneyControlB?action=mylist">내 게시글</a>
-  				<a onclick="document.getElementById('Password').style.display='block'">정보수정</a>	
-  				<a href="HoneyControlB?action=logout">로그아웃</a>
-    			</div>
-  		</div>
-  	</span>
-  </div>
-</div>
+
+<nav class="w3-sidenav w3-white w3-card-2" style="display:none" id="mySidenav">
+  <a href="javascript:void(0)" 
+  onclick="w3_close()"
+  class="w3-closenav w3-large w3-black"><b>Close &times;</b></a>
+  <a href="#" class="w3-amber" value="로그인" onclick="document.getElementById('LogIn').style.display='block'"><b>로그인</b></a>
+  <a href="HoneyControlB?action=ranking"><b>랭킹</b></a>
+  <a href="HoneyControlB?action=newvideo"><b>최신 영상</b></a>
+  <a href="HoneyControlB?action=hccreate"><b>꿀통 작성</b></a>
+  <a href="#" value="업로드" onclick="document.getElementById('LogIn').style.display='block'"><b>업로드</b></a>
+</nav>
+ 
+<nav class="w3-sidenav w3-white w3-card-2 w3-animate-right w3-center w3-bold" style="display:none; width:200px; height: 235px; right:0; top:86px" id="UserSidenav">
+  <a href="HoneyControlB?action=myhoneycomb" class="w3-padding-8"><b>내 꿀통</b></a>
+  <a href="HoneyControlB?action=favoritehoneycomb" class="w3-padding-8"><b>몰래 가져온 꿀통</b></a>
+  <a href="HoneyControlB?action=mylist" class="w3-padding-8"><b>내 게시글</b></a>
+  <a onclick="document.getElementById('Password').style.display='block'" class="w3-padding-8"><b>정보수정</b></a>
+  <a href="HoneyControlB?action=logout" class="w3-padding-8"><b>로그아웃</b></a>
+  <a href="javascript:void(0)" onclick="w3_Userclose()"
+  class="w3-closenav w3-large w3-padding-8">Close &times;</a>
+</nav>
+
+<div id="main">
+<ul class="w3-navbar w3-yellow w3-card-8">
+  <li><a href="/honey/HoneyControlB?action=Main" class=" w3-medium"><img src="/honey/comb/img/HoneyComb.png" width=70px height=70px></a></li>
+  <li class="w3-hide-medium w3-hide-large w3-black w3-opennav ">
+    <a href="#" class="w3-opennav w3-xlarge" onclick="w3_open()" id="openNav">☰</a>
+  </li>
+  <li class="w3-hide-small" style="width:100px"><a href="HoneyControlB?action=ranking" class="w3-padding-32" ><b>랭킹</b></a></li>
+  <li class="w3-hide-small" style="width:100px"><a href="HoneyControlB?action=newvideo" class="w3-padding-32" ><b>최신 영상</b></a></li>
+  <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><input type="text" class="w3-light-gray w3-input w3-padding-16" placeholder="키워드 검색" style="width:250px; height:60px"></li>
+  <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><button class="w3-btn w3-amber w3-padding-16" style="height:60px">Go</button></li>
+  <li class="w3-hide-small w3-right w3-medium w3-opennav" style="width:100px"><a href="#" class="w3-padding-32" onclick="w3_Useropen()"><b><%=session.getAttribute("member_id")%>님</b></a></li>
+  <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="#" class="w3-padding-32" value="업로드" onclick="document.getElementById('LogIn').style.display='block'"><b>업로드</b></a></li>
+  <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="HoneyControlB?action=hccreate" class="w3-padding-32"><b>꿀통 작성</b></a></li>
+  <li class="w3-hide-large w3-hide-small w3-dropdown-click w3-right">
+      <a onclick="myFunction()" href="#" class="w3-padding-32" style="width: 10%"><i class="fa fa-search"></i></a>
+      <div id="demo" class="w3-dropdown-content w3-white w3-card-4" style="width:50%; right:252px">
+      <ul class="w3-navbar">
+        <li><input type="text" class="w3-input" placeholder="키워드 검색" ></li>
+  <li class="w3-right"><button class="w3-btn w3-amber">Go</button></li>
+  </ul>
+      </div>
+    </li>
 </ul>
-
-
-
-
+</div>
 
 <div id="Password" class="w3-modal">
 	<div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width:600px">
@@ -129,8 +100,6 @@ function ranking(){
 		</form>
 	</div>
 </div>
-
-
 
 </body>
 </html>
