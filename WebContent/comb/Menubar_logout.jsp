@@ -105,13 +105,16 @@ function w3_close() {
     </div>
     
     
-    
+  <%--  
     <script language="javaScript">
     function sendMail() {
-    	<% SMTPMail.getInstance().sendHi(); System.out.println("됨");%>
+    	<% SMTPMail.getInstance().sendJoinNumber(%>document.getElementsByName('member_mail')[0].value<%);%>
+    }
+    function check() {
+    	
     }
     </script>
-    
+   --%> 
     
     
      <!-- 회원가입 폼 -->
@@ -127,9 +130,12 @@ function w3_close() {
         <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Nickname" name="member_name" required>
         <label><b>메일</b></label>
         <input class="w3-input w3-border" type="text" placeholder="Enter mail address" name="member_mail" required>
-        
-        <button class="w3-btn-block w3-amber w3-section w3-padding" onclick=sendMail()>으아아앙</button>
-        
+        <%--
+        <button class="w3-btn-block w3-amber w3-section w3-padding" onclick=sendMail()>이메일 인증 메일 보내기</button>
+        <label><b>인증 번호</b></label>
+        <input class="w3-input w3-border" type="text" placeholder="Enter mail address" name="mail_check_number" required>
+        <button class="w3-btn-block w3-amber w3-section w3-padding" onclick=sendMail()>이메일 인증 확인</button>
+         --%>
          <input type="hidden" name="action" value="gojoin">
         <button class="w3-btn-block w3-amber w3-section w3-padding" type="submit">회원가입</button>
       </div>
