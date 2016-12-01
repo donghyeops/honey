@@ -16,9 +16,10 @@ import javax.mail.internet.MimeMultipart;
  
 public class SMTPMail {
 	private static SMTPMail smtpMail = null;
-	private String fromAdress = "sdh9446@gmail.com";
-	private String fromPassword = "pczvmaqafuomelkr";
+	private String fromAdress = "sjb378@naver.com";
+	private String fromPassword = "qwerqwer";
 	private Session session = null;
+	private int joinNumber = 0;	// 회원가입 중 이메일 인증 시 생성되는 랜덤 수
 	
 	// 싱글톤 구현
 	public static SMTPMail getInstance() {
@@ -36,7 +37,7 @@ public class SMTPMail {
     private void init() {
         Properties props = new Properties(); 
         props.setProperty("mail.transport.protocol", "smtp"); 
-        props.setProperty("mail.host", "smtp.gmail.com"); 
+        props.setProperty("mail.host", "smtp.naver.com"); 
         props.put("mail.smtp.auth", "true"); 
         props.put("mail.smtp.port", "465"); 
         props.put("mail.smtp.socketFactory.port", "465"); 
@@ -63,6 +64,7 @@ public class SMTPMail {
       Transport.send(message);
     }
     
+	// 테스트용
     public boolean sendHi() {
     	try {
 			sendMail("ksw9446@naver.com", "sendHI", "하이");
@@ -72,5 +74,25 @@ public class SMTPMail {
 			return false;
 		}
     	return true;
+    }
+    
+    
+    // 회원가입 메일 확인 숫자를 생성하고 메일로 보냄.
+    public boolean sendJoinNumber(String toAddress) {
+    	joinNumber = (int)(Math.random()*10000);
+    	
+    	try {
+			sendMail(toAddress, "회원가입 확인", "회원가입 확인 숫자 : " + joinNumber);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			return false;
+		}
+    	return true;
+    }
+    
+    // 입력한 숫자와 메일 확인 숫자가 같은지 확인
+    public boolean checkJoinNumber(int inputNumber) {
+    	return joinNumber == inputNumber;
     }
 }
