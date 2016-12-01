@@ -86,7 +86,6 @@
 <%} %>	
 
 <div style="margin: 1000px 0px 0px 0px; width:1000px; height: 200px"></div>
-<script>uplist();</script>
 
 </body>
 </html>
