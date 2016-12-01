@@ -551,6 +551,80 @@ public class DBHoneyDAO implements HoneyDAO{
 				}
 				return fvhoney;
 			}
+		   
+		   //검색을 위한 디비들의 모음입니다.
+		   //꿀통 제목
+		   public ArrayList<HoneyBean> getHoneytitle(String search){					
+				String sql = "select * from hc where hc_title like '%"+search+"%'";
+				System.out.println("꿀통제목 검색문"+sql);
+				ArrayList<HoneyBean> honey = new ArrayList<HoneyBean>();
+				try{
+					connect();
+					ResultSet rs = stmt.executeQuery(sql);
+					while(rs.next()){
+						HoneyBean event = new HoneyBean();
+						event.setHc_id(rs.getInt("hc_id"));
+						event.setHc_title(rs.getString("hc_title"));
+						event.setMember_id(rs.getString("member_id"));
+						honey.add(event);
+					}
+					rs.close();
+					disconnect();
+				}catch(Exception e){
+					 System.out.println("꿀통제목검색실패");
+				}
+				return honey;
+			}
+			//게시글제목
+		   public ArrayList<HoneyBean> getListtitle(String search){					
+				String sql = "select * from list where list_title like'%"+ search +"%'";
+				System.out.println("게시글제목 검색"+sql);
+				ArrayList<HoneyBean> honey = new ArrayList<HoneyBean>();
+				try{
+					connect();
+					ResultSet rs = stmt.executeQuery(sql);
+					while(rs.next()){
+						HoneyBean event = new HoneyBean();
+						event.setList_n(rs.getInt("list_n"));
+						event.setList_title(rs.getString("list_title"));
+						event.setList_contents(rs.getString("list_contents"));
+						event.setList_time(rs.getString("list_time"));
+						event.setMember_id(rs.getString("member_id"));
+						honey.add(event);
+					}
+					rs.close();
+					disconnect();
+				}catch(Exception e){
+					 System.out.println("게시판 제목 검색 실패");
+				}
+				return honey;
+			}
+			//게시글내용
+		   public ArrayList<HoneyBean> getListcontents(String search){					//찍어놓은 벌꿀집 리스트
+				String sql = "select * from list where list_contents like '%"+ search +"%'";
+				System.out.println("게시글제목 검색"+sql);
+				ArrayList<HoneyBean> honey = new ArrayList<HoneyBean>();
+				try{
+					connect();
+					ResultSet rs = stmt.executeQuery(sql);
+					while(rs.next()){
+						HoneyBean event = new HoneyBean();
+						event.setList_n(rs.getInt("list_n"));
+						event.setList_title(rs.getString("list_title"));
+						event.setList_contents(rs.getString("list_contents"));
+						event.setList_time(rs.getString("list_time"));
+						event.setMember_id(rs.getString("member_id"));
+						honey.add(event);
+					}
+					rs.close();
+					disconnect();
+				}catch(Exception e){
+					 System.out.println("게시판 제목 검색 실패");
+				}
+				return honey;
+			}
+		   
+		   
 		    
 		
 

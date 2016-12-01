@@ -15,6 +15,8 @@ public interface HoneyDAO {
 	public HoneyBean joinCheck(String member_id);						//회원가입체크	회원가입시 아이디 중복여부 체크
 	
 	//벌꿀집
+	public ArrayList<HoneyBean> getHoneytitle(String search);			//벌꿀집 제목 검색
+	 
 	public ArrayList<HoneyBean> getMyhoneycomb(String member_id);		//자기의 벌꿀집 리스트
 	public ArrayList<HoneyBean> getFvhoneycomb(String member_id);		//찍어놓은 벌꿀집 리스트
 	public boolean isGoodHC_ID(int newId);								//동 hc아이디 중복 체크
@@ -26,6 +28,9 @@ public interface HoneyDAO {
 	
 	
 	//게시판
+	public ArrayList<HoneyBean> getListtitle(String search);			//게시판 제목 검색
+	public ArrayList<HoneyBean> getListcontents(String search);			//게시판 내용 검색
+	
 	public ArrayList<HoneyBean> getHoneyVideo();						//주 최신비디오
 	public ArrayList<HoneyBean> getHoneyRanking();						//주 랭킹 
 	public ArrayList<HoneyBean> getMylist(String member_id);			//자기의 게시글 리스트
@@ -36,6 +41,8 @@ public interface HoneyDAO {
 	
 	public HoneyBean getList(int list_n);								//해당 리스트의 내용물을 갖는용
 	public String getListMemberid(int list_n);							//게시판의 멤버아이디를 얻는 쿼리
+	
+	
 	
 	//좋아요싫어요 평가
 	public void updateGood(int list_n, int list_good);					//주 달아요 점수 증가 업데이트용
@@ -49,6 +56,7 @@ public interface HoneyDAO {
 	public void updateComment(HoneyBean comment);						//댓글 수정
 	public void deleteComment(int comment_n);							//댓글 삭제
 
+	
 	
 			  
 }
