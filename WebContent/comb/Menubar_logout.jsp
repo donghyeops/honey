@@ -52,8 +52,10 @@ function w3_close() {
   </li>
   <li class="w3-hide-small" style="width:100px"><a href="HoneyControlB?action=ranking" class="w3-padding-32" ><b>랭킹</b></a></li>
   <li class="w3-hide-small" style="width:100px"><a href="HoneyControlB?action=newvideo" class="w3-padding-32" ><b>최신 영상</b></a></li>
-  <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><input type="text" class="w3-light-gray w3-input w3-padding-16" placeholder="키워드 검색" style="width:250px; height:60px"></li>
-  <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><button class="w3-btn w3-amber w3-padding-16" style="height:60px">Go</button></li>
+  <form method="post" action="/honey/Search">
+  <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><input type="text" name="search" class="w3-light-gray w3-input w3-padding-16" placeholder="키워드 검색" style="width:250px; height:60px"></li>
+  <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><button type="submit" class="w3-btn w3-amber w3-padding-16" style="height:60px">Go</button></li>
+  </form>
   <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="#" class="w3-padding-32" value="로그인" onclick="document.getElementById('LogIn').style.display='block'"><b>로그인</b></a></li>
   <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="#" class="w3-padding-32" value="업로드" onclick="document.getElementById('LogIn').style.display='block'"><b>업로드</b></a></li>
   <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="HoneyControlB?action=hccreate" class="w3-padding-32"><b>꿀통 작성</b></a></li>
@@ -61,8 +63,10 @@ function w3_close() {
       <a onclick="myFunction()" href="#" class="w3-padding-32" style="width: 10%"><i class="fa fa-search"></i></a>
       <div id="demo" class="w3-dropdown-content w3-white w3-card-4" style="width:50%; right:252px">
       <ul class="w3-navbar">
-        <li><input type="text" class="w3-input" placeholder="키워드 검색" ></li>
-  <li class="w3-right"><button class="w3-btn w3-amber">Go</button></li>
+       <form method="post" action="/honey/Search">
+        <li><input type="text" name="search" class="w3-input" placeholder="키워드 검색" ></li>
+  <li class="w3-right"><button type="submit" class="w3-btn w3-amber">Go</button></li>
+</form>
   </ul>
       </div>
     </li>

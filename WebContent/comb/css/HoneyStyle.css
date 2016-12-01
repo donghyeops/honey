@@ -8,10 +8,7 @@ ul {
     	/*list-style-type: none;*/
     	margin: 0;							/*바깥쪽 여백*/
     	/*padding: 0px 10% 0px 10%;	*/		/*안쪽 여백*/
-    	/*overflow: hidden;*/
-   		background-image: url(/honey/comb/img/Honey.png);
-    	background-position: left top;			/*배경이미지 위치*/
-    	background-size: 100% 120px;		
+    	/*overflow: hidden;*/		
     	font-weight: bold;
     	/*position: fixed;	*/		/*태그의 위치 표시 상태 fixed였다.*/
     	top: 0;						/*화면 맨 위쪽으로부터 태그 객체 위쪽 모서리까지의 거리*/
