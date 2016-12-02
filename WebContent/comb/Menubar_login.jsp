@@ -19,14 +19,6 @@ function myFunction() {
         x.className = x.className.replace(" w3-show", "");
     }
 }
-function myFunction(id) {
-    var x = document.getElementById(id);
-    if (x.className.indexOf("w3-show") == -1) {
-        x.className += " w3-show";
-    } else { 
-        x.className = x.className.replace(" w3-show", "");
-    }
-}
 function w3_open() {
   document.getElementById("main").style.marginLeft = "40%";
   document.getElementById("mySidenav").style.width = "40%";
@@ -64,7 +56,7 @@ function w3_Userclose() {
   <a href="HoneyControlB?action=ranking"><b>랭킹</b></a>
   <a href="HoneyControlB?action=newvideo"><b>최신 영상</b></a>
   <a href="HoneyControlB?action=hccreate"><b>꿀통 작성</b></a>
-  <a href="#" value="업로드" onclick="document.getElementById('LogIn').style.display='block'"><b>업로드</b></a>
+  <a href="HoneyControlB?action=upload" ><b>업로드</b></a>
 </nav>
  
 <nav class="w3-sidenav w3-white w3-card-2 w3-animate-right w3-center w3-bold" style="display:none; width:200px; height: 235px; right:0; top:86px" id="UserSidenav">
@@ -78,6 +70,7 @@ function w3_Userclose() {
 </nav>
 
 <div id="main">
+<form method="post" action="/honey/Search" style="margin:0">
 <ul class="w3-navbar w3-yellow w3-card-8">
   <li><a href="/honey/HoneyControlB?action=Main" class=" w3-medium"><img src="/honey/comb/img/HoneyComb.png" width=70px height=70px></a></li>
   <li class="w3-hide-medium w3-hide-large w3-black w3-opennav ">
@@ -85,21 +78,22 @@ function w3_Userclose() {
   </li>
   <li class="w3-hide-small" style="width:100px"><a href="HoneyControlB?action=ranking" class="w3-padding-32" ><b>랭킹</b></a></li>
   <li class="w3-hide-small" style="width:100px"><a href="HoneyControlB?action=newvideo" class="w3-padding-32" ><b>최신 영상</b></a></li>
-  <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><input type="text" class="w3-light-gray w3-input w3-padding-16" placeholder="키워드 검색" style="width:250px; height:60px"></li>
-  <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><button class="w3-btn w3-amber w3-padding-16" style="height:60px">Go</button></li>
+  <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><input type="text" name="search" class="w3-light-gray w3-input w3-padding-16" placeholder="키워드 검색" style="width:250px; height:60px"></li>
+  <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><button type="submit" class="w3-btn w3-amber w3-padding-16" style="height:60px">Go</button></li>
   <li class="w3-hide-small w3-right w3-medium w3-opennav" style="width:100px"><a href="#" class="w3-padding-32" onclick="w3_Useropen()"><b><%=session.getAttribute("member_id")%>님</b></a></li>
-  <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="HoneyControlB?action=Upload" class="w3-padding-32"><b>업로드</b></a></li>
+  <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="HoneyControlB?action=upload" class="w3-padding-32"><b>업로드</b></a></li>
   <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="HoneyControlB?action=hccreate" class="w3-padding-32"><b>꿀통 작성</b></a></li>
   <li class="w3-hide-large w3-hide-small w3-dropdown-click w3-right">
       <a onclick="myFunction()" href="#" class="w3-padding-32" style="width: 10%"><i class="fa fa-search"></i></a>
       <div id="demo" class="w3-dropdown-content w3-white w3-card-4" style="width:50%; right:252px">
       <ul class="w3-navbar">
-        <li><input type="text" class="w3-input" placeholder="키워드 검색" ></li>
-  <li class="w3-right"><button class="w3-btn w3-amber">Go</button></li>
+        <li><input type="text" name="search" class="w3-input" placeholder="키워드 검색" ></li>
+  <li class="w3-right"><button type="submit" class="w3-btn w3-amber">Go</button></li>
   </ul>
       </div>
     </li>
 </ul>
+</form>
 </div>
 
 <div id="Password" class="w3-modal">

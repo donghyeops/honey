@@ -15,9 +15,10 @@
 
 <body>
 	<!-- 게시글 페이지수 -->
-총 페이지수 <% int all_p=(eventlist.size()/10)+1; out.println(all_p); %>
-남은 게시글수 <% int remain_p=eventlist.size()%10; out.println(remain_p); %>
-현재 페이지표시 <% int c=(eventlist.size()/100)+1; out.println(c); %>
+<!--총 페이지수 -->
+<% int all_p=(eventlist.size()/10)+1; %>
+<!--남은 게시글수 -->
+<% int remain_p=eventlist.size()%10;  %>
 <!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
 	
 
@@ -34,10 +35,10 @@
 		int rutin=10;
 		int page_n=1;
 		if(request.getParameter("page_n")==null){
-			out.println("페이지못받음");
+			//out.println("/페이지못받음");
 			page_n=1;
 		}else{
-			out.println("페이지받음");
+			//out.println("/페이지받음");
 		page_n=Integer.parseInt(request.getParameter("page_n"));//현재 페이지
 		
 		}
@@ -48,9 +49,9 @@
 			rutin=10;
 		}
 		
-		out.println("현재 출력행야하는 게시글"+rutin);
-		out.println("현재 페이지"+page_n);
-		out.println("총페이지"+eventlist.size());
+		//out.println("/현재 출력행야하는 게시글"+rutin);
+		//out.println("/현재 페이지"+page_n);
+		//out.println("/총게시글"+eventlist.size());
 		int view_p=(1+(10*(page_n-1)))-1;
 		for(int i=view_p; i<(view_p+rutin); i++) {
 		HoneyBean event = (HoneyBean)eventlist.get(i);
@@ -81,9 +82,22 @@
 	%>
 
 	<!--나열 종료-->
+	<%int remain_a=10;;%>
+	<%int view_a=(((page_n-1)/10)*10+1);%>
 	
-	<%for(int s=1;s<=all_p;s++) {%>
-	<a href="?page_n=<%=s%>"><%=s%></a>
+	<%if(all_p-view_a<10) {
+		remain_a=all_p-view_a+1;
+	}
+	%>
+	
+	<% if(view_a-1>0){%>
+		<a href="?page_n=<%=view_a-1%>">이전</a>
+	<%} %>
+	<%for(int s=view_a;s<view_a+remain_a;s++) {%>
+		<a href="?page_n=<%=s%>"><%=s%></a>
+	<%} %>
+	<% if(all_p-view_a>10){%>
+		<a href="?page_n=<%=view_a+10%>">다음</a>
 	<%} %>
 </div>
 
