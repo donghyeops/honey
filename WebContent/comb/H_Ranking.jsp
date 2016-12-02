@@ -24,11 +24,11 @@
 
 <!-- // 랭킹 리스트-->
 <div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 70%; height: 500px">
-     <div class="w3-btn-group w3-center w3-margin" style="height:30px margin: 5px 20% 5px 0%"> <!-- // 리스트 속성 설명-->
+     <div class="w3-btn-group w3-center w3-margin" style="height:30px;width:100%"> <!-- // 리스트 속성 설명-->
       <button class="w3-btn w3-amber" style="height:30px;width:8%">번호</button>
-        <button class="w3-btn w3-white" style="height:30px;width:36%">제목</button>
+        <button class="w3-btn w3-white" style="height:30px;width:35%">제목</button>
         <button class="w3-btn w3-black" style="height:30px;width:15%">작성자</button>
-        <button class="w3-btn w3-white" style="height:30px;width:20%">작성일</button>
+        <button class="w3-btn w3-white" style="height:30px;width:23%">작성일</button>
       <button class="w3-btn w3-amber" style="height:30px;width:8%">달아요</button>
       <button class="w3-btn w3-brown" style="height:30px;width:8%">써요</button>
    </div>

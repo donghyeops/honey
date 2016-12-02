@@ -21,8 +21,7 @@ create table member(
    member_n int(11) not null auto_increment primary key,
    member_id varchar(30) not null unique,
    member_pwd varchar(20) not null,
-   member_name varchar(20) not null,
-   member_mail varchar(20) null check(mail like '%@%')
+   member_name varchar(20) not null
 );
 create table list(
    list_n int(11) not null auto_increment primary key,

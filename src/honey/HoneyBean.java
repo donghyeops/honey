@@ -8,7 +8,6 @@ public class HoneyBean {
 	private String member_id;//¸â¹ö ¾ÆÀÌµğ
 	private String member_pwd;
 	private String member_name;
-	private String member_mail;
 	
 	//²ÜÁı
 	private int hc_id;//²ÜÁı ¾ÆÀÌµğ - °¢ ²ÜÁıÀÇ ¹øÈ£
@@ -82,12 +81,6 @@ public class HoneyBean {
 	}
 	public void setMember_name(String member_name) {
 		this.member_name = member_name;
-	}
-	public String getMember_mail() {
-		return member_mail;
-	}
-	public void setMember_mail(String member_mail) {
-		this.member_mail = member_mail;
 	}
 	public int getHc_id() {
 		return hc_id;

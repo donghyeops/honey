@@ -81,7 +81,6 @@ public class HoneyControlB extends HttpServlet {
 					event.setMember_id(request.getParameter("member_id"));
 					event.setMember_pwd(request.getParameter("member_pwd"));
 					event.setMember_name(request.getParameter("member_name"));
-					event.setMember_mail(request.getParameter("member_mail"));
 					dao.addMember(event);
 					address="HoneyControlB?action=newvideo";
 				}else{					//중복된 아이디일시 가입실패 창으로
@@ -131,8 +130,7 @@ public class HoneyControlB extends HttpServlet {
 					HoneyBean event = new HoneyBean();
 					event.setMember_id(member_id);
 					event.setMember_pwd(member_pwd);								//원 비밀번호
-					event.setMember_name(request.getParameter("member_name"));
-					event.setMember_mail(request.getParameter("member_mail"));		
+					event.setMember_name(request.getParameter("member_name"));		
 					dao.updateMember(event);
 				}else{															//비밀번호 수정시
 					HoneyBean event = new HoneyBean();
@@ -140,7 +138,6 @@ public class HoneyControlB extends HttpServlet {
 					event.setMember_pwd(member_pwd1);							//번경 비밀번호
 					session.setAttribute("member_pwd", member_pwd1);
 					event.setMember_name(request.getParameter("member_name"));
-					event.setMember_mail(request.getParameter("member_mail"));
 					dao.updateMember(event);
 				}
 				address="HoneyControlB?action=newvideo";

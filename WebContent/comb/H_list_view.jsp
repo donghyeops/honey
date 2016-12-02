@@ -26,6 +26,10 @@ function copy_trackback(trb) {
         temp = prompt("이 글의 트랙백 주소입니다. Ctrl+C를 눌러 클립보드로 복사하세요", trb);
     }
 }
+function back(){
+	history.go(-1);
+}
+
 //-->
 </script> 
 </head>
@@ -40,11 +44,7 @@ function copy_trackback(trb) {
 <div class="w3-display-topmiddle w3-contaner w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 2000px">
 <!-- 이전 다음 -->
 <div class="w3-container w3-padding w3-btn-group w3-yellow w3-margin-top" style="height:40px">
-	 <button class="w3-btn w3-red w3-display-topleft" style="margin:18px 0px 0px 16px">이전</button>
-	 <a href="HoneyControlB?action=<%=request.getParameter("from")%>">
-	 <button class="w3-btn w3-blue w3-display-topmiddle" style="margin:18px 0px 0px 0px">목록</button>
-  	 </a>
-  	<button class="w3-btn w3-green w3-display-topright" style="margin:18px 16px 0px 0px">다음</button>	
+	 <button class="w3-btn w3-blue w3-display-topmiddle" style="margin:18px 0px 0px 0px" onclick="back()">목록</button>
 </div>
 <!-- 게시판번호 -->
 <!-- 게시판제목 -->

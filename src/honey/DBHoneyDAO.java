@@ -31,11 +31,10 @@ public class DBHoneyDAO implements HoneyDAO{
 	
 	//회원가입하는 디비
 	public void addMember(HoneyBean event){
-		String sql="insert into member (member_id,member_pwd,member_name,member_mail)values('"
+		String sql="insert into member (member_id,member_pwd,member_name)values('"
 				+event.getMember_id()+"','"
 				+event.getMember_pwd()+"','"
-				+event.getMember_name()+"','"
-				+event.getMember_mail()+"')";
+				+event.getMember_name()+"')";
 		try{
 			connect();
 			stmt.executeUpdate(sql);
@@ -45,7 +44,7 @@ public class DBHoneyDAO implements HoneyDAO{
 	
 	//회원정보 변경
 	public void updateMember(HoneyBean event){
-		String sql ="update member set member_pwd='"+ event.getMember_pwd() + "',member_name='"+ event.getMember_name() + "',member_mail='"+ event.getMember_mail() + "'  where member_id='"+event.getMember_id()+"'";
+		String sql ="update member set member_pwd='"+ event.getMember_pwd() + "',member_name='"+ event.getMember_name() + "'  where member_id='"+event.getMember_id()+"'";
 		try{
 			connect();
 			stmt.executeUpdate(sql);
@@ -64,7 +63,6 @@ public class DBHoneyDAO implements HoneyDAO{
 			event.setMember_id(rs.getString("member_id"));
 			event.setMember_pwd(rs.getString("member_pwd"));
 			event.setMember_name(rs.getString("member_name"));
-			event.setMember_mail(rs.getString("member_mail"));
 			rs.close();
 			disconnect();
 		}catch(Exception e){}

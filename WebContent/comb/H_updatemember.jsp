@@ -33,10 +33,6 @@
 		<td>닉네임</td>
 		<td><input type="text" name="member_name" value="<%=member.getMember_name() %>"></td>
 		</tr>
-		<tr>
-		<td>이메일</td>
-		<td><input type="text" name="member_mail" value="<%=member.getMember_name() %>"></td>
-		</tr>
 	</table>
 	<input type="hidden" name="action" value="updatemember">
 	<input type="submit" value="변경하기">
