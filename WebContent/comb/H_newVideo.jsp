@@ -16,7 +16,7 @@
 <body>
 	<!-- 게시글 페이지수 -->
 <!--총 페이지수 -->
-<% int all_p=(eventlist.size()/10)+1; %>
+<% int all_p=((eventlist.size()-1)/10)+1; %>
 <!--남은 게시글수 -->
 <% int remain_p=eventlist.size()%10;  %>
 <!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
@@ -43,7 +43,7 @@
 		
 		}
 		
-		if(page_n==all_p){//마지막 페이지인 경우
+		if(page_n==all_p&&remain_p!=0){//마지막 페이지인 경우
 			rutin=remain_p;
 		}else{
 			rutin=10;

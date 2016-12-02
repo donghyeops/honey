@@ -2,6 +2,7 @@ package honey;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -153,54 +154,62 @@ public class HoneyControlB extends HttpServlet {
 		}
 		
 		else if(action.equals("addhc")){										//자신의 계정에 hc를 추가한다.
-			int hc_id=Integer.parseInt(request.getParameter("hc_id"));			//원래hc_id갖고오기
-			int newId = 0;
-			String member_id=(String)session.getAttribute("member_id");			//로그인한 자신의 아이디가져오기
-			String hc_pwd=dao.getHcpwd(hc_id); 									//해당 아이디의 비밀번호가져오기
-			String hc_pwd1=request.getParameter("hc_pwd");						//입력된 비밀번호 가져오기
-			
-			if(hc_pwd.equals(hc_pwd1)){						//쓴 비밀번호와비교
+			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){//숫자로 입력한경우
+				int hc_id=Integer.parseInt(request.getParameter("hc_id"));			//원래hc_id갖고오기
+				int newId = 0;
+				String member_id=(String)session.getAttribute("member_id");			//로그인한 자신의 아이디가져오기
+				String hc_pwd=dao.getHcpwd(hc_id); 									//해당 아이디의 비밀번호가져오기
+				String hc_pwd1=request.getParameter("hc_pwd");						//입력된 비밀번호 가져오기
+				
+				if(hc_pwd.equals(hc_pwd1)){						//쓴 비밀번호와비교
 															//맞으면 추가하기
-			Mgr_bean HC = dao.getHC(hc_id);					//해당 hc아디이mgr가져오기
+					Mgr_bean HC = dao.getHC(hc_id);					//해당 hc아디이mgr가져오기
 								
-			do {
-				newId = (int) (Math.random() * 100000);		//hc아이디를 다시 설정해서 연결시켜준다
-			} while (!(dao.isGoodHC_ID(newId)));			// id 생성& 중복검사
+					do {
+						newId = (int) (Math.random() * 100000);		//hc아이디를 다시 설정해서 연결시켜준다
+					} while (!(dao.isGoodHC_ID(newId)));			// id 생성& 중복검사
 
 			
-			HC.setHc_id(newId);// 새로운hc_id 설정
-			HC.setMember_id(member_id);//자신의 아이디로 설정
+					HC.setHc_id(newId);// 새로운hc_id 설정
+					HC.setMember_id(member_id);//자신의 아이디로 설정
 			
-			dao.addHC(HC);						//해당 빈을 추가하기
+					dao.addHC(HC);						//해당 빈을 추가하기
 			
-			address="HoneyControlB?action=myhoneycomb";
+					address="HoneyControlB?action=myhoneycomb";
 			
-			}else{								
-				//다르면 돌려보냄
-				address=src+"/fail_pwd2.jsp";
-			}																	
+				}else{								
+					//다르면 돌려보냄
+					address=src+"/fail_pwd2.jsp";
+				}	
+			}else{//문자를 입력한경우
+				address=src+"/fail_hcid.jsp";
+			}
+																			
 		}
 		
 		else if(action.equals("list_upload_anyhc")){							//아무 hc를 자신의 게시글로 업로드			
+			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){		//숫자로 꿀통 아이디 받은경우
+				String member_id=(String)session.getAttribute("member_id");			//세션으로 아이디 받기		
+				int hc_id=Integer.parseInt(request.getParameter("hc_id"));			//원래hc_id갖고오기
+				String hc_pwd=dao.getHcpwd(hc_id); 									//해당 아이디의 비밀번호가져오기
+				String hc_pwd1=request.getParameter("hc_pwd");						//입력된 비밀번호 가져오기
 			
-			String member_id=(String)session.getAttribute("member_id");			//세션으로 아이디 받기		
-			int hc_id=Integer.parseInt(request.getParameter("hc_id"));			//원래hc_id갖고오기
-			String hc_pwd=dao.getHcpwd(hc_id); 									//해당 아이디의 비밀번호가져오기
-			String hc_pwd1=request.getParameter("hc_pwd");						//입력된 비밀번호 가져오기
 			
+				if(hc_pwd.equals(hc_pwd1)){						//쓴 비밀번호와비교 맞으면 리스트에 등록
+					HoneyBean event = new HoneyBean();
+					event.setMember_id(member_id);
+					event.setHc_id(hc_id);
+					event.setList_title(request.getParameter("list_title"));
+					event.setList_contents(request.getParameter("list_contents"));
+					dao.addList(event);
 			
-			if(hc_pwd.equals(hc_pwd1)){						//쓴 비밀번호와비교 맞으면 리스트에 등록
-				HoneyBean event = new HoneyBean();
-				event.setMember_id(member_id);
-				event.setHc_id(hc_id);
-				event.setList_title(request.getParameter("list_title"));
-				event.setList_contents(request.getParameter("list_contents"));
-				dao.addList(event);
-			
-				address="HoneyControlB?action=newvideo";
-			}else{
-				address=src+"/fail_pwd2.jsp";
-			}		
+					address="HoneyControlB?action=newvideo";
+				}else{
+					address=src+"/fail_pwd2.jsp";
+				}
+			}else{															//문자를 입력한경우
+				address=src+"/fail_hcid.jsp";
+			}
 		}
 		
 		else if(action.equals("list_remove")){
@@ -236,42 +245,39 @@ public class HoneyControlB extends HttpServlet {
 		}
 		
 		else if(action.equals("list_update")){
-			System.out.println("수정");
-			int list_n = Integer.parseInt(request.getParameter("list_n"));			
-			String member_id=(String)session.getAttribute("member_id");			//세션으로 아이디 받기
-			String member_id2=dao.getListMemberid(list_n);							//작성자 아이디
-			String hc_pwd2=request.getParameter("hc_pwd");						//비밀번호를 받는다.
+			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){		//숫자로 꿀통 아이디 받을때
+				int list_n = Integer.parseInt(request.getParameter("list_n"));			
+				String member_id=(String)session.getAttribute("member_id");			//세션으로 아이디 받기
+				String member_id2=dao.getListMemberid(list_n);							//작성자 아이디
+				String hc_pwd2=request.getParameter("hc_pwd");						//비밀번호를 받는다.
 	
-			System.out.println("수정2");
-			if(member_id.equals(member_id2)){									//작성자와 현재 로그인한 멤버가 같으면 수정
-				System.out.println("수정3");
-				HoneyBean hb= new HoneyBean();
-				System.out.println("수정3");
-				String list_title = request.getParameter("list_title");
-				String list_contents = request.getParameter("list_contents");
-				int hc_id=Integer.parseInt(request.getParameter("hc_id"));
-				System.out.println("수정4");
-				if(dao.getHcpwd(hc_id)==null){									//유효하지 않은 hc_id
+				if(member_id.equals(member_id2)){									//작성자와 현재 로그인한 멤버가 같으면 수정
+
+					HoneyBean hb= new HoneyBean();
+					String list_title = request.getParameter("list_title");
+					String list_contents = request.getParameter("list_contents");
+					int hc_id=Integer.parseInt(request.getParameter("hc_id"));
+					if(dao.getHcpwd(hc_id)==null){									//유효하지 않은 hc_id
 					
-					address=src+"/fail_hcid.jsp";								
-				}else if(dao.getHcpwd(hc_id).equals(hc_pwd2)){					
-					System.out.println("수정5");
-					hb.setList_n(list_n);
-					hb.setList_contents(list_contents);
-					hb.setList_title(list_title);
-					hb.setHc_id(hc_id);
+						address=src+"/fail_hcid.jsp";								
+					}else if(dao.getHcpwd(hc_id).equals(hc_pwd2)){		
+						hb.setList_n(list_n);
+						hb.setList_contents(list_contents);
+						hb.setList_title(list_title);
+						hb.setHc_id(hc_id);
 					
-					dao.updateList(hb);
-					System.out.println("수정6");
-					address="HoneyControlB?action=viewlist&list_n="+list_n;				
-				}else {														//맞지않은 비밀번호
-					address=src+"/fail_pwd2.jsp";
-				}
+						dao.updateList(hb);
+						address="HoneyControlB?action=viewlist&list_n="+list_n;				
+					}else {														//맞지않은 비밀번호
+						address=src+"/fail_pwd2.jsp";
+					}
+				}else{
+					address=src+"/fail_login2.jsp";
+					
+				}	
 			}else{
-				address=src+"/fail_login2.jsp";
-				
-			}	
-			
+				address=src+"/fail_hcid.jsp";
+			}
 			
 		}
 		
@@ -317,24 +323,28 @@ public class HoneyControlB extends HttpServlet {
 		}
 		
 		else if(action.equals("addFavoritehc")){								//찍어놓은 벌쿵통에 추가하기
-			String from = request.getParameter("from");							//어디서왔는지
-			String member_id=(String)session.getAttribute("member_id");			//세션으로 아이디 받기
-			int hc_id=Integer.parseInt(request.getParameter("hc_id"));
+			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){		//숫자로 꿀통 아이디 받은경우
+				String from = request.getParameter("from");							//어디서왔는지
+				String member_id=(String)session.getAttribute("member_id");			//세션으로 아이디 받기
+				int hc_id=Integer.parseInt(request.getParameter("hc_id"));
 			
-			if(member_id==null){												//비로그인인경우
-				address=src+"/fail_login_p.jsp";
-			}else if(dao.getHcpwd(hc_id)==null){								//hc_id가 없는경우
-				address=src+"/fail_hcid.jsp";
+				if(member_id==null){												//비로그인인경우
+					address=src+"/fail_login_p.jsp";
+				}else if(dao.getHcpwd(hc_id)==null){								//hc_id가 없는경우
+					address=src+"/fail_hcid.jsp";
 			
-			}else{
-				HoneyBean fvhoney = new HoneyBean();
-				fvhoney.setHc_id(hc_id);
-				fvhoney.setMember_id(member_id);
-				dao.addFvhoneycomb(fvhoney);
+				}else{
+					HoneyBean fvhoney = new HoneyBean();
+					fvhoney.setHc_id(hc_id);
+					fvhoney.setMember_id(member_id);
+					dao.addFvhoneycomb(fvhoney);
 				
-				String ok = "ok";
-				request.setAttribute("fvhcok",ok);					//성공했다고 알림
-				address=from;
+					String ok = "ok";
+					request.setAttribute("fvhcok",ok);					//성공했다고 알림
+					address=from;
+				}
+			}else{
+				address=src+"/fail_hcid.jsp";
 			}
 		}
 		else if(action.equals("viewlist")){
@@ -425,17 +435,23 @@ public class HoneyControlB extends HttpServlet {
 			ArrayList<HoneyBean> list = dao.getMyhoneycomb(member_id);
 			request.setAttribute("eventlist", list);
 			address = src+"/H_listUpload.jsp";
-		} else if(action.equals("list_upload")){							//주 게시판 업로드
-			HoneyBean event = new HoneyBean();
-			String member_id=(String)session.getAttribute("member_id");		//세션으로 아이디 받기		
+		}
+		else if(action.equals("list_upload")){							//주 게시판 업로드
+			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){//숫자로 입력한경우
+				HoneyBean event = new HoneyBean();
+				String member_id=(String)session.getAttribute("member_id");		//세션으로 아이디 받기		
 			
-			event.setMember_id(member_id);
-			event.setHc_id(Integer.parseInt(request.getParameter("hc_id")));
-			event.setList_title(request.getParameter("list_title"));
-			event.setList_contents(request.getParameter("list_contents"));
-			dao.addList(event);
+				event.setMember_id(member_id);
+				event.setHc_id(Integer.parseInt(request.getParameter("hc_id")));
+				event.setList_title(request.getParameter("list_title"));
+				event.setList_contents(request.getParameter("list_contents"));
+				dao.addList(event);
 			
-			address="HoneyControlB?action=newvideo";
+				address="HoneyControlB?action=newvideo";
+			}else{
+				address=src+"/fail_hcid.jsp";
+			}
+			
 		}else if(action.equals("hccreate")){														//동 꿀집 제작
 			address=src+"/manager/createHC.jsp";
 		}

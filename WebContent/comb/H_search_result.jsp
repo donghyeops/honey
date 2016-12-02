@@ -44,16 +44,16 @@
 <tr>
 	<td>제목</td>
 	<td>작성자</td>
-	<td>바로가기</td>
 </tr>
 <%
 			for(int i=0;i<HC_title.size();i++){
 				HoneyBean HBtitle =(HoneyBean)HC_title.get(i);
 		%>
 <tr>
-	<td><%= HBtitle.getHc_title()%></td>
+	<td>
+	<a href="Viewer?hc_id=<%=HBtitle.getHc_id()%>"><%= HBtitle.getHc_title()%></a>
+	</td>
 	<td><%= HBtitle.getMember_id()%></td>
-	<td><%= HBtitle.getHc_id()%></td>
 </tr>
 <%} %>
 
@@ -69,17 +69,22 @@
 	<td>제목</td>
 	<td>작성자</td>
 	<td>작성일</td>
-	<td>바로가기</td>
 </tr>
 <%
 			for(int i=0;i<LIST_title.size();i++){
 				HoneyBean list_t =(HoneyBean)LIST_title.get(i);
 		%>
 <tr>
-	<td><%= list_t.getList_title()%></td>
+	<td>
+	
+	<a href="HoneyControlB?action=viewlist&from=newvideo&list_n=<%=list_t.getList_n() %>">
+  			<%=list_t.getList_title() %>
+	</a>
+	
+	</td>
 	<td><%= list_t.getMember_id()%></td>
 	<td><%= list_t.getList_time()%></td>
-	<td><%= list_t.getList_n()%></td>
+	
 </tr>
 <%} %>
 
@@ -94,17 +99,19 @@
 	<td>제목</td>
 	<td>작성자</td>
 	<td>작성일</td>
-	<td>바로가기</td>
 </tr>
 <%
 			for(int i=0;i<LIST_contents.size();i++){
 				HoneyBean list_c =(HoneyBean)LIST_contents.get(i);
 		%>
 <tr>
-	<td><%= list_c.getList_title()%></td>
+	<td>
+	<a href="HoneyControlB?action=viewlist&from=newvideo&list_n=<%=list_c.getList_n() %>">
+  			<%=list_c.getList_title() %>
+	</a>
+	</td>
 	<td><%= list_c.getMember_id()%></td>
 	<td><%= list_c.getList_time()%></td>
-	<td><%= list_c.getList_n()%></td>
 </tr>
 <%} %>
 

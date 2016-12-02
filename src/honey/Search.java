@@ -41,7 +41,7 @@ public class Search extends HttpServlet {
 		
 		//검색을 실행
 		if(request.getParameter("search")==null){
-			address=src+"fail_contents.jsp";
+			address=src+"/fail_contents.jsp";
 		}else{
 		
 			String search = request.getParameter("search");//문자

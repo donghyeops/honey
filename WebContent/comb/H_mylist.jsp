@@ -14,6 +14,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+	<!-- 게시글 페이지수 -->
+<!--총 페이지수 -->
+<% int all_p=((mylist.size()-1)/10)+1; %>
+<!--남은 게시글수 -->
+<% int remain_p=mylist.size()%10;  %>
+<!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
+
+<div>
 <div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
 	<div class="w3-btn-group w3-center w3-margin" style="height:30px"> <!-- // 리스트 속성 설명-->
 		<button class="w3-btn w3-amber" style="height:30px;width:70px">번호</button>
@@ -28,14 +36,35 @@
 
 
 
-	<div class="w3-btn-group w3-center w3-margin" style="height:30px">
+	
 	<%
-			for(int i=0;i<mylist.size();i++){
+		int rutin=10;
+		int page_n=1;
+		if(request.getParameter("page_n")==null){
+			//out.println("/페이지못받음");
+			page_n=1;
+		}else{
+			//out.println("/페이지받음");
+		page_n=Integer.parseInt(request.getParameter("page_n"));//현재 페이지
+		
+		}
+		
+		if(page_n==all_p&&remain_p!=0){//마지막 페이지인 경우
+			rutin=remain_p;
+		}else{
+			rutin=10;
+		}
+		
+		//out.println("/현재 출력행야하는 게시글"+rutin);
+		//out.println("/현재 페이지"+page_n);
+		//out.println("/총게시글"+eventlist.size());
+		int view_p=(1+(10*(page_n-1)))-1;
+		for(int i=view_p; i<(view_p+rutin); i++) {
 				HoneyBean event =(HoneyBean)mylist.get(i);
 		%>
 		
 	<!-- //리스트 나열-->
-	
+	<div class="w3-btn-group w3-center w3-margin" style="height:30px">
 		<!-- 번호-->
 		<button class="w3-btn w3-amber" style="width:70px"><%=i+1%></button>
 		<!-- 제목 -->
@@ -58,16 +87,38 @@
 		<a href="HoneyControlB?action=list_update_form&list_n=<%=event.getList_n()%>">
 		<button class="w3-btn w3-blue " style="width:70px">수정</button>
 		</a>
-		<%} %>
 	</div>
+		<%} %>
+	
 	
 <!--나열 종료-->
+<%int remain_a=10;;%>
+	<%int view_a=(((page_n-1)/10)*10+1);%>
+	
+	<%if(all_p-view_a<10) {
+		remain_a=all_p-view_a+1;
+	}
+	%>
+	
+	<% if(view_a-1>0){%>
+		<a href="?action=mylist&page_n=<%=view_a-1%>">이전</a>
+	<%} %>
+	<%for(int s=view_a;s<view_a+remain_a;s++) {%>
+		<a href="?action=mylist&page_n=<%=s%>"><%=s%></a>
+	<%} %>
+	<% if(all_p-view_a>10){%>
+		<a href="?action=mylist&page_n=<%=view_a+10%>">다음</a>
+	<%} %>
+		
 </div>
+
+
+
 <%if(session.getAttribute("member_id")==null){ %>
 <%@ include file="Menubar_logout.jsp"%>
 <%} else {%>
 <%@ include file="Menubar_login.jsp"%>
 <%} %>
-	
+</div>
 </body>
 </html>

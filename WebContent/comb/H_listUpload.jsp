@@ -13,7 +13,12 @@
 </head>
 
 <body>
-
+	<!-- 게시글 페이지수 -->
+<!--총 페이지수 -->
+<% int all_p=((eventlist.size()-1)/10)+1; %>
+<!--남은 게시글수 -->
+<% int remain_p=eventlist.size()%10;  %>
+<!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
 
 
 <!-- 벌집 리스트 출력 -->
@@ -49,7 +54,28 @@
 		<button class="w3-btn w3-white w3-xlarge w3-round-large w3-text-black" style="width:80%">꿀통 제목</button>
 	</div>
 	<%
-		for(int i=0; i<eventlist.size(); i++) {
+		int rutin=10;
+		int page_n=1;
+		if(request.getParameter("page_n")==null){
+			//out.println("/페이지못받음");
+			page_n=1;
+		}else{
+			//out.println("/페이지받음");
+		page_n=Integer.parseInt(request.getParameter("page_n"));//현재 페이지
+		
+		}
+		
+		if(page_n==all_p&&remain_p!=0){//마지막 페이지인 경우
+			rutin=remain_p;
+		}else{
+			rutin=10;
+		}
+		
+		//out.println("/현재 출력행야하는 게시글"+rutin);
+		//out.println("/현재 페이지"+page_n);
+		//out.println("/총게시글"+eventlist.size());
+		int view_p=(1+(10*(page_n-1)))-1;
+		for(int i=view_p; i<(view_p+rutin); i++) {
 		HoneyBean event = (HoneyBean)eventlist.get(i);
 	%>
 	<div class="w3-btn-group" style="width: 900px; margin: 0px 0px 0px 0px">
@@ -78,6 +104,26 @@
     </div>
 	<%}
 	%>	
+	
+	
+	<%int remain_a=10;;%>
+	<%int view_a=(((page_n-1)/10)*10+1);%>
+	
+	<%if(all_p-view_a<10) {
+		remain_a=all_p-view_a+1;
+	}
+	%>
+	
+	<% if(view_a-1>0){%>
+		<a href="?action=upload&page_n=<%=view_a-1%>">이전</a>
+	<%} %>
+	<%for(int s=view_a;s<view_a+remain_a;s++) {%>
+		<a href="?action=upload&page_n=<%=s%>"><%=s%></a>
+	<%} %>
+	<% if(all_p-view_a>10){%>
+		<a href="?action=upload&page_n=<%=view_a+10%>">다음</a>
+	<%} %>
+	
 </div>
 <%if(session.getAttribute("member_id")==null){ %>
 <script> alert("로그인 해주십쇼."); location.replace("/honey/HoneyControlB"); </script>
