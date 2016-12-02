@@ -82,6 +82,7 @@ public class SMTPMail {
     	joinNumber = (int)(Math.random()*10000);
     	
     	try {
+    		System.out.println(toAddress);
 			sendMail(toAddress, "회원가입 확인", "회원가입 확인 숫자 : " + joinNumber);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block

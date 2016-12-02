@@ -104,20 +104,42 @@ function w3_close() {
     </div>
     
     
-  <%--  
+  
     <script language="javaScript">
-    function sendMail() {
-    	<% SMTPMail.getInstance().sendJoinNumber(%>document.getElementsByName('member_mail')[0].value<%);%>
-    }
-    function check() {
+    function sendMail(input) {
+    	if (input.member_mail.value == "") {
+    		alert("이메일을 입력하세요.");
+    		return;
+    	}
+    	// url 설정
+    	url = "confirmEmail.jsp?type=send&email=" + input.member_mail.value;
     	
+    	// 새로운 윈도우로 url 열기
+    	open(url, "confirm",
+    		"toolbar=no, location=no, status=no, menubar=no, scrollbasrs=no,resizable=no,width=310, height=180");
+    }
+    function checkNumber() {
+    	if (input.join_number.value == "") {
+    		alert("인증번호를 입력하세요.");
+    		return;
+    	}
+    	// url 설정
+    	url = "confirmEmail.jsp?type=check&number=" + input.join_number.value;
+    	
+    	// 새로운 윈도우로 url 열기
+    	open(url, "confirm",
+    		"toolbar=no, location=no, status=no, menubar=no, scrollbasrs=no,resizable=no,width=310, height=180");
+    
+    }
+    function checkJoinForm() {
+    	if (document.join.isCheck.value == "false") {
+    		return false;
+    	}
     }
     </script>
-   --%> 
-    
-    
+   
      <!-- 회원가입 폼 -->
-    <form class="w3-container"  method="post" action="/honey/HoneyControlB">
+    <form class="w3-container" name="join" method="post" action="/honey/HoneyControlB" onSubmit="return checkJoinForm()">
       <div class="w3-section">
         <label><b>아이디</b></label>
         <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter ID" name="member_id" required>
@@ -127,14 +149,16 @@ function w3_close() {
         <input class="w3-input w3-border w3-margin-bottom" type="password" placeholder="Enter Password" name="member_pwd2" required>
         <label><b>닉네임 입력</b></label>
         <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Nickname" name="member_name" required>
+        
         <label><b>메일</b></label>
         <input class="w3-input w3-border" type="text" placeholder="Enter mail address" name="member_mail" required>
-        <%--
-        <button class="w3-btn-block w3-amber w3-section w3-padding" onclick=sendMail()>이메일 인증 메일 보내기</button>
-        <label><b>인증 번호</b></label>
-        <input class="w3-input w3-border" type="text" placeholder="Enter mail address" name="mail_check_number" required>
-        <button class="w3-btn-block w3-amber w3-section w3-padding" onclick=sendMail()>이메일 인증 확인</button>
-         --%>
+        <input class="w3-btn-block w3-amber w3-section w3-padding" type="button" name="confirm_email" value="인증 메일 보내기" OnClick="sendMail(this.form)"/>
+        
+        <label><b>인증번호</b></label>
+        <input class="w3-input w3-border" type="text" placeholder="Enter join number" name="join_number" required>
+        <input class="w3-btn-block w3-amber w3-section w3-padding" type="button" name="confirm_join_number" value="확인" OnClick="checkNumber(this.form)"/>
+        <input type="hidden" name="isChecked" value="false">
+        
          <input type="hidden" name="action" value="gojoin">
         <button class="w3-btn-block w3-amber w3-section w3-padding" type="submit">회원가입</button>
       </div>
