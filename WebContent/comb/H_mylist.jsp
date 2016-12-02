@@ -27,7 +27,6 @@
 		<button class="w3-btn w3-amber" style="height:30px;width:70px">번호</button>
   		<button class="w3-btn w3-white" style="height:30px;width:340px">제목</button>
 		<button class="w3-btn w3-black" style="height:30px;width:100px">꿀통링크</button>
-  		<!--  <button class="w3-btn w3-black" style="height:30px;width:110px">작성자</button>-->
   		<button class="w3-btn w3-white" style="height:30px;width:220px">작성일</button>
 		<button class="w3-btn w3-amber" style="height:30px;width:70px">평가</button>
 		<button class="w3-btn w3-red" style="height:30px;width:70px">삭제</button>
@@ -68,25 +67,25 @@
 		<!-- 번호-->
 		<button class="w3-btn w3-amber" style="width:70px"><%=i+1%></button>
 		<!-- 제목 -->
-		<a href="HoneyControlB?action=viewlist&from=ranking&list_n=<%=event.getList_n() %>">
-  			<button class="w3-btn w3-white" style="width:340px"><%=event.getList_title() %></button>
-		</a>
+		
+  		<button class="w3-btn w3-white" style="width:340px"><a href="HoneyControlB?action=viewlist&from=ranking&list_n=<%=event.getList_n() %>"><%=event.getList_title() %></a></button>
+		
 		<!-- 꿀통링크 -->
-		<a href="Viewer?hc_id=<%=event.getHc_id()%>">
-  			<button class="w3-btn w3-black " style="width:100px"><%=event.getHc_id()%></button>
-		</a>  		
+		
+  		<button class="w3-btn w3-black " style="width:100px"><a href="Viewer?hc_id=<%=event.getHc_id()%>"><%=event.getHc_id()%></a></button>
+		  		
 		<!-- 작성일 -->
 		<button class="w3-btn w3-white " style="width:220px"><%=event.getList_time() %></button>
 		<!-- 평가 -->
 		<button class="w3-btn w3-amber " style="width:70px "><%=event.getList_good() %>/<%=event.getList_bad() %></button>
 		<!-- 삭제 -->
-		<a href="HoneyControlB?from=mylist&action=list_remove&list_n=<%=event.getList_n()%>">
-		<button class="w3-btn w3-red " style="width:70px">삭제</button>
-		</a>
+		
+		<button class="w3-btn w3-red " style="width:70px"><a href="HoneyControlB?from=mylist&action=list_remove&list_n=<%=event.getList_n()%>">삭제</a></button>
+		
 		<!-- 수정 -->
-		<a href="HoneyControlB?action=list_update_form&list_n=<%=event.getList_n()%>">
-		<button class="w3-btn w3-blue " style="width:70px">수정</button>
-		</a>
+		
+		<button class="w3-btn w3-blue " style="width:70px"><a href="HoneyControlB?action=list_update_form&list_n=<%=event.getList_n()%>">수정</a></button>
+	
 	</div>
 		<%} %>
 	

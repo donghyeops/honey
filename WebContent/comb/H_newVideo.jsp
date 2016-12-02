@@ -61,9 +61,9 @@
 		<!-- 번호-->
 		<button class="w3-btn w3-amber" style="width:70px"><%=i+1%></button>
 		<!-- 제목 -->
-		<a href="HoneyControlB?action=viewlist&from=newvideo&list_n=<%=event.getList_n() %>">
-  			<button class="w3-btn w3-white" style="width:390px"><%=event.getList_title() %></button>
-		</a>
+		
+  			<button class="w3-btn w3-white" style="width:390px"><a href="HoneyControlB?action=viewlist&from=newvideo&list_n=<%=event.getList_n() %>"><%=event.getList_title() %></a></button>
+		
 		<!-- 작성자 -->
   		<button class="w3-btn w3-black " style="width:110px"><%=event.getMember_name() %></button>
   		<!-- 작성일 -->
