@@ -23,34 +23,38 @@
 
 <div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
 <!-- 꿀통 추가하기 -->
-<div>
-<form method="post" action="/honey/HoneyControl">
-<table border="1">
-	<tr>
-		<td>추가할 꿀통</td>
-		<td><input type="text" name="hc_id"></td>
-	</tr>
-	<tr>
-		<td>꿀통 비밀번호</td>
-		<td><input type="password" name="hc_pwd"></td>
-	</tr>	
-</table>
-	<input type="hidden" name="action" value="addhc">
-	<input type="submit" value="추가하기">
+<div class="w3-container w3-center">
+<form method="post" action="/honey/HoneyControlB">
+  <h2>Colored Table Heading</h2>
+  <p>Use any of the w3-<em>color</em> classes to display a colored row:</p>
+
+  <table class="w3-table w3-bordered w3-centered w3-margin-bottom">
+    <tr>
+      <td class="w3-yellow" style="padding: 17px"><b>추가할 꿀통</b></td>
+      <td><input class="w3-input w3-border" type="text" name="hc_id"></td>
+    </tr>
+    <tr>
+      <td class="w3-amber" style="padding: 17px"><b>꿀통 비밀번호</b></td>
+      <td><input class="w3-input w3-border" type="password" name="hc_pwd"></td>
+    </tr>
+  </table>
+  <input type="hidden" name="action" value="addhc">
+    <input class="w3-btn-block w3-round-jumbo w3-green " type="submit" value="추가하기">
 </form>
 </div>
 <!-- 꿀통추가 끝 -->
 
 <!-- 꿀통 표시 -->
-<div>
+<div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
 
-	<table border="1">
-		<tr>
-			<td>꿀통아이디</td>
-			<td>꿀통제목</td>
-			<td>링크</td>
-			<td>편집</td>
-		</tr>
+	<button class="w3-btn w3-amber" style="height:30px;width:15%">꿀통 아이디</button>
+    <button class="w3-btn w3-white" style="height:30px;width:35%">꿀통 제목</button>
+    <button class="w3-btn w3-black" style="height:30px;width:8%">링크</button>
+    <button class="w3-btn w3-white" style="height:30px;width:23%">편집</button>
+    <button class="w3-panel w3-amber" style="height:30px;width:8%">달아요</button>
+    <button class="w3-panel w3-brown" style="height:30px;width:8%">써요</button>
+
+			<!-- //리스트 길이만큼 반복-->
 		<%
 		int rutin=10;
 		int page_n=1;
@@ -76,18 +80,36 @@
 		for(int i=view_p; i<(view_p+rutin); i++) {
 				HoneyBean event =(HoneyBean)myhoney.get(i);
 		%>
-		<tr>
-			<td><%=event.getHc_id() %></td>
-			<td><%=event.getHc_title() %></td>
-			<td><a href="Viewer?hc_id=<%=event.getHc_id()%>">가자!</a></td>
-			<td><form action="/honey/Editor" method="post">
-					<input type="hidden" name="type" value="edit">
-					<input type="hidden" name="hc_id" value=<%=event.getHc_id()%>>
-					<input type="hidden" name="input_pwd" value="<%=event.getHc_pwd() %>">
-					<input type="submit" value="편집">
-				</form>
-			</td>
-		</tr>
+		
+		<!-- //리스트 나열-->
+   <div class="w3-btn-group w3-center w3-margin" style="height:30px">
+      <!-- 꿀통 아이디-->
+      <button class="w3-btn w3-amber" style="width:15%"><%=event.getHc_id() %></button>
+      <!-- 꿀통 제목 -->
+     
+      <button class="w3-btn w3-white" style="width:36%"><%=event.getHc_title() %></button>
+     
+      <!-- 링크 -->
+      <a href="Viewer?hc_id=<%=event.getHc_id()%>" class="w3-btn w3-black " style="width:8%">가자!</a>
+      <!-- 편집 -->
+      <form  method="post" action="/honey/Editor">
+		<input type="hidden" name="type" value="edit">
+		<input type="hidden" name="hc_id" value=<%=event.getHc_id()%>>
+		<input type="hidden" name="input_pwd" value="<%=event.getHc_pwd() %>">
+		<input class="w3-btn w3-white " type="submit" value="편집" style="width:20%">
+	  </form>
+      <!-- 달아요 -->
+      <a href="HoneyControl?from=ranking&action=updateGood&list_n=<%= event.getList_n() %>&good=<%= event.getList_good() %>" >
+         <button class="w3-btn w3-amber " style="width:8% "><%=event.getList_good() %></button>
+      </a>
+      <!-- 써요 -->
+      <a href="HoneyControl?from=ranking&action=updateBad&list_n=<%= event.getList_n() %>&bad=<%= event.getList_bad() %>" >
+      <button class="w3-btn w3-brown " style="width:8%"><%=event.getList_bad() %></button>
+      </a>
+   </div>
+   
+<!--나열 종료-->
+		
 		<%} %> 
 	</table>
 	<%int remain_a=10;;%>
