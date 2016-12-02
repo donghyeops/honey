@@ -17,13 +17,13 @@
 <div class="w3-row">	
 	<div class="w3-container w3-half">			
 		<div class="w3-left w3-padding w3-margin-right">
-			<li><a href="HoneyControlB?action=Main"><img src="/honey/comb/img/HoneyComb.png" width=90 height=90></a></li>
+			<li><a href="HoneyControl?action=Main"><img src="/honey/comb/img/HoneyComb.png" width=90 height=90></a></li>
 		</div>
 		<div class="w3-left w3-padding w3-margin-right" style="width:130px">
-			<li id="HoneyButton" style="margin: 30px 2% 0px 2%"><a href="HoneyControlB?action=ranking">랭킹</a></li>
+			<li id="HoneyButton" style="margin: 30px 2% 0px 2%"><a href="HoneyControl?action=ranking">랭킹</a></li>
 		</div>
 		<div class="w3-left w3-padding w3-margin-right" style="width:130px">
-			<li id="HoneyButton" style="margin: 30px 2% 0px 2%"><a href="HoneyControlB?action=newvideo">최신영상</a></li>
+			<li id="HoneyButton" style="margin: 30px 2% 0px 2%"><a href="HoneyControl?action=newvideo">최신영상</a></li>
 		</div>
 		<div class="w3-display-middle">
 		<form action="#" method="post">
@@ -36,7 +36,7 @@
 			<li id="HoneyButton" style="margin: 30px 10px 0px 10px"><a onclick="document.getElementById('LogIn').style.display='block'">업로드</a></li>
 		</div>
 		<div class="w3-right w3-padding w3-margin-left" style="width:130px">		
-			<li id="HoneyButton"><a href="HoneyControlB?action=hccreate">판작성</a></li>
+			<li id="HoneyButton"><a href="HoneyControl?action=hccreate">판작성</a></li>
 		</div>
 		<div class="w3-right w3-padding w3-margin-left" style="width:130px">		
 			<li id="HoneyButton"><a onclick="document.getElementById('LogIn').style.display='block'" class="w3-large ">로그인</a></li>		
@@ -56,7 +56,7 @@
       <span onclick="document.getElementById('LogIn').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
     </div>
     <!-- 로그인 폼 -->
-    <form class="w3-container" method="post" action="/honey/HoneyControlB">
+    <form class="w3-container" method="post" action="/honey/HoneyControl">
       <div class="w3-section">
         <label><b>아이디</b></label>
         <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter ID" name="member_id" required>
@@ -81,7 +81,7 @@
     </div>
     
      <!-- 회원가입 폼 -->
-    <form class="w3-container"  method="post" action="/honey/HoneyControlB">
+    <form class="w3-container"  method="post" action="/honey/HoneyControl">
       <div class="w3-section">
         <label><b>아이디</b></label>
         <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter ID" name="member_id" required>

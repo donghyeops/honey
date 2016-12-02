@@ -13,7 +13,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<a href="HoneyControlB">메인으로</a>
+<a href="HoneyControl">메인으로</a>
 <script type="text/javascript">
 // 	function add(url) {
 // 		//HC.addURL(url)

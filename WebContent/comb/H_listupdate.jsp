@@ -15,7 +15,7 @@
 
 <body>
 <div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
-<form method="post" action="/honey/HoneyControlB">
+<form method="post" action="/honey/HoneyControl">
 <table>
 <tr>
 	<td>리스트 번호</td>

@@ -77,7 +77,7 @@
 <tr>
 	<td>
 	
-	<a href="HoneyControlB?action=viewlist&from=newvideo&list_n=<%=list_t.getList_n() %>">
+	<a href="HoneyControl?action=viewlist&from=newvideo&list_n=<%=list_t.getList_n() %>">
   			<%=list_t.getList_title() %>
 	</a>
 	
@@ -106,7 +106,7 @@
 		%>
 <tr>
 	<td>
-	<a href="HoneyControlB?action=viewlist&from=newvideo&list_n=<%=list_c.getList_n() %>">
+	<a href="HoneyControl?action=viewlist&from=newvideo&list_n=<%=list_c.getList_n() %>">
   			<%=list_c.getList_title() %>
 	</a>
 	</td>

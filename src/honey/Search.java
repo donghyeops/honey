@@ -13,7 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class HoneyControlB
+ * Servlet implementation class HoneyControl
  */
 @WebServlet("/Search")
 public class Search extends HttpServlet {

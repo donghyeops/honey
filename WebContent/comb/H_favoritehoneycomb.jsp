@@ -24,14 +24,14 @@
 <div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
 <!-- 꿀통 추가 -->
 <div>
-<form method="post" action="/honey/HoneyControlB">
+<form method="post" action="/honey/HoneyControl">
 <table border="1">
 	<tr>
 		<td>추가할 hc_id</td>
 		<td><input type="text" name="hc_id"></td>
 	</tr>
 </table>
-	<input type="hidden" name="from" value="HoneyControlB?action=favoritehoneycomb">
+	<input type="hidden" name="from" value="HoneyControl?action=favoritehoneycomb">
 	<input type="hidden" name="action" value="addFavoritehc">
 	<input type="submit" value="추가하기">
 </form>

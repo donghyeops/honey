@@ -47,10 +47,10 @@
 		</a>
   		<button class="w3-btn w3-black w3-xlarge" style="width:17.5%"><%=event.getMember_name() %></button>
   		<button class="w3-btn w3-white w3-xlarge" style="width:17.5%"><%=event.getList_time() %></button>
-		<a href="HoneyControlB?from=ranking&action=updateGood&list_n=<%= event.getList_n() %>&good=<%= event.getList_good() %>" >
+		<a href="HoneyControl?from=ranking&action=updateGood&list_n=<%= event.getList_n() %>&good=<%= event.getList_good() %>" >
 			<button class="w3-btn w3-amber w3-padding-large w3-round-large" style="width:7% "><b><%=event.getList_good() %></b></button>
 		</a>
-		<a href="HoneyControlB?from=ranking&action=updateBad&list_n=<%= event.getList_n() %>&bad=<%= event.getList_bad() %>" >
+		<a href="HoneyControl?from=ranking&action=updateBad&list_n=<%= event.getList_n() %>&bad=<%= event.getList_bad() %>" >
 		<button class="w3-btn w3-brown w3-padding-large w3-round-large" style="width:7%"><b><%=event.getList_bad() %></b></button>
 		</a>
 	</div>
@@ -72,11 +72,11 @@
 						링크
 					</button>
 				</a>
-				<a href="HoneyControlB?from=ranking&action=updateGood&list_n=<%= event.getList_n() %>&good=<%= event.getList_good() %>" >
+				<a href="HoneyControl?from=ranking&action=updateGood&list_n=<%= event.getList_n() %>&good=<%= event.getList_good() %>" >
 					<button class="w3-btn w3-amber w3-padding-large w3-round-large" style="width:100%"><b>달아요: +<%=event.getList_good() %></b></button>
 				</a>
 				
-				<a href="HoneyControlB?from=ranking&action=updateBad&list_n=<%= event.getList_n() %>&bad=<%= event.getList_bad() %>" >
+				<a href="HoneyControl?from=ranking&action=updateBad&list_n=<%= event.getList_n() %>&bad=<%= event.getList_bad() %>" >
 					<button class="w3-btn w3-brown w3-padding-large w3-round-large" style="width:100%"><b>써요: +<%=event.getList_bad() %></b></button>	
 				</a>
 				
@@ -85,10 +85,10 @@
 				if(session.getAttribute("member_id")==null){
 				}
 				else if(session.getAttribute("member_id").equals(event.getMember_id())){ %>
-				<a href="HoneyControlB?from=ranking&action=list_remove&list_n=<%= event.getList_n() %>" >
+				<a href="HoneyControl?from=ranking&action=list_remove&list_n=<%= event.getList_n() %>" >
 					<button class="w3-btn w3-red w3-padding-large w3-round-large" style="width:50%"><b>삭제</b></button>	
 				</a>
-				<a href="HoneyControlB?from=ranking&action=list_update_form&list_n=<%= event.getList_n() %>" >
+				<a href="HoneyControl?from=ranking&action=list_update_form&list_n=<%= event.getList_n() %>" >
 					<button class="w3-btn w3-blue w3-padding-large w3-round-large" style="width:50%"><b>수정</b></button>	
 				</a>
 				<%}else{} %>
@@ -97,7 +97,7 @@
 
 			<div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
 <!-- 댓글 작성과 댓글 표시부분 -->
-			<form method="post" action="/honey/HoneyControlB">
+			<form method="post" action="/honey/HoneyControl">
 			<input type="hidden" name="list_n" value="<%=event.getList_n()%>">
 			<input type="hidden" name="action" value="addCommment">
 			<input type="hidden" name="from" value="ranking">
@@ -131,7 +131,7 @@
 						<%if(session.getAttribute("member_id")==null){}
 						else if(session.getAttribute("member_id").equals(event.getMember_id())){ %>
 						<td>
-						<form method="post" action="/honey/HoneyControlB">
+						<form method="post" action="/honey/HoneyControl">
 							<input type="hidden" name="comment_n" value="<%=comment_n.get(k)%>">
 							<input type="hidden" name="action" value="deleteComment">
 							<input type="hidden" name="from" value="ranking">

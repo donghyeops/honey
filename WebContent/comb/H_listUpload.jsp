@@ -31,7 +31,7 @@
     	<div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width: 600px">
       		<div class="w3-center">
 				<span onclick="document.getElementById('Upload').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
-    			<form class="w3-container" method="post" action="/honey/HoneyControlB">
+    			<form class="w3-container" method="post" action="/honey/HoneyControl">
       				<div class="w3-section">
         				<label><b>제목</b></label>
         				<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Title" name="list_title" required>
@@ -88,7 +88,7 @@
     	<div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width: 600px">
       		<div class="w3-center">
 				<span onclick="document.getElementById('Upload<%=i%>').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
-    			<form class="w3-container" method="post" action="/honey/HoneyControlB">
+    			<form class="w3-container" method="post" action="/honey/HoneyControl">
       				<div class="w3-section">
         				<label><b>제목</b></label>
         				<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Title" name="list_title" required>
@@ -126,7 +126,7 @@
 	
 </div>
 <%if(session.getAttribute("member_id")==null){ %>
-<script> alert("로그인 해주십쇼."); location.replace("/honey/HoneyControlB"); </script>
+<script> alert("로그인 해주십쇼."); location.replace("/honey/HoneyControl"); </script>
 <%} else {%>
 <%@ include file="Menubar_login.jsp"%>
 <%} %>	

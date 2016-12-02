@@ -14,7 +14,7 @@
 </head>
 <body>
 <div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
-<form type="post" action="/honey/HoneyControlB">
+<form type="post" action="/honey/HoneyControl">
 	<table border="1">
 		<tr>
 		<td>아이디</td>

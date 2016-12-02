@@ -66,18 +66,18 @@
       <button class="w3-btn w3-amber" style="width:8%"><%=i+1%></button>
       <!-- 제목 -->
      
-      <button class="w3-btn w3-white" style="width:36%"><a href="HoneyControlB?action=viewlist&from=ranking&list_n=<%=event.getList_n() %>"><%=event.getList_title() %> </a></button>
+      <button class="w3-btn w3-white" style="width:36%"><a href="HoneyControl?action=viewlist&from=ranking&list_n=<%=event.getList_n() %>"><%=event.getList_title() %> </a></button>
      
       <!-- 작성자 -->
         <button class="w3-btn w3-black " style="width:15%"><%=event.getMember_name() %></button>
         <!-- 작성일 -->
       <button class="w3-btn w3-white " style="width:20%"><%=event.getList_time() %></button>
       <!-- 좋아요 -->
-      <a href="HoneyControlB?from=ranking&action=updateGood&list_n=<%= event.getList_n() %>&good=<%= event.getList_good() %>" >
+      <a href="HoneyControl?from=ranking&action=updateGood&list_n=<%= event.getList_n() %>&good=<%= event.getList_good() %>" >
          <button class="w3-btn w3-amber " style="width:8% "><%=event.getList_good() %></button>
       </a>
       <!-- 싫어요 -->
-      <a href="HoneyControlB?from=ranking&action=updateBad&list_n=<%= event.getList_n() %>&bad=<%= event.getList_bad() %>" >
+      <a href="HoneyControl?from=ranking&action=updateBad&list_n=<%= event.getList_n() %>&bad=<%= event.getList_bad() %>" >
       <button class="w3-btn w3-brown " style="width:8%"><%=event.getList_bad() %></button>
       </a>
    </div>

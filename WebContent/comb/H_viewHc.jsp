@@ -15,10 +15,10 @@
 <body>
 
 <div id="list">
-<h1><a href="HoneyControlB?action=Main"><img src="/honey/comb/img/HoneyComb.png" width=90 height=90></a><br>Honeycomb<br><%=HC.getHc_title()%></h1> <br><hr><br>
+<h1><a href="HoneyControl?action=Main"><img src="/honey/comb/img/HoneyComb.png" width=90 height=90></a><br>Honeycomb<br><%=HC.getHc_title()%></h1> <br><hr><br>
 
 <!-- 벌꿀 즐겨찾기부분 -->
-<form method="post" action="/honey/HoneyControlB">
+<form method="post" action="/honey/HoneyControl">
 	<input type="hidden" name="hc_id" value="<%=HC.getHc_id()%>">
 	<input type="hidden" name="from" value="Viewer?hc_id=<%=HC.getHc_id() %>">
 	<input type="hidden" name="action" value="addFavoritehc">

@@ -85,12 +85,12 @@ function back(){
 				}
 				else if(session.getAttribute("member_id").equals(list.getMember_id())){ %>
 			<!-- 삭제 -->	
-				<a href="HoneyControlB?action=list_remove&list_n=<%= list.getList_n() %>" >
+				<a href="HoneyControl?action=list_remove&list_n=<%= list.getList_n() %>" >
 				
 					<button class="w3-btn w3-red w3-padding-large w3-round-large" style="width:50%"><b>삭제</b></button>	
 				</a>
 			<!-- 수정 -->
-				<a href="HoneyControlB?action=list_update_form&list_n=<%= list.getList_n() %>" >
+				<a href="HoneyControl?action=list_update_form&list_n=<%= list.getList_n() %>" >
 					<button class="w3-btn w3-blue w3-padding-large w3-round-large" style="width:50%"><b>수정</b></button>	
 				</a>
 				<%}else{} %>
@@ -106,9 +106,9 @@ function back(){
 						꿀통아이디<%=list.getHc_id()%>링크복사하기
 					</button> 
 										
-					<form method="post" action="/honey/HoneyControlB">
+					<form method="post" action="/honey/HoneyControl">
 					<input type="hidden" name="hc_id" value="<%=HC.getHc_id()%>">
-					<input type="hidden" name="from" value="HoneyControlB?action=viewlist&list_n=<%=list.getList_n()%>">
+					<input type="hidden" name="from" value="HoneyControl?action=viewlist&list_n=<%=list.getList_n()%>">
 					<input type="hidden" name="action" value="addFavoritehc">
 					<button class="w3-btn w3-amber w3-padding w3-center w3-right" type="submit" style="margin: 0px 10% 20px 10%">
 						꿀통 몰래 훔치기
@@ -123,11 +123,11 @@ function back(){
 	<div class="w3-contaner w3-red">
 	<!-- 달아요부분 -->
 				<div class="w3-btn-group w3-padding w3-center"  >
-				<a href="HoneyControlB?action=updateGood&list_n=<%= list.getList_n() %>&good=<%= list.getList_good() %>" >
+				<a href="HoneyControl?action=updateGood&list_n=<%= list.getList_n() %>&good=<%= list.getList_good() %>" >
 					<button class="w3-btn w3-padding w3-left w3-amber w3-round" style="margin-left:310px;width:120px"><b>달아요: +<%=list.getList_good() %></b></button>
 				</a>
 			<!-- 싫어요 부분 -->
-				<a href="HoneyControlB?action=updateBad&list_n=<%= list.getList_n() %>&bad=<%= list.getList_bad() %>" >
+				<a href="HoneyControl?action=updateBad&list_n=<%= list.getList_n() %>&bad=<%= list.getList_bad() %>" >
 					<button class="w3-btn w3-padding w3-left w3-brown w3-round" style="width:120px"><b>써요: +<%=list.getList_bad() %></b></button>	
 				</a>
 				</div>
@@ -138,7 +138,7 @@ function back(){
 <!-- 댓글 -->
 	<div class="w3-container w3-padding w3-green">
 		<!-- 댓글 작성 -->
-		<form method="post" action="/honey/HoneyControlB">
+		<form method="post" action="/honey/HoneyControl">
 		<input type="hidden" name="list_n" value="<%=list.getList_n()%>">
 		<input type="hidden" name="action" value="addCommment">
 		<input type="hidden" name="from" value="<%=request.getParameter("from")%>">
@@ -181,7 +181,7 @@ function back(){
 			<div class="w3-center w3-blue w3-left w3-border" style="padding:10px 0px 0px 0px;height:50px;width:200px"><%=comment_out.getComment_time() %></div>
 			<%if(session.getAttribute("member_id")==null){}
 						else if(session.getAttribute("member_id").equals(comment_out.getMember_id())){ %>
-			<form method="post" action="/honey/HoneyControlB">
+			<form method="post" action="/honey/HoneyControl">
 				<input type="hidden" name="comment_n" value="<%=comment_out.getComment_n()%>">
 				<input type="hidden" name="action" value="deleteComment">
 				<input type="hidden" name="list_n" value="<%=comment_out.getList_n() %>">

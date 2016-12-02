@@ -68,7 +68,7 @@
 		<button class="w3-btn w3-amber" style="width:70px"><%=i+1%></button>
 		<!-- 제목 -->
 		
-  		<button class="w3-btn w3-white" style="width:340px"><a href="HoneyControlB?action=viewlist&from=ranking&list_n=<%=event.getList_n() %>"><%=event.getList_title() %></a></button>
+  		<button class="w3-btn w3-white" style="width:340px"><a href="HoneyControl?action=viewlist&from=ranking&list_n=<%=event.getList_n() %>"><%=event.getList_title() %></a></button>
 		
 		<!-- 꿀통링크 -->
 		
@@ -80,11 +80,11 @@
 		<button class="w3-btn w3-amber " style="width:70px "><%=event.getList_good() %>/<%=event.getList_bad() %></button>
 		<!-- 삭제 -->
 		
-		<button class="w3-btn w3-red " style="width:70px"><a href="HoneyControlB?from=mylist&action=list_remove&list_n=<%=event.getList_n()%>">삭제</a></button>
+		<button class="w3-btn w3-red " style="width:70px"><a href="HoneyControl?from=mylist&action=list_remove&list_n=<%=event.getList_n()%>">삭제</a></button>
 		
 		<!-- 수정 -->
 		
-		<button class="w3-btn w3-blue " style="width:70px"><a href="HoneyControlB?action=list_update_form&list_n=<%=event.getList_n()%>">수정</a></button>
+		<button class="w3-btn w3-blue " style="width:70px"><a href="HoneyControl?action=list_update_form&list_n=<%=event.getList_n()%>">수정</a></button>
 	
 	</div>
 		<%} %>
