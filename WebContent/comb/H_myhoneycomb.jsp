@@ -63,7 +63,7 @@
 		
 		}
 		
-		if(page_n==all_p&&remain_p!=0){//마지막 페이지인 경우
+		if(page_n==all_p&&remain_p!=0||myhoney.size()==0){//마지막 페이지인 경우
 			rutin=remain_p;
 		}else{
 			rutin=10;

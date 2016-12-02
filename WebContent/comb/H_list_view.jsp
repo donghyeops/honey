@@ -30,7 +30,12 @@ function copy_trackback(trb) {
 </script> 
 </head>
 <body>
-
+	<!-- 게시글 페이지수 -->
+<!--총 페이지수 -->
+<% int all_p=((comment.size()-1)/10)+1; %>
+<!--남은 게시글수 -->
+<% int remain_p=comment.size()%10;  %>
+<!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
 
 <div class="w3-display-topmiddle w3-contaner w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 2000px">
 <!-- 이전 다음 -->
@@ -146,7 +151,28 @@ function copy_trackback(trb) {
 		<!-- 댓글 표시 -->
 		<div class="w3-row w3-yellow" style="margin:0px 0px 0px 10px;width:950px">
 			<%
-				for(int i=0; i<comment.size(); i++) {
+		int rutin=10;
+		int page_n=1;
+		if(request.getParameter("page_n")==null){
+			//out.println("/페이지못받음");
+			page_n=1;
+		}else{
+			//out.println("/페이지받음");
+		page_n=Integer.parseInt(request.getParameter("page_n"));//현재 페이지
+		
+		}
+		
+		if(page_n==all_p&&remain_p!=0||comment.size()==0){//마지막 페이지인 경우
+			rutin=remain_p;
+		}else{
+			rutin=10;
+		}
+		
+		//out.println("/현재 출력행야하는 게시글"+rutin);
+		//out.println("/현재 페이지"+page_n);
+		//out.println("/총게시글"+eventlist.size());
+		int view_p=(1+(10*(page_n-1)))-1;
+		for(int i=view_p; i<(view_p+rutin); i++) {
 					HoneyBean comment_out = (HoneyBean)comment.get(i);	
 			%>		
 		
@@ -163,8 +189,28 @@ function copy_trackback(trb) {
 			</form>
 			<%} else{}%>
 		<%} %>
+		
+	
 		</div>
 				<!-- 댓글표시끝 -->
+				
+					<%int remain_a=10;;%>
+	<%int view_a=(((page_n-1)/10)*10+1);%>
+	
+	<%if(all_p-view_a<10) {
+		remain_a=all_p-view_a+1;
+	}
+	%>
+	
+	<% if(view_a-1>0){%>
+		<a href="?action=viewlist&list_n=<%=list.getList_n()%>&page_n=<%=view_a-1%>">이전</a>
+	<%} %>
+	<%for(int s=view_a;s<view_a+remain_a;s++) {%>
+		<a href="?action=viewlist&list_n=<%=list.getList_n()%>&page_n=<%=s%>"><%=s%></a>
+	<%} %>
+	<% if(all_p-view_a>10){%>
+		<a href="?action=viewlist&list_n=<%=list.getList_n()%>&page_n=<%=view_a+10%>">다음</a>
+	<%} %>
 <!-- 댓글 -->
 
 	</div>

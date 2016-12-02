@@ -43,7 +43,7 @@
 		
 		}
 		
-		if(page_n==all_p&&remain_p!=0){//마지막 페이지인 경우
+		if(page_n==all_p&&remain_p!=0||eventlist.size()==0){//마지막 페이지인 경우
 			rutin=remain_p;
 		}else{
 			rutin=10;
@@ -62,7 +62,7 @@
 		<button class="w3-btn w3-amber" style="width:70px"><%=i+1%></button>
 		<!-- 제목 -->
 		
-  			<button class="w3-btn w3-white" style="width:390px"><a href="HoneyControlB?action=viewlist&from=newvideo&list_n=<%=event.getList_n() %>"><%=event.getList_title() %></a></button>
+  			 <button class="w3-btn w3-white" style="width:390px"><a href="HoneyControlB?action=viewlist&from=newvideo&list_n=<%=event.getList_n() %>"><%=event.getList_title() %></a></button>
 		
 		<!-- 작성자 -->
   		<button class="w3-btn w3-black " style="width:110px"><%=event.getMember_name() %></button>
@@ -74,7 +74,7 @@
 		</a>
 		<!-- 싫어요 -->
 		<a href="HoneyControlB?from=ranking&action=updateBad&list_n=<%= event.getList_n() %>&bad=<%= event.getList_bad() %>" >
-		<button class="w3-btn w3-brown " style="width:70px"><%=event.getList_bad() %></button>
+		<button class="w3-btn w3-brown " style="width:70px"><%=event.getList_bad() %></button> 
 		</a>
 	</div>
 
