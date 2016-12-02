@@ -104,7 +104,7 @@ function w3_close() {
     </div>
     
     
-  
+  <%--
     <script language="javaScript">
     function sendMail(input) {
     	if (input.member_mail.value == "") {
@@ -137,7 +137,9 @@ function w3_close() {
     	}
     }
     </script>
-   
+    --%>
+    
+    
      <!-- 회원가입 폼 -->
     <form class="w3-container" name="join" method="post" action="/honey/HoneyControlB" onSubmit="return checkJoinForm()">
       <div class="w3-section">
@@ -152,13 +154,15 @@ function w3_close() {
         
         <label><b>메일</b></label>
         <input class="w3-input w3-border" type="text" placeholder="Enter mail address" name="member_mail" required>
+        <%--
         <input class="w3-btn-block w3-amber w3-section w3-padding" type="button" name="confirm_email" value="인증 메일 보내기" OnClick="sendMail(this.form)"/>
         
         <label><b>인증번호</b></label>
         <input class="w3-input w3-border" type="text" placeholder="Enter join number" name="join_number" required>
         <input class="w3-btn-block w3-amber w3-section w3-padding" type="button" name="confirm_join_number" value="확인" OnClick="checkNumber(this.form)"/>
         <input type="hidden" name="isChecked" value="false">
-        
+         --%>
+         
          <input type="hidden" name="action" value="gojoin">
         <button class="w3-btn-block w3-amber w3-section w3-padding" type="submit">회원가입</button>
       </div>
