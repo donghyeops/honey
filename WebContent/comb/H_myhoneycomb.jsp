@@ -47,8 +47,8 @@
     <ul class="w3-navbar w3-center">
     <li class="w3-amber w3-padding-8" style="width:20%">꿀통 아이디</li>
     <li class="w3-white w3-padding-8" style="width:50%">꿀통 제목</li>
-    <li class="w3-black w3-padding-8" style="width:10%">링크</li>
-    <li class="w3-white w3-padding-8" style="width:20%">편집</li>
+    <li class="w3-black w3-padding-8" style="width:15%">링크</li>
+    <li class="w3-white w3-padding-8" style="width:15%">편집</li>
     </ul>
 
 			<!-- //리스트 길이만큼 반복-->
@@ -89,9 +89,9 @@
       <!-- 꿀통 제목 -->
       <li class="w3-white w3-padding-8" style="width:50%"><%=event.getHc_title() %></li>
       <!-- 링크 -->
-      <li class="w3-black w3-padding-8" style="width:10%"><a href="Viewer?hc_id=<%=event.getHc_id()%>">이동</a></li>
+      <li class="w3-light-gray w3-padding-8" style="width:15%"><a href="Viewer?hc_id=<%=event.getHc_id()%>">이동</a></li>
       <!-- 편집 -->
-	  <li class="w3-white w3-padding-8" style="width:20%">
+	  <li class="w3-btn w3-white w3-padding-8" style="width:15%">
 	  	<input type="submit" value="편집">
 	  </li> 
    </ul>
