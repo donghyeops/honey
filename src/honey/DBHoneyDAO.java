@@ -9,14 +9,14 @@ import java.util.ArrayList;
 
 public class DBHoneyDAO implements HoneyDAO{
 	private String jdbc_driver = "com.mysql.jdbc.Driver";
-	private String jdbc_url =  "jdbc:mysql://localhost:3307/mydb?characterEncoding=utf8&autoReconnect=true&useSSL=false";
+	private String jdbc_url =  "jdbc:mysql://localhost:3306/mydb?characterEncoding=utf8&autoReconnect=true&useSSL=false";
 	private Connection conn;
 	private Statement stmt;
 	
 	private void connect(){
 		try{
 			Class.forName(jdbc_driver);
-			conn = DriverManager.getConnection(jdbc_url,"root","0000");
+			conn = DriverManager.getConnection(jdbc_url,"root","sjb378");
 			//sjb378
 			stmt = conn.createStatement();
 		}catch(Exception e){}
