@@ -52,7 +52,9 @@
 	<% } %>
 </div>
 <!-- 제작 끝 -->
-<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px" >소스입력</div>
+<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px" >소스입력&nbsp&nbsp&nbsp&nbsp
+<input type="button" class="w3-btn w3-text-black w3-hover-orange w3-middle" style="background:rgba( 255, 179, 35, 100 ); width:40px" value="?" onclick="document.getElementById('HC_GUIDE').style.display='block'">
+</div>
 <!-- 입력 -->
 <div>
 <form name="url_form" action="/honey/Creator" method="post">
@@ -118,6 +120,24 @@
   </div>
 </div>
 <!-- 제목과 비밀번호입력창 끝-->
+
+
+<!-- 도움말 -->
+<div id="HC_GUIDE" class="w3-modal">
+   <div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width:600px">
+    <div class="w3-center" src="/honey/comb/img/HoneyPattern.jpg"><br>
+      <span onclick="document.getElementById('HC_GUIDE').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
+    </div>
+    
+      <div class="w3-section">
+        <label><b><center>iframe 태그를 추가해 주십시오</center></b></label>
+        <button class="w3-btn-block w3-amber w3-section w3-padding" onclick="document.getElementById('HC_GUIDE').style.display='none'">확인</button>
+      </div>
+
+  </div>
+</div>
+<!-- 도움말 끝-->
+
 
 <%if(session.getAttribute("member_id")==null){ %>
 <%@ include file="/comb/Menubar_logout.jsp"%>
