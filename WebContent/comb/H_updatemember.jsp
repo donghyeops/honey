@@ -27,16 +27,6 @@
  	 	</ul>
   	</li>
   	<li style="width:100%">
-    	<ul class="w3-navbar  w3-khaki w3-center">
-    		<li style="width:40%">
-            	<a href="#" class="w3-padding-16"><b>비밀번호</b></a>
-            </li>
-    		<li style="width:60%">
-            	<input type="password" class="w3-input w3-white w3-padding-16" placeholder="Input Password" name="hc_pwd">
-            </li>
- 		</ul>
-  	</li>
-  	<li style="width:100%">
     	<ul class="w3-navbar  w3-yellow w3-center">
     		<li style="width:40%">
             	<a href="#" class="w3-padding-16"><b>변경할 비밀번호</b></a>
@@ -51,7 +41,7 @@
     		<li style="width:40%">
             	<a href="#" class="w3-padding-16"><b>변경할 비밀번호 확인</b></a>
             </li>
-    		<li style="width:60%"><input type="text" class="w3-input w3-white w3-padding-16" placeholder="Reinput new password" name="member_pwd2">
+    		<li style="width:60%"><input type="password" class="w3-input w3-white w3-padding-16" placeholder="Reinput new password" name="member_pwd2">
             </li>
   		</ul>
     </li>
