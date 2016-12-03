@@ -18,23 +18,13 @@
   <ul class="w3-navbar w3-center w3-round-xxlarge w3-margin">
   	<li style="width:100%">
     	<ul class="w3-navbar w3-center">
-    		<li class="w3-pale-yellow" style="width:40%">
-    			<a href="#" class="w3-padding-16"><b>아이디</b></a>
+    		<li class="w3-pale-yellow w3-padding-16" style="width:40%">
+    			<b>아이디</b>
     		</li>
     		<li class="w3-white w3-padding-16" style="width:60%">
     			<b><%=member.getMember_id() %></b>
     		</li>
  	 	</ul>
-  	</li>
-  	<li style="width:100%">
-    	<ul class="w3-navbar  w3-khaki w3-center">
-    		<li class="w3-padding-16" style="width:40%">
-            	<b>비밀번호</b></a>
-            </li>
-    		<li style="width:60%">
-            	<input type="password" class="w3-input w3-white w3-padding-16" placeholder="Input Password" name="hc_pwd">
-            </li>
- 		</ul>
   	</li>
   	<li style="width:100%">
     	<ul class="w3-navbar  w3-yellow w3-center">
@@ -51,7 +41,7 @@
     		<li class="w3-padding-16" style="width:40%">
             	<b>변경할 비밀번호 확인</b>
             </li>
-    		<li style="width:60%"><input type="text" class="w3-input w3-white w3-padding-16" placeholder="Reinput new password" name="member_pwd2">
+    		<li style="width:60%"><input type="password" class="w3-input w3-white w3-padding-16" placeholder="Reinput new password" name="member_pwd2">
             </li>
   		</ul>
     </li>
