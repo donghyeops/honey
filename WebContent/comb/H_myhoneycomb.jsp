@@ -26,15 +26,18 @@
 <div class="w3-container w3-center">
 <form method="post" action="/honey/HoneyControl"> 
   <ul class="w3-navbar w3-center w3-round-xxlarge w3-margin-bottom">
-  <li style="width:100%"><ul class="w3-navbar  w3-yellow w3-center">
-    <li style="width:40%"><a href="#" class="w3-padding-16"><b>추가할 꿀동</b></a></li>
-    <li style="width:60%"><input type="text" class="w3-input w3-white w3-padding-16" placeholder="Input Honecomb ID" name="hc_id"></li>
-  </ul></li>
-  <li style="width:100%"><ul class="w3-navbar  w3-amber w3-center">
-    <li style="width:40%"><a href="#" class="w3-padding-16"><b>꿀통 비밀번호</b></a></li>
-    <li style="width:60%"><input type="text" class="w3-input w3-white w3-padding-16" placeholder="Input Honeycomb Password" name="hc_pwd"></li>
-  </ul>
-  </li>
+  	<li style="width:100%">
+  		<ul class="w3-navbar  w3-yellow w3-center">
+  			<li style="width:40%"><a href="#" class="w3-padding-16"><b>추가할 꿀동</b></a></li>
+  			<li style="width:60%"><input type="text" class="w3-input w3-white w3-padding-16" placeholder="Input Honecomb ID" name="hc_id"></li>
+  		</ul>
+  	</li>
+  	<li style="width:100%">
+  		<ul class="w3-navbar  w3-amber w3-center">
+  			<li style="width:40%"><a href="#" class="w3-padding-16"><b>꿀통 비밀번호</b></a></li>
+  			<li style="width:60%"><input type="text" class="w3-input w3-white w3-padding-16" placeholder="Input Honeycomb Password" name="hc_pwd"></li>
+  		</ul>
+  	</li>
   </ul>
   <input type="hidden" name="action" value="addhc">
   <input class="w3-btn-block w3-round-jumbo w3-green " type="submit" value="추가하기">
@@ -92,7 +95,7 @@
       <li style="width:15%"><a href="Viewer?hc_id=<%=event.getHc_id()%>" class="w3-black w3-hover-amber">이동</a></li>
       <!-- 편집 -->
 	  <li style="width:15%">
-	  	<input class="w3-btn w3-white w3-hover-pale-pink" type="submit" value="편집">
+	  	<input class="w3-btn w3-white" style="hover:rgb(255, 204, 190)" type="submit" value="편집">
 	  </li> 
    </ul>
    </form>
