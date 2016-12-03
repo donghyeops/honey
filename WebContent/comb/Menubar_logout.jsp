@@ -11,6 +11,18 @@
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- background-color:rgba( 255, 255, 255, 0 );배경투명색 -->
 <script  type = "text/javascript">
+function checkSearch() {
+	var str1 = document.getElementById('search1');
+	var str2 = document.getElementById('search2');
+	
+	if(str1.value.replace(/^\s*|\s*$/g,'') == "" && str2.value.replace(/^\s*|\s*$/g,'') == ""){
+		alert("한글자 이상 써주세요.");
+	    return false;
+	}
+
+	
+	return true;
+}
 function myFunction() {
     var x = document.getElementById("demo");
     if (x.className.indexOf("w3-show") == -1) {
@@ -27,6 +39,29 @@ function w3_open() {
 function w3_close() {
   document.getElementById("main").style.marginLeft = "0%";
   document.getElementById("mySidenav").style.display = "none";
+}
+function checkJoinForm() {
+	var str1 = document.getElementById('id');
+	var str2 = document.getElementById('pwd');
+	var str3 = document.getElementById('name');  		
+
+	
+	if( str1.value.search(/\W|\s/g) > -1 ){
+	alert( '아이디에 특수문자 또는 공백을 입력할 수 없습니다.' );
+	str.focus();
+	return false;
+	}
+	if( str2.value.search(/\W|\s/g) > -1 ){
+	alert( '비밀번호에 특수문자 또는 공백을 입력할 수 없습니다.' );
+	str.focus();
+	return false;
+	}
+	if( str3.value.search(/\W|\s/g) > -1 ){
+	alert( '이름에 특수문자 또는 공백을 입력할 수 없습니다.' );
+	str.focus();
+	return false;
+	}
+	return true;
 }
 </script>
 	
@@ -45,7 +80,7 @@ function w3_close() {
 </nav>
 
 <div id="main">
-<form method="post" action="/honey/Search" style="margin:0">
+<form method="post" action="/honey/Search" style="margin:0" onSubmit="return checkSearch()">
 <ul class="w3-navbar w3-yellow w3-card-8">
   <li><a href="/honey/HoneyControl?action=Main" class=" w3-medium"><img src="/honey/comb/img/HoneyComb.png" width=70px height=70px></a></li>
   <li class="w3-hide-medium w3-hide-large w3-black w3-opennav ">
@@ -53,7 +88,7 @@ function w3_close() {
   </li>
   <li class="w3-hide-small" style="width:100px"><a href="HoneyControl?action=ranking" class="w3-padding-32" ><b>랭킹</b></a></li>
   <li class="w3-hide-small" style="width:100px"><a href="HoneyControl?action=newvideo" class="w3-padding-32" ><b>최신 영상</b></a></li>
-  <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><input type="text" name="search" class="w3-light-gray w3-input w3-padding-16" placeholder="키워드 검색" style="width:250px; height:60px"></li>
+  <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><input type="text" id="search1" name="search" class="w3-light-gray w3-input w3-padding-16" placeholder="키워드 검색" style="width:250px; height:60px"></li>
   <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><button type="submit" class="w3-btn w3-amber w3-padding-16" style="height:60px">Go</button>  </li>
   <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="#" class="w3-padding-32" value="로그인" onclick="document.getElementById('LogIn').style.display='block'"><b>로그인</b></a></li>
   <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="#" class="w3-padding-32" value="업로드" onclick="document.getElementById('LogIn').style.display='block'"><b>업로드</b></a></li>
@@ -63,7 +98,7 @@ function w3_close() {
       <a onclick="myFunction()" href="#" class="w3-padding-32" style="width: 10%"><i class="fa fa-search"></i></a>
       <div id="demo" class="w3-dropdown-content w3-white w3-card-4" style="width:50%; right:252px">
       <ul class="w3-navbar">
-        <li><input type="text" name="search" class="w3-input" placeholder="키워드 검색" ></li>
+        <li><input type="text" id="search2" name="search" class="w3-input" placeholder="키워드 검색" ></li>
   		<li class="w3-right"><button type="submit" class="w3-btn w3-amber">Go</button></li>
   </ul>
       </div>
