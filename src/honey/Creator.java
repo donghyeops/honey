@@ -67,8 +67,6 @@ public class Creator extends HttpServlet {
 		
 		// URL 추가 버튼을 눌렀을때 (mgr_bean에만 추가 db연동x)
 		if (type.equals("addUrl")) {
-			
-			
 			Mgr_bean a = (Mgr_bean)session.getAttribute("HC");
 			ArrayList b = a.getURLs();
 			int s= b.size();
@@ -103,6 +101,7 @@ public class Creator extends HttpServlet {
 			
 			// forward
 			 address = src+"/manager/createHC.jsp";
+			 
 		}
 		// 제출 버튼을 눌렀을때
 		else if (type.equals("viewHC")) {
@@ -149,9 +148,9 @@ public class Creator extends HttpServlet {
 			// dispatcher.forward(request, response);
 		}
 		
-		
-//		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
-//		dispatcher.forward(request, response);
+		address="HoneyControl?action=hccreate";
+		//RequestDispatcher dispatcher = request.getRequestDispatcher(address);
+		//dispatcher.forward(request, response);
 		response.sendRedirect(address);
 	}
 
