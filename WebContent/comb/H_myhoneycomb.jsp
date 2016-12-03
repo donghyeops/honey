@@ -21,7 +21,7 @@
 <!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
 
 
-<div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand w3-padding-8" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
+<div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand w3-padding-16" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
 <!-- 꿀통 추가하기 -->
 <div class="w3-container w3-center">
 <form method="post" action="/honey/HoneyControl"> 
