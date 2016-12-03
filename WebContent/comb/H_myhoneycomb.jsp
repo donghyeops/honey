@@ -47,7 +47,7 @@
     <ul class="w3-navbar w3-center">
     <li class="w3-amber w3-padding-8" style="width:20%">꿀통 아이디</li>
     <li class="w3-white w3-padding-8" style="width:50%">꿀통 제목</li>
-    <li class="w3-black w3-padding-8" style="width:15%">링크</li>
+    <li class="w3-light-gray w3-padding-8" style="width:15%">링크</li>
     <li class="w3-white w3-padding-8" style="width:15%">편집</li>
     </ul>
 
