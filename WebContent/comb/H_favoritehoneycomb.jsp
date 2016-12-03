@@ -24,31 +24,30 @@
 <div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
 <!-- 꿀통 추가 -->
 <div>
-<form method="post" action="/honey/HoneyControl">
-<table border="1">
-	<tr>
-		<td>추가할 hc_id</td>
-		<td><input type="text" name="hc_id"></td>
-	</tr>
-</table>
-	<input type="hidden" name="from" value="HoneyControl?action=favoritehoneycomb">
-	<input type="hidden" name="action" value="addFavoritehc">
-	<input type="submit" value="추가하기">
-</form>
+<form method="post" action="/honey/HoneyControl">    
+  <ul class="w3-navbar w3-center w3-yellow w3-round-jumbo w3-margin-bottom">
+    <li style="width:33.3%"><a href="#" class="w3-padding-16"><b>추가할 꿀동 ID</b></a></li>
+    <li style="width:66.6%"><input type="text" class="w3-input w3-light-grey w3-padding-16" placeholder="Input Honeycomb ID.."></li>
+  </ul>
+  <input type="hidden" name="from" value="HoneyControl?action=favoritehoneycomb">
+  <input type="hidden" name="action" value="addFavoritehc">
+  <input class="w3-btn-block w3-round-jumbo w3-green " type="submit" value="추가하기">
+  </form>
 </div>
 <!-- 추가 끝 -->
 
-
-
 <!-- 벌꿀표시 -->
-<div>
-<table border="1">
-		<tr>
-			<td>벌꿀아이디</td>
-			<td>벌꿀제목</td>
-			<td>링크</td>
-			<td>제작자아이디</td>
-		</tr>
+<div class="w3-container w3-padding-16 w3-light-grey">
+    <ul class="w3-navbar w3-center">
+    <li class="w3-amber w3-padding-8" style="width:18%">꿀통 아이디</li>
+    <li class="w3-white w3-padding-8" style="width:31%">꿀통 제목</li>
+    <li class="w3-black w3-padding-8" style="width:8%">링크</li>
+    <li class="w3-white w3-padding-8" style="width:23%">편집</li>
+    <li class="w3-amber w3-padding-8" style="width:8%">달아요</li>
+    <li class="w3-brown w3-padding-8" style="width:8%">써요</li>
+    </ul>
+    
+			<!-- //리스트 길이만큼 반복-->
 		<%
 		int rutin=10;
 		int page_n=1;
@@ -74,15 +73,37 @@
 		for(int i=view_p; i<(view_p+rutin); i++) {
 				HoneyBean event =(HoneyBean)fvhoney.get(i);
 		%>
-		<tr>
-			<td><%=event.getHc_id() %></td>
-			<td><%=event.getHc_title() %></td>
-			<td><a href="Viewer?hc_id=<%=event.getHc_id()%>">가자!</a></td>
-			<td><%=event.getMember_id() %>
-			</td>
-		</tr>
+		<ul class="w3-navbar w3-center w3-margin">
+      <!-- 꿀통 아이디-->
+      <li class="w3-amber w3-padding-8" style="width:18%"><%=event.getHc_id() %></li>
+      <!-- 꿀통 제목 -->
+      <li class="w3-white w3-padding-8" style="width:31%"><%=event.getHc_title() %></li>
+      <!-- 링크 -->
+      <li class="w3-black w3-padding-8" style="width:8%"><a href="Viewer?hc_id=<%=event.getHc_id()%>">가자!</a></li>
+      <!-- 편집 -->
+      <li class="w3-white w3-padding-8" style="width:23%">
+      <form  method="post" action="/honey/Editor">
+		<input type="hidden" name="type" value="edit">
+		<input type="hidden" name="hc_id" value=<%=event.getHc_id()%>>
+		<input type="hidden" name="input_pwd" value="<%=event.getHc_pwd() %>">
+		<input type="submit" value="편집">
+	  </form>
+	  </li>
+      <!-- 달아요 -->
+      <li class="w3-amber w3-padding-8 w3-hide-small" style="width:8%"> 
+      	<a href="HoneyControl?from=ranking&action=updateGood&list_n=<%= event.getList_n() %>&good=<%= event.getList_good() %>" >
+        	<%=event.getList_good() %>
+      	</a>
+      </li>
+      
+      <!-- 써요 -->
+      <li class="w3-amber w3-padding-8 w3-hide-small" style="width:8%">
+      <a href="HoneyControl?from=ranking&action=updateBad&list_n=<%= event.getList_n() %>&bad=<%= event.getList_bad() %>" >
+      		<%=event.getList_bad() %>
+      </a>
+      </li>
+   </ul>
 		<%} %> 
-	</table>
 	<%int remain_a=10;;%>
 	<%int view_a=(((page_n-1)/10)*10+1);%>
 	
