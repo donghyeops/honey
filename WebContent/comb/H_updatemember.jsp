@@ -21,15 +21,25 @@
     		<li class="w3-pale-yellow" style="width:40%">
     			<a href="#" class="w3-padding-16"><b>아이디</b></a>
     		</li>
-    		<li class="w3-white" style="width:60%">
-    			<a href="#" class="w3-padding-16"><b><%=member.getMember_id() %></b></a>
+    		<li class="w3-white w3-padding-16" style="width:60%">
+    			<b><%=member.getMember_id() %></b>
     		</li>
  	 	</ul>
   	</li>
   	<li style="width:100%">
+    	<ul class="w3-navbar  w3-khaki w3-center">
+    		<li class="w3-padding-16" style="width:40%">
+            	<b>비밀번호</b></a>
+            </li>
+    		<li style="width:60%">
+            	<input type="password" class="w3-input w3-white w3-padding-16" placeholder="Input Password" name="hc_pwd">
+            </li>
+ 		</ul>
+  	</li>
+  	<li style="width:100%">
     	<ul class="w3-navbar  w3-yellow w3-center">
-    		<li style="width:40%">
-            	<a href="#" class="w3-padding-16"><b>변경할 비밀번호</b></a>
+    		<li class="w3-padding-16" style="width:40%">
+            	<b>변경할 비밀번호</b>
             </li>
     		<li style="width:60%">
             	<input type="password" class="w3-input w3-white w3-padding-16" placeholder="New password" name="member_pwd1">
@@ -38,17 +48,17 @@
     </li>
   	<li style="width:100%">
     	<ul class="w3-navbar  w3-amber w3-center">
-    		<li style="width:40%">
-            	<a href="#" class="w3-padding-16"><b>변경할 비밀번호 확인</b></a>
+    		<li class="w3-padding-16" style="width:40%">
+            	<b>변경할 비밀번호 확인</b>
             </li>
-    		<li style="width:60%"><input type="password" class="w3-input w3-white w3-padding-16" placeholder="Reinput new password" name="member_pwd2">
+    		<li style="width:60%"><input type="text" class="w3-input w3-white w3-padding-16" placeholder="Reinput new password" name="member_pwd2">
             </li>
   		</ul>
     </li>
     <li style="width:100%">
     	<ul class="w3-navbar  w3-orange w3-center">
-    		<li style="width:40%">
-            	<a href="#" class="w3-padding-16"><b>닉네임</b></a>
+    		<li class="w3-padding-16" style="width:40%">
+            	<b>닉네임</b>
             </li>
     		<li style="width:60%"><input type="text" class="w3-input w3-white w3-padding-16" name="member_name" value="<%=member.getMember_name() %>">
             </li>
@@ -56,9 +66,9 @@
     </li>
   </ul>
   <input type="hidden" name="action" value="updatemember">
-  <center><input class="w3-btn w3-round-jumbo w3-green w3-margin" style="width:90%" type="submit" value="변경하기"></center>
+  <input class="w3-btn w3-center w3-round-jumbo w3-green w3-margin" style="width:90%" type="submit" value="변경하기">
   </form>
-</div>
+</div> 
 		<%if(session.getAttribute("member_id")==null){ %>
 <%@ include file="Menubar_logout.jsp"%>
 <%} else {%>
