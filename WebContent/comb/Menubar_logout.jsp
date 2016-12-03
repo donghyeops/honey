@@ -178,13 +178,13 @@ function checkJoinForm() {
     <form class="w3-container" name="join" method="post" action="/honey/HoneyControl" onSubmit="return checkJoinForm()">
       <div class="w3-section">
         <label><b>아이디</b></label>
-        <input class="w3-input w3-border w3-margin-bottom" style="width:90%" type="text" placeholder="Enter ID" name="member_id" required>
+        <input class="w3-input w3-border w3-margin-bottom" style="width:90%" type="text" placeholder="Enter ID" id="id" name="member_id" required>
         <label><b>비밀번호</b></label>
-        <input class="w3-input w3-border w3-margin-bottom" style="width:90%" type="password" placeholder="Enter Password" name="member_pwd" required>
+        <input class="w3-input w3-border w3-margin-bottom" style="width:90%" type="password" placeholder="Enter Password" id="pwd" name="member_pwd" required>
         <label><b>비밀번호 재입력</b></label>
         <input class="w3-input w3-border w3-margin-bottom" style="width:90%" type="password" placeholder="Enter Password" name="member_pwd2" required>
         <label><b>닉네임 입력</b></label>
-        <input class="w3-input w3-border w3-margin-bottom" style="width:90%" type="text" placeholder="Enter Nickname" name="member_name" required>
+        <input class="w3-input w3-border w3-margin-bottom" style="width:90%" type="text" placeholder="Enter Nickname" id="name" name="member_name" required>
         <%--
         <input class="w3-btn-block w3-amber w3-section w3-padding" type="button" name="confirm_email" value="인증 메일 보내기" OnClick="sendMail(this.form)"/>
         
