@@ -95,7 +95,7 @@
       <li style="width:15%"><a href="Viewer?hc_id=<%=event.getHc_id()%>" class="w3-black w3-hover-amber">이동</a></li>
       <!-- 편집 -->
 	  <li style="width:15%">
-	  	<input class="w3-btn w3-white" style="hover:rgb(255, 204, 190)" type="submit" value="편집">
+	  	<input class="w3-btn w3-white w3-hover-cyan"type="submit" value="편집">
 	  </li> 
    </ul>
    </form>
