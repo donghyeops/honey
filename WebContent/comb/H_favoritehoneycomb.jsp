@@ -38,13 +38,11 @@
 
 <!-- 벌꿀표시 -->
 <div class="w3-container w3-padding-16 w3-light-grey">
-    <ul class="w3-navbar w3-center">
-    <li class="w3-amber w3-padding-8" style="width:18%">꿀통 아이디</li>
-    <li class="w3-white w3-padding-8" style="width:31%">꿀통 제목</li>
-    <li class="w3-black w3-padding-8" style="width:8%">링크</li>
-    <li class="w3-white w3-padding-8" style="width:23%">편집</li>
-    <li class="w3-amber w3-padding-8" style="width:8%">달아요</li>
-    <li class="w3-brown w3-padding-8" style="width:8%">써요</li>
+    <ul class="w3-navbar w3-center w3-margin">
+    <li class="w3-amber w3-padding-8" style="width:20%">꿀통 아이디</li>
+    <li class="w3-white w3-padding-8" style="width:50%">꿀통 제목</li>
+    <li class="w3-black w3-padding-8" style="width:15%">링크</li>
+    <li class="w3-blue w3-padding-8" style="width:15%">편집</li>
     </ul>
     
 			<!-- //리스트 길이만큼 반복-->
@@ -73,36 +71,23 @@
 		for(int i=view_p; i<(view_p+rutin); i++) {
 				HoneyBean event =(HoneyBean)fvhoney.get(i);
 		%>
-		<ul class="w3-navbar w3-center w3-margin">
-      <!-- 꿀통 아이디-->
-      <li class="w3-amber w3-padding-8" style="width:18%"><%=event.getHc_id() %></li>
-      <!-- 꿀통 제목 -->
-      <li class="w3-white w3-padding-8" style="width:31%"><%=event.getHc_title() %></li>
-      <!-- 링크 -->
-      <li class="w3-black w3-padding-8" style="width:8%"><a href="Viewer?hc_id=<%=event.getHc_id()%>">가자!</a></li>
-      <!-- 편집 -->
-      <li class="w3-white w3-padding-8" style="width:23%">
-      <form  method="post" action="/honey/Editor">
-		<input type="hidden" name="type" value="edit">
-		<input type="hidden" name="hc_id" value=<%=event.getHc_id()%>>
-		<input type="hidden" name="input_pwd" value="<%=event.getHc_pwd() %>">
-		<input type="submit" value="편집">
-	  </form>
-	  </li>
-      <!-- 달아요 -->
-      <li class="w3-amber w3-padding-8 w3-hide-small" style="width:8%"> 
-      	<a href="HoneyControl?from=ranking&action=updateGood&list_n=<%= event.getList_n() %>&good=<%= event.getList_good() %>" >
-        	<%=event.getList_good() %>
-      	</a>
-      </li>
-      
-      <!-- 써요 -->
-      <li class="w3-amber w3-padding-8 w3-hide-small" style="width:8%">
-      <a href="HoneyControl?from=ranking&action=updateBad&list_n=<%= event.getList_n() %>&bad=<%= event.getList_bad() %>" >
-      		<%=event.getList_bad() %>
-      </a>
-      </li>
-   </ul>
+		<form  method="post" action="/honey/Editor">
+   			<input type="hidden" name="type" value="edit">
+   			<input type="hidden" name="hc_id" value=<%=event.getHc_id()%>>
+   			<input type="hidden" name="input_pwd" value="<%=event.getHc_pwd() %>">
+   			<ul class="w3-navbar w3-center w3-margin">
+      		<!-- 꿀통 아이디-->
+      		<li class="w3-amber w3-padding-8" style="width:20%"><%=event.getHc_id() %></li>
+      		<!-- 꿀통 제목 -->
+      		<li class="w3-white w3-padding-8" style="width:50%"><%=event.getHc_title() %></li>
+      		<!-- 링크 -->
+      		<li style="width:15%"><a href="Viewer?hc_id=<%=event.getHc_id()%>" class="w3-black w3-hover-amber">이동</a></li>
+      		<!-- 편집 -->
+	  		<li style="width:15%">
+	  			<input class="w3-btn w3-blue w3-hover-indigo"type="submit" value="편집">
+	 		</li> 
+   			</ul>
+   		</form>
 		<%} %> 
 	<%int remain_a=10;;%>
 	<%int view_a=(((page_n-1)/10)*10+1);%>
