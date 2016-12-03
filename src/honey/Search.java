@@ -1,7 +1,8 @@
-ï»¿package honey;
+package honey;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.regex.Pattern;
 
 import javax.servlet.RequestDispatcher;
@@ -18,100 +19,68 @@ import javax.servlet.http.HttpSession;
 @WebServlet("/Search")
 public class Search extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
-    /**
-     * @see HttpServlet#HttpServlet()
-     */
-    public Search() {
-        super();
-        // TODO Auto-generated constructor stub
-    }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#HttpServlet()
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String src="./comb";
-		
-		HoneyDAO dao = new DBHoneyDAO();
-		String address = null;
-		request.setCharacterEncoding("utf-8");
-		HttpSession session = request.getSession();	
-		
-		//ê²€ìƒ‰ì„ ì‹¤í–‰
-		if(request.getParameter("search")==null){
-			address=src+"/fail_contents.jsp";
-		}else{
-		
-			String search = request.getParameter("search");//ë¬¸ì
-		if(Pattern.matches("^[0-9]+$", search)){
-			int search_int= Integer.parseInt(search);//ìˆ«ìë¡œ 
-			System.out.println("ê²€ìƒ‰í• ê²ƒë“¤ ë¬¸ì"+search);
-			System.out.println("ê²€ìƒ‰í• ê²ƒë“¤ ìˆ«ì"+search_int);
-			
-			
-			//ê¿€í†µ ì•„ì´ë””
-			Mgr_bean HC_id=dao.getHC(search_int);		//ë™ í•´ë‹¹hc_idë²Œì§‘ ë¦¬í„´
-			
-			
-			//ê¿€í†µ ì œëª©
-			 ArrayList<HoneyBean> HC_title = dao.getHoneytitle(search);
-				
-				//ê²Œì‹œê¸€ì œëª©
-				 ArrayList<HoneyBean> LIST_title=dao.getListtitle(search);			//ê²Œì‹œíŒ ì œëª© ê²€ìƒ‰
-					
-				//ê²Œì‹œê¸€ë‚´ìš©
-				ArrayList<HoneyBean> LIST_contents=dao.getListcontents(search);			//ê²Œì‹œíŒ ë‚´ìš© ê²€ìƒ‰
-				
-				
-				request.setAttribute("HC_id", HC_id);
-				request.setAttribute("HC_title", HC_title);
-				request.setAttribute("LIST_title", LIST_title);
-				request.setAttribute("LIST_contents", LIST_contents);
-			
-			address=src+"/H_search_result.jsp";
-			//ìˆ«ìì„
-		}else{
-			//ìˆ«ìì•„ë‹˜		
-			System.out.println("ê²€ìƒ‰í• ê²ƒë“¤ "+search);
-			
-			
-			
-			
-			//ê¿€í†µ ì œëª©
-			 ArrayList<HoneyBean> HC_title = dao.getHoneytitle(search);
-			
-			//ê²Œì‹œê¸€ì œëª©
-			 ArrayList<HoneyBean> LIST_title=dao.getListtitle(search);			//ê²Œì‹œíŒ ì œëª© ê²€ìƒ‰
-				
-			//ê²Œì‹œê¸€ë‚´ìš©
-			ArrayList<HoneyBean> LIST_contents=dao.getListcontents(search);			//ê²Œì‹œíŒ ë‚´ìš© ê²€ìƒ‰
-			
-			
-			
-			request.setAttribute("HC_title", HC_title);
-			request.setAttribute("LIST_title", LIST_title);
-			request.setAttribute("LIST_contents", LIST_contents);
-			
-			
-			address=src+"/H_search_result.jsp";
-			
-			
-			
-		}
-	
-		
-		}
-		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
-		dispatcher.forward(request,response);
+	public Search() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
 	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
+	 *      response)
 	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		String src = "./comb";
+
+		HoneyDAO dao = new DBHoneyDAO();
+		String address = null;
+		request.setCharacterEncoding("utf-8");
+		
+		ArrayList<HoneyBean> eventlist = null;
+		String search = request.getParameter("search");
+		HashMap<Integer, HoneyBean> hashList = new HashMap<Integer, HoneyBean>();
+		// °Ë»öÀ» ½ÇÇà
+		if (search == null) {
+			address = src + "/fail_contents.jsp";
+		} else {
+			eventlist = dao.getHoneyVideo();	// ¸ğµç °Ô½Ã±Û ºÎ¸£±â
+			String content = null, title = null, member = null;
+			
+			// ¸¸Á·ÇÏ´Â °Ô½Ã±ÛµéÀ» Áßº¹ Á¦°ÅÇÏ±â À§ÇØ hashList¿¡ Ãß°¡
+			for (HoneyBean e : eventlist) {
+				content = e.getList_contents();
+				title = e.getList_title();
+				member = e.getMember_name();
+				if ((content != null && content.contains(search)) || (title != null && title.contains(search)) || 
+						(member != null && member.contains(search))) {
+					hashList.put(e.getList_n(), e);
+				}
+			}
+			
+			// °Ë»ö °á°úµé Áı°è
+			eventlist.clear();
+			eventlist.addAll(hashList.values());
+			
+			request.setAttribute("eventlist", eventlist); // °Ë»ö °á°ú µî·Ï
+			address = src + "/H_search_result.jsp";
+		}
+		
+		
+
+	RequestDispatcher dispatcher = request.getRequestDispatcher(address);dispatcher.forward(request,response);
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
+	 *      response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
