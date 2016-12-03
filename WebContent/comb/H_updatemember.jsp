@@ -56,7 +56,7 @@
     </li>
   </ul>
   <input type="hidden" name="action" value="updatemember">
-  <input class="w3-btn w3-round-jumbo w3-green w3-margin" style="width:80%" type="submit" value="변경하기">
+  <center><input class="w3-btn w3-round-jumbo w3-green w3-margin" style="width:90%" type="submit" value="변경하기"></center>
   </form>
 </div>
 		<%if(session.getAttribute("member_id")==null){ %>
