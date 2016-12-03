@@ -1,4 +1,4 @@
-package honey;
+ï»¿package honey;
 
 import java.util.Properties;
 import javax.mail.Authenticator;
@@ -19,9 +19,9 @@ public class SMTPMail {
 	private String fromAdress = "sjb378@naver.com";
 	private String fromPassword = "qwerqwer";
 	private Session session = null;
-	private int joinNumber = 0;	// È¸¿ø°¡ÀÔ Áß ÀÌ¸ŞÀÏ ÀÎÁõ ½Ã »ı¼ºµÇ´Â ·£´ı ¼ö
+	private int joinNumber = 0;	// íšŒì›ê°€ì… ì¤‘ ì´ë©”ì¼ ì¸ì¦ ì‹œ ìƒì„±ë˜ëŠ” ëœë¤ ìˆ˜
 	
-	// ½Ì±ÛÅæ ±¸Çö
+	// ì‹±ê¸€í†¤ êµ¬í˜„
 	public static SMTPMail getInstance() {
 		if (smtpMail == null) {
 			smtpMail = new SMTPMail();
@@ -29,9 +29,9 @@ public class SMTPMail {
 		return smtpMail;
 	}
 	
-	// »ı¼ºÀÚ¿¡¼­ ÃÊ±â ¼³Á¤ÇØÁÜ
+	// ìƒì„±ìì—ì„œ ì´ˆê¸° ì„¤ì •í•´ì¤Œ
     private SMTPMail() {
-	    init();	// ÃÊ±â ¼³Á¤
+	    init();	// ì´ˆê¸° ì„¤ì •
     }
     
     private void init() {
@@ -64,10 +64,10 @@ public class SMTPMail {
       Transport.send(message);
     }
     
-	// Å×½ºÆ®¿ë
+	// í…ŒìŠ¤íŠ¸ìš©
     public boolean sendHi() {
     	try {
-			sendMail("ksw9446@naver.com", "sendHI", "ÇÏÀÌ");
+			sendMail("ksw9446@naver.com", "sendHI", "í•˜ì´");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -77,13 +77,13 @@ public class SMTPMail {
     }
     
     
-    // È¸¿ø°¡ÀÔ ¸ŞÀÏ È®ÀÎ ¼ıÀÚ¸¦ »ı¼ºÇÏ°í ¸ŞÀÏ·Î º¸³¿.
+    // íšŒì›ê°€ì… ë©”ì¼ í™•ì¸ ìˆ«ìë¥¼ ìƒì„±í•˜ê³  ë©”ì¼ë¡œ ë³´ëƒ„.
     public boolean sendJoinNumber(String toAddress) {
     	joinNumber = (int)(Math.random()*10000);
     	
     	try {
     		System.out.println(toAddress);
-			sendMail(toAddress, "È¸¿ø°¡ÀÔ È®ÀÎ", "È¸¿ø°¡ÀÔ È®ÀÎ ¼ıÀÚ : " + joinNumber);
+			sendMail(toAddress, "íšŒì›ê°€ì… í™•ì¸", "íšŒì›ê°€ì… í™•ì¸ ìˆ«ì : " + joinNumber);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -92,7 +92,7 @@ public class SMTPMail {
     	return true;
     }
     
-    // ÀÔ·ÂÇÑ ¼ıÀÚ¿Í ¸ŞÀÏ È®ÀÎ ¼ıÀÚ°¡ °°ÀºÁö È®ÀÎ
+    // ì…ë ¥í•œ ìˆ«ìì™€ ë©”ì¼ í™•ì¸ ìˆ«ìê°€ ê°™ì€ì§€ í™•ì¸
     public boolean checkJoinNumber(int inputNumber) {
     	return joinNumber == inputNumber;
     }

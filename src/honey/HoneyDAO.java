@@ -1,4 +1,4 @@
-package honey;
+ï»¿package honey;
 
 import java.util.ArrayList;
 
@@ -7,55 +7,55 @@ public interface HoneyDAO {
 
 
 	
-	//È¸¿øÁ¤º¸
-	public void addMember(HoneyBean event);								//¸â¹öÃß°¡ È¸¿ø°¡ÀÔ
-	public void updateMember(HoneyBean event);							//È¸¿øÁ¤º¸ º¯°æ
+	//íšŒì›ì •ë³´
+	public void addMember(HoneyBean event);								//ë©¤ë²„ì¶”ê°€ íšŒì›ê°€ì…
+	public void updateMember(HoneyBean event);							//íšŒì›ì •ë³´ ë³€ê²½
 	
-	public HoneyBean memberCheck(String member_id, String member_pwd);	//·Î±×ÀÎÃ¼Å© 	·Î±×ÀÎ½Ã ¾ÆÀÌµğ¿Í ºñ¹Ğ¹øÈ£ Ã¼Å©
-	public HoneyBean joinCheck(String member_id);						//È¸¿ø°¡ÀÔÃ¼Å©	È¸¿ø°¡ÀÔ½Ã ¾ÆÀÌµğ Áßº¹¿©ºÎ Ã¼Å©
+	public HoneyBean memberCheck(String member_id, String member_pwd);	//ë¡œê·¸ì¸ì²´í¬ 	ë¡œê·¸ì¸ì‹œ ì•„ì´ë””ì™€ ë¹„ë°€ë²ˆí˜¸ ì²´í¬
+	public HoneyBean joinCheck(String member_id);						//íšŒì›ê°€ì…ì²´í¬	íšŒì›ê°€ì…ì‹œ ì•„ì´ë”” ì¤‘ë³µì—¬ë¶€ ì²´í¬
 	
-	//¹ú²ÜÁı
-	public ArrayList<HoneyBean> getHoneytitle(String search);			//¹ú²ÜÁı Á¦¸ñ °Ë»ö
+	//ë²Œê¿€ì§‘
+	public ArrayList<HoneyBean> getHoneytitle(String search);			//ë²Œê¿€ì§‘ ì œëª© ê²€ìƒ‰
 	 
-	public ArrayList<HoneyBean> getMyhoneycomb(String member_id);		//ÀÚ±âÀÇ ¹ú²ÜÁı ¸®½ºÆ®
-	public ArrayList<HoneyBean> getFvhoneycomb(String member_id);		//Âï¾î³õÀº ¹ú²ÜÁı ¸®½ºÆ®
-	public boolean isGoodHC_ID(int newId);								//µ¿ hc¾ÆÀÌµğ Áßº¹ Ã¼Å©
-	public boolean checkFvhoneycomb(HoneyBean fv);						//Âï¾ú´ÂÁö È®ÀÎÇÏ±â
-	public Mgr_bean getHC(int hc_id);									//µ¿ ÇØ´çhc_id¹úÁı ¸®ÅÏ
-	public String getHcpwd(int hc_id);									//ÇØ´çhc_idÀÇ pwd¸¸ °¡Á®¿Â´Ù
-	public void addFvhoneycomb(HoneyBean fvhoney);						//ÂïÀº¹ú²ÜÅë Ãß°¡ÇÏ±â
-	public void addHC(Mgr_bean bean);									//µ¿ db¿¡ ¹úÁı »ı¼º
-	public void removeHC(int hc_id);									//¹ú²ÜÁı »èÁ¦
+	public ArrayList<HoneyBean> getMyhoneycomb(String member_id);		//ìê¸°ì˜ ë²Œê¿€ì§‘ ë¦¬ìŠ¤íŠ¸
+	public ArrayList<HoneyBean> getFvhoneycomb(String member_id);		//ì°ì–´ë†“ì€ ë²Œê¿€ì§‘ ë¦¬ìŠ¤íŠ¸
+	public boolean isGoodHC_ID(int newId);								//ë™ hcì•„ì´ë”” ì¤‘ë³µ ì²´í¬
+	public boolean checkFvhoneycomb(HoneyBean fv);						//ì°ì—ˆëŠ”ì§€ í™•ì¸í•˜ê¸°
+	public Mgr_bean getHC(int hc_id);									//ë™ í•´ë‹¹hc_idë²Œì§‘ ë¦¬í„´
+	public String getHcpwd(int hc_id);									//í•´ë‹¹hc_idì˜ pwdë§Œ ê°€ì ¸ì˜¨ë‹¤
+	public void addFvhoneycomb(HoneyBean fvhoney);						//ì°ì€ë²Œê¿€í†µ ì¶”ê°€í•˜ê¸°
+	public void addHC(Mgr_bean bean);									//ë™ dbì— ë²Œì§‘ ìƒì„±
+	public void removeHC(int hc_id);									//ë²Œê¿€ì§‘ ì‚­ì œ
 	
 	
-	//°Ô½ÃÆÇ
-	public ArrayList<HoneyBean> getListtitle(String search);			//°Ô½ÃÆÇ Á¦¸ñ °Ë»ö
-	public ArrayList<HoneyBean> getListcontents(String search);			//°Ô½ÃÆÇ ³»¿ë °Ë»ö
+	//ê²Œì‹œíŒ
+	public ArrayList<HoneyBean> getListtitle(String search);			//ê²Œì‹œíŒ ì œëª© ê²€ìƒ‰
+	public ArrayList<HoneyBean> getListcontents(String search);			//ê²Œì‹œíŒ ë‚´ìš© ê²€ìƒ‰
 	
-	public ArrayList<HoneyBean> getHoneyVideo();						//ÁÖ ÃÖ½Åºñµğ¿À
-	public ArrayList<HoneyBean> getHoneyRanking();						//ÁÖ ·©Å· 
-	public ArrayList<HoneyBean> getMylist(String member_id);			//ÀÚ±âÀÇ °Ô½Ã±Û ¸®½ºÆ®
+	public ArrayList<HoneyBean> getHoneyVideo();						//ì£¼ ìµœì‹ ë¹„ë””ì˜¤
+	public ArrayList<HoneyBean> getHoneyRanking();						//ì£¼ ë­í‚¹ 
+	public ArrayList<HoneyBean> getMylist(String member_id);			//ìê¸°ì˜ ê²Œì‹œê¸€ ë¦¬ìŠ¤íŠ¸
 	
-	public void addList(HoneyBean event); 								//ÁÖ  ¸®½ºÆ® ¾÷·Îµå¿ë
-	public void removeList(int list_n);									//ÇØ´ç °Ô½ÃÆÇ »èÁ¦
-	public void updateList(HoneyBean event);							//ÇØ´ç °Ô½ÃÆÇ ¼öÁ¤
+	public void addList(HoneyBean event); 								//ì£¼  ë¦¬ìŠ¤íŠ¸ ì—…ë¡œë“œìš©
+	public void removeList(int list_n);									//í•´ë‹¹ ê²Œì‹œíŒ ì‚­ì œ
+	public void updateList(HoneyBean event);							//í•´ë‹¹ ê²Œì‹œíŒ ìˆ˜ì •
 	
-	public HoneyBean getList(int list_n);								//ÇØ´ç ¸®½ºÆ®ÀÇ ³»¿ë¹°À» °®´Â¿ë
-	public String getListMemberid(int list_n);							//°Ô½ÃÆÇÀÇ ¸â¹ö¾ÆÀÌµğ¸¦ ¾ò´Â Äõ¸®
+	public HoneyBean getList(int list_n);								//í•´ë‹¹ ë¦¬ìŠ¤íŠ¸ì˜ ë‚´ìš©ë¬¼ì„ ê°–ëŠ”ìš©
+	public String getListMemberid(int list_n);							//ê²Œì‹œíŒì˜ ë©¤ë²„ì•„ì´ë””ë¥¼ ì–»ëŠ” ì¿¼ë¦¬
 	
 	
 	
-	//ÁÁ¾Æ¿ä½È¾î¿ä Æò°¡
-	public void updateGood(int list_n, int list_good);					//ÁÖ ´Ş¾Æ¿ä Á¡¼ö Áõ°¡ ¾÷µ¥ÀÌÆ®¿ë
-	public void updateBad(int list_n, int list_bad);					//ÁÖ ½á¿ä Á¡¼ö Áõ°¡ ¾÷µ¥ÀÌÆ®¿ë
-	public void updategoodbad(String member_id,int list_n);				//´©°¡ ÁÁ¾Æ¿ä´©¸¥Áö È®ÀÎ¿ë µğºñ
-	public String checkgoodbad(String member_id,int list_n);			//ÁÁ¾Æ¿ä½È¾î¿ä Áßº¹ Ã¼Å©
+	//ì¢‹ì•„ìš”ì‹«ì–´ìš” í‰ê°€
+	public void updateGood(int list_n, int list_good);					//ì£¼ ë‹¬ì•„ìš” ì ìˆ˜ ì¦ê°€ ì—…ë°ì´íŠ¸ìš©
+	public void updateBad(int list_n, int list_bad);					//ì£¼ ì¨ìš” ì ìˆ˜ ì¦ê°€ ì—…ë°ì´íŠ¸ìš©
+	public void updategoodbad(String member_id,int list_n);				//ëˆ„ê°€ ì¢‹ì•„ìš”ëˆ„ë¥¸ì§€ í™•ì¸ìš© ë””ë¹„
+	public String checkgoodbad(String member_id,int list_n);			//ì¢‹ì•„ìš”ì‹«ì–´ìš” ì¤‘ë³µ ì²´í¬
 	
-	//´ñ±Û
-	public ArrayList<HoneyBean> getComment(int list_n);					//´ñ±Û ºÒ·¯¿À±â
-	public void addComment(HoneyBean comment);							//´ñ±Û ÀÔ·Â
-	public void updateComment(HoneyBean comment);						//´ñ±Û ¼öÁ¤
-	public void deleteComment(int comment_n);							//´ñ±Û »èÁ¦
+	//ëŒ“ê¸€
+	public ArrayList<HoneyBean> getComment(int list_n);					//ëŒ“ê¸€ ë¶ˆëŸ¬ì˜¤ê¸°
+	public void addComment(HoneyBean comment);							//ëŒ“ê¸€ ì…ë ¥
+	public void updateComment(HoneyBean comment);						//ëŒ“ê¸€ ìˆ˜ì •
+	public void deleteComment(int comment_n);							//ëŒ“ê¸€ ì‚­ì œ
 
 	
 	

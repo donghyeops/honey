@@ -1,4 +1,4 @@
-package honey;
+﻿package honey;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -55,14 +55,15 @@ public class Creator extends HttpServlet {
 		
 		String address = null;
 		String src="./comb";
-		String mode=request.getParameter("mode");
+		String mode=(String)session.getAttribute("mode");
 		String type=request.getParameter("type");
 		
-		
+		/*
 		// edit 모드면 리퀘스트에 edit등록
 		if (mode.equals("edit")) {
-			request.setAttribute("mode", "edit");	// 리퀘스트에 edit 등록
+			session.setAttribute("mode", "edit");	// 리퀘스트에 edit 등록
 		}
+		*/
 		
 		// URL 추가 버튼을 눌렀을때 (mgr_bean에만 추가 db연동x)
 		if (type.equals("addUrl")) {
@@ -78,20 +79,19 @@ public class Creator extends HttpServlet {
 			 b = a.getURLs();
 			 s= b.size();
 			 System.out.println("이게 추가한후"+s);
+			 
+			 // 결과 링크 제거
+			 session.removeAttribute("result");
 			// forward
 			 address = src+"/manager/createHC.jsp";
 
 		}
 		// URL 제거버튼 눌렀을때 (Mgr_bean에만 추가 db연동x)
 		else if (type.equals("delUrl")) {
-			
-			
-																		
-			
 			Mgr_bean a = (Mgr_bean)session.getAttribute("HC");
 			ArrayList b = a.getURLs();
 			int s= b.size();
-			System.out.println("이게 삭제전"+s);
+			System.out.println("이게 삭제 전"+s);
 			
 			HC.delURL(Integer.parseInt(request.getParameter("index"))); // 해당// URL// 제거
 			session.setAttribute("HC", HC);
@@ -99,7 +99,7 @@ public class Creator extends HttpServlet {
 			a = (Mgr_bean)session.getAttribute("HC");
 			 b = a.getURLs();
 			 s= b.size();
-			 System.out.println("이게 삭 제한후"+s);
+			 System.out.println("이게 삭제한 후"+s);
 			
 			// forward
 			 address = src+"/manager/createHC.jsp";
@@ -132,23 +132,16 @@ public class Creator extends HttpServlet {
 				System.out.println("지웠다");
 			}
 			
-			
-			
-			
 			insertToDB(HC, DB);	// 현자 hc로 db에 벌집 생성
 			
 			// 결과 주소 출력
 			String result = "http://hcvideo.mooo.com:8081/honey/Viewer?hc_id="+HC.getHc_id();
 			
-			
-			
-			
 			address = src+"/manager/createHC.jsp";
 			session.removeAttribute("HC");
-			request.setAttribute("result", result);//??어디다 씀이거 뭐야  어디다 보내는거야
+			//request.setAttribute("result", result);//??어디다 씀이거 뭐야  어디다 보내는거야
+			session.setAttribute("result", result);
 			
-			
-
 			// session.setAttribute("HC", HC);
 			// String address = "manager/viewHC.jsp";
 			// RequestDispatcher dispatcher =
@@ -157,8 +150,9 @@ public class Creator extends HttpServlet {
 		}
 		
 		
-		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
-		dispatcher.forward(request, response);
+//		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
+//		dispatcher.forward(request, response);
+		response.sendRedirect(address);
 	}
 
 	// 추가할 준비가 다 되어있는지 체크

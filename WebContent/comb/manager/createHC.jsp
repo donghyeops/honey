@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="honey.Mgr_bean" import="java.util.ArrayList" import="honey.SMTPMail"%>
+    pageEncoding="UTF-8" import="honey.Mgr_bean" import="java.util.ArrayList"%>
 <jsp:useBean id="HC" class="honey.Mgr_bean" scope="session"></jsp:useBean>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -15,11 +15,13 @@
 <body>
 
 
-
 	
 	
 <%
-	String mode = (String)request.getAttribute("mode");
+	if (HC.getHc_id() == 0) {
+		session.setAttribute("mode", "create");
+	}
+	String mode = (String)session.getAttribute("mode");
 	if (mode == null || !mode.equals("edit")) {
 		mode = "create";
 	}
@@ -33,15 +35,16 @@
 <!-- 제작 -->
 <% if (!mode.equals("edit")) { %>
 	<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px" >생성</div>
-	<input type="button" class="w3-btn w3-text-black w3-hover-orange" style="background:rgba( 255, 255, 255, 0 )" value="꿀통 만들기" onclick="document.getElementById('HC_CREATE').style.display='block'">
+	<input type="button" class="w3-btn w3-text-black w3-hover-orange" style="background:rgba( 255, 179, 35, 100 )" value="꿀통 만들기" onclick="document.getElementById('HC_CREATE').style.display='block'">
 <% } else {%>
 <div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px" >수정</div>
-	<input type="button" class="w3-btn w3-text-black w3-hover-orange" style="background:rgba( 255, 255, 255, 0 )" value="꿀통 다듬기" onclick="document.getElementById('HC_CREATE').style.display='block'">
+	<input type="button" class="w3-btn w3-text-black w3-hover-orange" style="background:rgba( 255, 179, 35, 100 )" value="꿀통 다듬기" onclick="document.getElementById('HC_CREATE').style.display='block'">
 <%} %>
 <div>
 	<%
-		Object result = request.getAttribute("result");
-		if (request.getAttribute("result") != null) { %>
+		Object result = session.getAttribute("result");
+		if (result != null) { %>
+		<br>
 	<fieldset>
 		<legend>결과 주소</legend>
 		<textarea readonly name="result" rows="2" cols="100" onclick="this.select()"><%= (String)result %></textarea>
@@ -66,6 +69,8 @@
 <div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px" >미리보기</div>
 <!-- 표시 -->
 <div style="overflow:scroll;margin:0px 0px 0px 50px;height:400px">
+
+
 <table border=1>
 		<%
 		int i=0;

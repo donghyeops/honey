@@ -1,4 +1,4 @@
-package honey;
+﻿package honey;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

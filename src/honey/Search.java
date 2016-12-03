@@ -1,4 +1,4 @@
-package honey;
+ï»¿package honey;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -39,30 +39,30 @@ public class Search extends HttpServlet {
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();	
 		
-		//°Ë»öÀ» ½ÇÇà
+		//ê²€ìƒ‰ì„ ì‹¤í–‰
 		if(request.getParameter("search")==null){
 			address=src+"/fail_contents.jsp";
 		}else{
 		
-			String search = request.getParameter("search");//¹®ÀÚ
+			String search = request.getParameter("search");//ë¬¸ì
 		if(Pattern.matches("^[0-9]+$", search)){
-			int search_int= Integer.parseInt(search);//¼ıÀÚ·Î 
-			System.out.println("°Ë»öÇÒ°Íµé ¹®ÀÚ"+search);
-			System.out.println("°Ë»öÇÒ°Íµé ¼ıÀÚ"+search_int);
+			int search_int= Integer.parseInt(search);//ìˆ«ìë¡œ 
+			System.out.println("ê²€ìƒ‰í• ê²ƒë“¤ ë¬¸ì"+search);
+			System.out.println("ê²€ìƒ‰í• ê²ƒë“¤ ìˆ«ì"+search_int);
 			
 			
-			//²ÜÅë ¾ÆÀÌµğ
-			Mgr_bean HC_id=dao.getHC(search_int);		//µ¿ ÇØ´çhc_id¹úÁı ¸®ÅÏ
+			//ê¿€í†µ ì•„ì´ë””
+			Mgr_bean HC_id=dao.getHC(search_int);		//ë™ í•´ë‹¹hc_idë²Œì§‘ ë¦¬í„´
 			
 			
-			//²ÜÅë Á¦¸ñ
+			//ê¿€í†µ ì œëª©
 			 ArrayList<HoneyBean> HC_title = dao.getHoneytitle(search);
 				
-				//°Ô½Ã±ÛÁ¦¸ñ
-				 ArrayList<HoneyBean> LIST_title=dao.getListtitle(search);			//°Ô½ÃÆÇ Á¦¸ñ °Ë»ö
+				//ê²Œì‹œê¸€ì œëª©
+				 ArrayList<HoneyBean> LIST_title=dao.getListtitle(search);			//ê²Œì‹œíŒ ì œëª© ê²€ìƒ‰
 					
-				//°Ô½Ã±Û³»¿ë
-				ArrayList<HoneyBean> LIST_contents=dao.getListcontents(search);			//°Ô½ÃÆÇ ³»¿ë °Ë»ö
+				//ê²Œì‹œê¸€ë‚´ìš©
+				ArrayList<HoneyBean> LIST_contents=dao.getListcontents(search);			//ê²Œì‹œíŒ ë‚´ìš© ê²€ìƒ‰
 				
 				
 				request.setAttribute("HC_id", HC_id);
@@ -71,22 +71,22 @@ public class Search extends HttpServlet {
 				request.setAttribute("LIST_contents", LIST_contents);
 			
 			address=src+"/H_search_result.jsp";
-			//¼ıÀÚÀÓ
+			//ìˆ«ìì„
 		}else{
-			//¼ıÀÚ¾Æ´Ô		
-			System.out.println("°Ë»öÇÒ°Íµé "+search);
+			//ìˆ«ìì•„ë‹˜		
+			System.out.println("ê²€ìƒ‰í• ê²ƒë“¤ "+search);
 			
 			
 			
 			
-			//²ÜÅë Á¦¸ñ
+			//ê¿€í†µ ì œëª©
 			 ArrayList<HoneyBean> HC_title = dao.getHoneytitle(search);
 			
-			//°Ô½Ã±ÛÁ¦¸ñ
-			 ArrayList<HoneyBean> LIST_title=dao.getListtitle(search);			//°Ô½ÃÆÇ Á¦¸ñ °Ë»ö
+			//ê²Œì‹œê¸€ì œëª©
+			 ArrayList<HoneyBean> LIST_title=dao.getListtitle(search);			//ê²Œì‹œíŒ ì œëª© ê²€ìƒ‰
 				
-			//°Ô½Ã±Û³»¿ë
-			ArrayList<HoneyBean> LIST_contents=dao.getListcontents(search);			//°Ô½ÃÆÇ ³»¿ë °Ë»ö
+			//ê²Œì‹œê¸€ë‚´ìš©
+			ArrayList<HoneyBean> LIST_contents=dao.getListcontents(search);			//ê²Œì‹œíŒ ë‚´ìš© ê²€ìƒ‰
 			
 			
 			

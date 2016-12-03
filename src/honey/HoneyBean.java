@@ -1,42 +1,42 @@
-package honey;
+ï»¿package honey;
 
 import java.util.ArrayList;
 
 public class HoneyBean {
-	//°èÁ¤
-	private int member_n;//¸â¹ö ¹øÈ£
-	private String member_id;//¸â¹ö ¾ÆÀÌµğ
+	//ê³„ì •
+	private int member_n;//ë©¤ë²„ ë²ˆí˜¸
+	private String member_id;//ë©¤ë²„ ì•„ì´ë””
 	private String member_pwd;
 	private String member_name;
 	
-	//²ÜÁı
-	private int hc_id;//²ÜÁı ¾ÆÀÌµğ - °¢ ²ÜÁıÀÇ ¹øÈ£
-	private String hc_pwd;//²ÜÁı ºñ¹Ğ¹øÈ£- ²ÜÁı ÀÛ¼º½Ã ¾²´Â ºñ¹ø ·Î±×ÀÎ½Ã ¸â¹ö ºñ¹Ğ¹øÈ£·Î ÀÛ¼º
-	private String hc_title;//²ÜÁı Á¦¸ñ
+	//ê¿€ì§‘
+	private int hc_id;//ê¿€ì§‘ ì•„ì´ë”” - ê° ê¿€ì§‘ì˜ ë²ˆí˜¸
+	private String hc_pwd;//ê¿€ì§‘ ë¹„ë°€ë²ˆí˜¸- ê¿€ì§‘ ì‘ì„±ì‹œ ì“°ëŠ” ë¹„ë²ˆ ë¡œê·¸ì¸ì‹œ ë©¤ë²„ ë¹„ë°€ë²ˆí˜¸ë¡œ ì‘ì„±
+	private String hc_title;//ê¿€ì§‘ ì œëª©
 	//private String member_id;
 	
-	//ºñµğ¿À
-	private int video_id;//°¢ ºñµğ¿À ¾ÆÀÌµğ 
-	private String video_url;//ºñµğ¿ÀÀÇ ÅÂ±× url
+	//ë¹„ë””ì˜¤
+	private int video_id;//ê° ë¹„ë””ì˜¤ ì•„ì´ë”” 
+	private String video_url;//ë¹„ë””ì˜¤ì˜ íƒœê·¸ url
 	//private int hc_id;
 	
-	//°Ô½ÃÆÇ
-	private int list_n;//°Ô½ÃÆÇ ¹øÈ£
-	private String list_title;//°Ô½ÃÆÇ Á¦¸ñ
-	private String list_contents;//°Ô½ÃÆÇ ³»¿ë
-	private String list_time;//°Ô½ÃÆÇ ½Ã°£
-	private int list_good;//´Ş´Ù
-	private int list_bad;//¾²´Ù
+	//ê²Œì‹œíŒ
+	private int list_n;//ê²Œì‹œíŒ ë²ˆí˜¸
+	private String list_title;//ê²Œì‹œíŒ ì œëª©
+	private String list_contents;//ê²Œì‹œíŒ ë‚´ìš©
+	private String list_time;//ê²Œì‹œíŒ ì‹œê°„
+	private int list_good;//ë‹¬ë‹¤
+	private int list_bad;//ì“°ë‹¤
 	//private int hc_id;
 	////private String member_id;
 	
-	//´ñ±Û
-	private int comment_n;				//´ñ±Û ÇÏ³ªÇÏ³ªÀÇ ¹øÈ£
-	private String comment_contents;	//´ñ±Û ³»¿ë
-	private String comment_time;		//´ñ±Û ½Ã°£
+	//ëŒ“ê¸€
+	private int comment_n;				//ëŒ“ê¸€ í•˜ë‚˜í•˜ë‚˜ì˜ ë²ˆí˜¸
+	private String comment_contents;	//ëŒ“ê¸€ ë‚´ìš©
+	private String comment_time;		//ëŒ“ê¸€ ì‹œê°„
 	//list_n
 	//member_id
-	//´ñ±Û Ç¥½Ã¸¦ À§ÇÑ ¹è¿­µé
+	//ëŒ“ê¸€ í‘œì‹œë¥¼ ìœ„í•œ ë°°ì—´ë“¤
 
 	
 	public String getComment_time() {

@@ -1,4 +1,4 @@
-package honey;
+﻿package honey;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -84,11 +84,12 @@ public class Editor extends HttpServlet {
 		
 		HttpSession session = request.getSession();
 		session.setAttribute("HC", HC);	//세션에 Mgr_bean 등록
-		request.setAttribute("mode", "edit");	// 리퀘스트에 edit 등록
+		session.setAttribute("mode", "edit");	// 리퀘스트에 edit 등록
 		// forward
 		String address = src+"/manager/createHC.jsp";
-		RequestDispatcher dispatcher = request.getRequestDispatcher(address);
-		dispatcher.forward(request, response);
+		//RequestDispatcher dispatcher = request.getRequestDispatcher(address);
+		//dispatcher.forward(request, response);
+		response.sendRedirect(address);
 	}
 
 }

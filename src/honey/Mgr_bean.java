@@ -1,13 +1,13 @@
-package honey;
+ï»¿package honey;
 
 import java.util.ArrayList;
 
 public class Mgr_bean {
-	private String member_id = null; //¸â¹ö ¾ÆÀÌµğ (ÀÌ¸§ ¾øÀ½À¸·Î ÃÊ±â ¼³Á¤)
+	private String member_id = null;
 	
-	private int hc_id;
-	private String hc_pwd;//²ÜÁı ºñ¹Ğ¹øÈ£- ²ÜÁı ÀÛ¼º½Ã ¾²´Â ºñ¹ø ·Î±×ÀÎ½Ã ¸â¹ö ºñ¹Ğ¹øÈ£·Î ÀÛ¼º
-	private String hc_title;//²ÜÁı Á¦¸ñ
+	private int hc_id = 0;	// ìƒì„±ëª¨ë“œì¸ì§€, í¸ì§‘ëª¨ë“œì¸ì§€ í™•ì¸í•˜ë ¤ê³  0ìœ¼ë¡œ ì´ˆê¸°í™”í•¨. ë°”ê¾¸ë©´ ì•ˆë¨
+	private String hc_pwd;
+	private String hc_title;
 	private String result = "";
 	
 	private ArrayList<String> URLs = new ArrayList<String>();
