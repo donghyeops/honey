@@ -13,9 +13,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-<div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
+<div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand w3-padding-16" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
   <form method="post" action="/honey/HoneyControl"> 
-  <ul class="w3-navbar w3-center w3-round-xxlarge w3-margin-bottom">
+  <ul class="w3-navbar w3-center w3-round-xxlarge w3-margin">
   	<li style="width:100%">
     	<ul class="w3-navbar w3-center">
     		<li class="w3-pale-yellow" style="width:40%">
