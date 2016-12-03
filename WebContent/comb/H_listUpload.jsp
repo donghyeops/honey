@@ -84,8 +84,8 @@ function checkList2() {
     </div>
 <div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px">내 꿀통 업로드</div>
 	<div class="w3-btn-group" style="width: 900px; margin: 0px 0px 10px 0px">
-		<button class="w3-btn w3-padding w3-amber w3-small w3-round-large" style="width:100px">꿀통 아이디</button>
-		<button class="w3-btn w3-white w3-xlarge w3-round-large w3-text-black" style="width:80%">꿀통 제목</button>
+		<button class="w3-btn w3-padding w3-amber w3-small" style="width:100px">꿀통 아이디</button>
+		<button class="w3-btn w3-white w3-text-black" style="width:80%">꿀통 제목</button>
 	</div>
 	<%
 		int rutin=10;
@@ -113,9 +113,11 @@ function checkList2() {
 		HoneyBean event = (HoneyBean)eventlist.get(i);
 	%>
 	<div class="w3-btn-group" style="width: 900px; margin: 0px 0px 0px 0px">
-		<button class="w3-btn w3-padding w3-amber w3-small w3-round-large" style="width:100px"><%=event.getHc_id()%></button>
-		<button class="w3-btn w3-white w3-xlarge w3-round-large" style="width:80%"><%=event.getHc_title()%></button>
-		<a onclick="document.getElementById('Upload<%=i%>').style.display='block'" class="w3-btn-floating-large w3-amber">+</a>
+		<button class="w3-btn w3-padding w3-amber w3-small" style="width:100px"><%=event.getHc_id()%></button>
+		<a href="Viewer?hc_id=<%=event.getHc_id()%>" target="_blank">
+			<button class="w3-btn w3-white" style="width:80%"><%=event.getHc_title()%></button>
+		</a>
+		<a onclick="document.getElementById('Upload<%=i%>').style.display='block'" class="w3-btn-floating w3-amber">+</a>
 	</div>
 	
 	<div id="Upload<%=i%>" class="w3-modal">
