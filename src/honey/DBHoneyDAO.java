@@ -549,6 +549,23 @@ public class DBHoneyDAO implements HoneyDAO{
 				}
 				return fvhoney;
 			}
+		   public boolean checkFvhoneycomb(HoneyBean fv){					//찍었는지 확인
+				String sql = "select * from hc_favorite,hc where hc.hc_id=hc_favorite.hc_id AND hc_favorite.hc_id='"+fv.getHc_id()+"' AND hc_favorite.member_id='"+ fv.getMember_id() +"'";
+				System.out.println("체크 찍은벌꿀 쿼리문"+sql);
+				boolean check=false;
+				try{
+					connect();
+					ResultSet rs = stmt.executeQuery(sql);
+					if(rs.next()){
+						check=true;
+					}
+					rs.close();
+					disconnect();
+				}catch(Exception e){
+					 System.out.println("찍은 벌꿀통 체크 실패");
+				}
+				return check;
+			}
 		   
 		   //검색을 위한 디비들의 모음입니다.
 		   //꿀통 제목

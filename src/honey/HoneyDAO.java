@@ -20,6 +20,7 @@ public interface HoneyDAO {
 	public ArrayList<HoneyBean> getMyhoneycomb(String member_id);		//자기의 벌꿀집 리스트
 	public ArrayList<HoneyBean> getFvhoneycomb(String member_id);		//찍어놓은 벌꿀집 리스트
 	public boolean isGoodHC_ID(int newId);								//동 hc아이디 중복 체크
+	public boolean checkFvhoneycomb(HoneyBean fv);						//찍었는지 확인하기
 	public Mgr_bean getHC(int hc_id);									//동 해당hc_id벌집 리턴
 	public String getHcpwd(int hc_id);									//해당hc_id의 pwd만 가져온다
 	public void addFvhoneycomb(HoneyBean fvhoney);						//찍은벌꿀통 추가하기

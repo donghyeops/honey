@@ -330,15 +330,20 @@ public class HoneyControl extends HttpServlet {
 				}else if(dao.getHcpwd(hc_id)==null){								//hc_id가 없는경우
 					address=src+"/fail_hcid.jsp";
 			
-				}else{
+				}else{					
 					HoneyBean fvhoney = new HoneyBean();
 					fvhoney.setHc_id(hc_id);
 					fvhoney.setMember_id(member_id);
-					dao.addFvhoneycomb(fvhoney);
+					
+					if(dao.checkFvhoneycomb(fvhoney)){			//해당벌꿀을 즐찾했는지 체크 있으면 true없으면false
+						address=src+"/fail_samefv.jsp";
+					}else{
+						dao.addFvhoneycomb(fvhoney);
 				
-					String ok = "ok";
-					request.setAttribute("fvhcok",ok);					//성공했다고 알림
-					address=from;
+						String ok = "ok";
+						request.setAttribute("fvhcok",ok);					//성공했다고 알림
+						address=from;
+					}
 				}
 			}else{
 				address=src+"/fail_hcid.jsp";
