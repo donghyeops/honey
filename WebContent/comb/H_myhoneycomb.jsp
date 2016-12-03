@@ -91,8 +91,8 @@
       <!-- 링크 -->
       <li class="w3-gray" style="width:15%"><a href="Viewer?hc_id=<%=event.getHc_id()%>">이동</a></li>
       <!-- 편집 -->
-	  <li class="w3-white w3-padding-8" style="width:15%">
-	  	<input class="w3-btn" type="submit" value="편집">
+	  <li style="width:15%">
+	  	<input class="w3-btn w3-white" type="submit" value="편집">
 	  </li> 
    </ul>
    </form>
