@@ -5,7 +5,7 @@
 <jsp:useBean id="commentlist" class="java.util.ArrayList" scope="request"/>
 <html>
 <head>
-<title>허니::최신동영상</title>
+<title>HONEYCOMB</title>
 <link rel="stylesheet" href="/honey/comb/css/HoneyStyle.css">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">

@@ -29,9 +29,15 @@
 
 
 <div class="w3-container w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
-<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px" ><%=mode%>모드</div>
+
 <!-- 제작 -->
-<input type="button" class="w3-btn w3-text-black w3-hover-orange" style="background:rgba( 255, 255, 255, 0 )" value="아이디 생성하기" onclick="document.getElementById('HC_CREATE').style.display='block'">
+<% if (!mode.equals("edit")) { %>
+	<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px" >생성</div>
+	<input type="button" class="w3-btn w3-text-black w3-hover-orange" style="background:rgba( 255, 255, 255, 0 )" value="꿀통 만들기" onclick="document.getElementById('HC_CREATE').style.display='block'">
+<% } else {%>
+<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px" >수정</div>
+	<input type="button" class="w3-btn w3-text-black w3-hover-orange" style="background:rgba( 255, 255, 255, 0 )" value="꿀통 다듬기" onclick="document.getElementById('HC_CREATE').style.display='block'">
+<%} %>
 <div>
 	<%
 		Object result = request.getAttribute("result");
@@ -93,20 +99,16 @@
     <!-- 로그인 폼 -->
     <form class="w3-container" name="url_form3" method="post" action="/honey/Creator">
       <div class="w3-section">
-        <label><b>제목</b></label>
+        <label><b>꿀통 제목</b></label>
         <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter title" name="hc_title" required>
-        <label><b>비밀번호</b></label>
+        <label><b>꿀통 비밀번호</b></label>
         <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="hc_pwd" required>
         <input type="hidden" name="type" value="viewHC">
 		<input type="hidden" name="mode" value=<%=mode%>>
-        <button class="w3-btn-block w3-amber w3-section w3-padding" type="submit">생성하기</button>
+        <button class="w3-btn-block w3-amber w3-section w3-padding" type="submit">확인</button>
       </div>
     </form>
 
-    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-      <button onclick="document.getElementById('SignUp').style.display='block'" type="button" class="w3-btn w3-green">회원가입</button>
-      <span class="w3-right w3-padding w3-hide-small"><a href="#">비밀번호 찾기</a></span>
-    </div>
 
   </div>
 </div>

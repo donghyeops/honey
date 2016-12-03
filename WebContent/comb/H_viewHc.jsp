@@ -22,7 +22,7 @@
 	<input type="hidden" name="hc_id" value="<%=HC.getHc_id()%>">
 	<input type="hidden" name="from" value="Viewer?hc_id=<%=HC.getHc_id() %>">
 	<input type="hidden" name="action" value="addFavoritehc">
-	<input type="submit" value="추가하기">
+	<input type="submit" value="내 계정에 담기">
 </form>
 <!--  -->
 
