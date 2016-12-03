@@ -10,6 +10,40 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+function checkList1() {
+	var str1 = document.getElementById('title1');
+	var str2 = document.getElementById('contents1');
+	
+	if( str1.value.replace(/^\s*|\s*$/g,'') == "" ){
+		alert("제목에 내용이 없습니다.");
+	    return false;
+	}
+	if( str2.value.replace(/^\s*|\s*$/g,'') == "" ){
+		alert("본문에 내용이 없습니다.");
+	    return false;
+	}
+	
+	return true;
+}
+function checkList2() {
+	var str1 = document.getElementById('title2');
+	var str2 = document.getElementById('contents2');
+	
+			if( str1.value.replace(/^\s*|\s*$/g,'') == "" ){
+				alert("제목에 내용이 없습니다.");
+			    return false;
+			}
+			if( str2.value.replace(/^\s*|\s*$/g,'') == "" ){
+				alert("본문에 내용이 없습니다.");
+			    return false;
+			}
+			
+			return true;
+}
+
+</script>
+
 </head>
 
 <body>
@@ -31,12 +65,12 @@
     	<div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width: 600px">
       		<div class="w3-center">
 				<span onclick="document.getElementById('Upload').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
-    			<form class="w3-container" method="post" action="/honey/HoneyControl">
+    			<form class="w3-container" method="post" action="/honey/HoneyControl"  onSubmit="return checkList1()">
       				<div class="w3-section">
         				<label><b>제목</b></label>
-        				<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Title" name="list_title" required>
+        				<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Title" id="title1" name="list_title" required>
         				<label><b>본문 내용</b></label>
-        				<input class="w3-input w3-border" type="text" placeholder="Enter Contents" name="list_contents" required>
+        				<input class="w3-input w3-border" type="text" placeholder="Enter Contents" id="contents1" name="list_contents" required>
         				<label><b>꿀통 아이디</b></label>
         				<input class="w3-input w3-border" type="text" placeholder="Enter Contents" name="hc_id" required>
         				<label><b>꿀통 비밀번호</b></label>
@@ -88,12 +122,12 @@
     	<div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width: 600px">
       		<div class="w3-center">
 				<span onclick="document.getElementById('Upload<%=i%>').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
-    			<form class="w3-container" method="post" action="/honey/HoneyControl">
+    			<form class="w3-container" method="post" action="/honey/HoneyControl"  onSubmit="return checkList2()">
       				<div class="w3-section">
         				<label><b>제목</b></label>
-        				<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Title" name="list_title" required>
+        				<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Title" id="title2" name="list_title" required>
         				<label><b>본문 내용</b></label>
-        				<input class="w3-input w3-border" type="text" placeholder="Enter Contents" name="list_contents" required>
+        				<input class="w3-input w3-border" type="text" placeholder="Enter Contents" id="contents2" name="list_contents" required>
         				<input type="hidden" name="action" value="list_upload">
         				<input type="hidden" name="hc_id" value=<%=event.getHc_id() %>>
         				<button class="w3-btn-block w3-amber w3-section w3-padding" type="submit">게시판에 업로드</button>
