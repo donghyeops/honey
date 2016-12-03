@@ -21,18 +21,18 @@
 <!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
 
 
-<div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
+<div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand w3-padding-16" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
 <!-- 꿀통 추가하기 -->
 <div class="w3-container w3-center">
 <form method="post" action="/honey/HoneyControl"> 
   <ul class="w3-navbar w3-center w3-round-xxlarge w3-margin-bottom">
   <li style="width:100%"><ul class="w3-navbar  w3-yellow w3-center">
     <li style="width:40%"><a href="#" class="w3-padding-16"><b>추가할 꿀동</b></a></li>
-    <li style="width:60%"><input type="text" class="w3-input w3-light-grey w3-padding-16" placeholder="Input Honecomb ID" name="hc_id"></li>
+    <li style="width:60%"><input type="text" class="w3-input w3-white w3-padding-16" placeholder="Input Honecomb ID" name="hc_id"></li>
   </ul></li>
   <li style="width:100%"><ul class="w3-navbar  w3-amber w3-center">
     <li style="width:40%"><a href="#" class="w3-padding-16"><b>꿀통 비밀번호</b></a></li>
-    <li style="width:60%"><input type="text" class="w3-input w3-light-grey w3-padding-16" placeholder="Input Honeycomb Password" name="hc_pwd"></li>
+    <li style="width:60%"><input type="text" class="w3-input w3-white w3-padding-16" placeholder="Input Honeycomb Password" name="hc_pwd"></li>
   </ul>
   </li>
   </ul>
@@ -43,8 +43,8 @@
 <!-- 꿀통추가 끝 -->
 
 <!-- 꿀통 표시 -->
-<div class="w3-container w3-padding-16 w3-light-grey w3-margin">
-    <ul class="w3-navbar w3-center">
+<div class="w3-container w3-padding-16 w3-light-grey">
+    <ul class="w3-navbar w3-center w3-margin">
     <li class="w3-amber w3-padding-8" style="width:20%">꿀통 아이디</li>
     <li class="w3-white w3-padding-8" style="width:50%">꿀통 제목</li>
     <li class="w3-gray w3-padding-8" style="width:15%">링크</li>
@@ -89,7 +89,7 @@
       <!-- 꿀통 제목 -->
       <li class="w3-white w3-padding-8" style="width:50%"><%=event.getHc_title() %></li>
       <!-- 링크 -->
-      <li class="w3--gray w3-padding-8" style="width:15%"><a href="Viewer?hc_id=<%=event.getHc_id()%>">이동</a></li>
+      <li class="w3-gray w3-padding-8" style="width:15%"><a href="Viewer?hc_id=<%=event.getHc_id()%>">이동</a></li>
       <!-- 편집 -->
 	  <li class="w3-white w3-padding-8" style="width:15%">
 	  	<input class="w3-btn" type="submit" value="편집">
