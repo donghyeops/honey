@@ -23,11 +23,11 @@
 	
 
 <div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand w3-padding-16" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
-  	<ul class="w3-navbar w3-center w3-margin w3-round-large" style="width:100%">
-    	<li class="w3-amber w3-padding-8" style="width:10%">번호</li>
-    	<li class="w3-white w3-padding-8" style="width:34%">제목</li>
-    	<li class="w3-black w3-padding-8" style="width:16%">작성자</li>
-    	<li class="w3-white w3-padding-8" style="width:20%">작성일</li>
+  	<ul class="w3-navbar w3-center w3-margin w3-round-large" style="width:80%">
+    	<li class="w3-amber w3-padding-8" style="width:8%">번호</li>
+    	<li class="w3-white w3-padding-8" style="width:30%">제목</li>
+    	<li class="w3-black w3-padding-8" style="width:14%">작성자</li>
+    	<li class="w3-white w3-padding-8" style="width:28%">작성일</li>
     	<li class="w3-amber w3-padding-8" style="width:10%">달아요</li>
     	<li class="w3-brown w3-padding-8 " style="width:10%">써요</li>
   	</ul>
@@ -57,19 +57,19 @@
 		HoneyBean event = (HoneyBean)eventlist.get(i);
 	%>
 	<!-- //리스트 나열-->
-	<ul class="w3-navbar w3-center w3-margin w3-round-xlarge" style="width:100% ">
+	<ul class="w3-navbar w3-center w3-margin w3-round-xlarge" style="width:80% ">
       	<!--번호-->
-      	<li class="w3-amber w3-padding-8" style="width:10%"><%=i+1%></li>
+      	<li class="w3-amber w3-padding-8" style="width:8%"><%=i+1%></li>
       	<!--제목 -->
-      	<li class="w3-white" style="width:34%">
+      	<li class="w3-white" style="width:30%">
       		<a href="HoneyControl?action=viewlist&from=newvideo&list_n=<%=event.getList_n() %>">
       			<%=event.getList_title() %>
       		</a>
       	</li>
       	<!--작성자-->
-      	<li class="w3-black w3-padding-8" style="width:16%"><%=event.getMember_name() %></li>
+      	<li class="w3-black w3-padding-8" style="width:14%"><%=event.getMember_name() %></li>
       	<!--작성일-->
-	  	<li class="w3-white w3-padding-8" style="width:20%"><%=event.getList_time() %></li> 
+	  	<li class="w3-white w3-padding-8" style="width:28%"><%=event.getList_time() %></li> 
         <li style="width:10%">
         	<a href="HoneyControl?from=ranking&action=updateGood&list_n=<%= event.getList_n() %>&good=<%= event.getList_good() %>" class="w3-amber w3-hover-yellow"><%=event.getList_good() %></a>
         </li>
