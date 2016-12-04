@@ -78,7 +78,7 @@ function back(){
      	<!-- 동영상 -->
   		<li style="width:100%">
   			<ul id="video" class="w3-navbar w3-light-gray w3-center" style="overflow:scroll; overflow-x:hidden">
-  				<li style="width:100%; padding-bottom:75%">
+  				<li style="width:100%; padding-bottom:25%">
                 	<%
 						if (HC.getURLs().size() == 0) {
 							out.println("존재하지 않는 페이지 입니다.");
