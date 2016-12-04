@@ -22,15 +22,15 @@
 <!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
 	
 
-<div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
-  	<div class="w3-btn-group w3-center w3-margin" style="height:30px"> <!-- // 리스트 속성 설명-->
-		<button class="w3-btn w3-amber" style="height:30px;width:70px">번호</button>
-  		<button class="w3-btn w3-white" style="height:30px;width:390px">제목</button>
-  		<button class="w3-btn w3-black" style="height:30px;width:110px">작성자</button>
-  		<button class="w3-btn w3-white" style="height:30px;width:220px">작성일</button>
-		<button class="w3-btn w3-amber" style="height:30px;width:70px">달아요</button>
-		<button class="w3-btn w3-brown" style="height:30px;width:70px">써요</button>
-	</div>
+<div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand w3-padding-16" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
+  	<ul class="w3-navbar w3-center w3-margin w3-round-large" style="width:100%">
+    	<li class="w3-amber w3-padding-8" style="width:10%">번호</li>
+    	<li class="w3-white w3-padding-8" style="width:34%">제목</li>
+    	<li class="w3-black w3-padding-8" style="width:16%">작성자</li>
+    	<li class="w3-white w3-padding-8" style="width:20%">작성일</li>
+    	<li class="w3-amber w3-padding-8" style="width:10%">달아요</li>
+    	<li class="w3-brown w3-padding-8 " style="width:10%">써요</li>
+  	</ul>
 	<%
 		int rutin=10;
 		int page_n=1;
@@ -57,26 +57,26 @@
 		HoneyBean event = (HoneyBean)eventlist.get(i);
 	%>
 	<!-- //리스트 나열-->
-	<div class="w3-btn-group w3-center w3-margin" style="height:30px">
-		<!-- 번호-->
-		<button class="w3-btn w3-amber" style="width:70px"><%=i+1%></button>
-		<!-- 제목 -->
-		
-  			 <button class="w3-btn w3-white" style="width:390px"><a href="HoneyControl?action=viewlist&from=newvideo&list_n=<%=event.getList_n() %>"><%=event.getList_title() %></a></button>
-		
-		<!-- 작성자 -->
-  		<button class="w3-btn w3-black " style="width:110px"><%=event.getMember_name() %></button>
-  		<!-- 작성일 -->
-		<button class="w3-btn w3-white " style="width:220px"><%=event.getList_time() %></button>
-		<!-- 좋아요 -->
-		<a href="HoneyControl?from=ranking&action=updateGood&list_n=<%= event.getList_n() %>&good=<%= event.getList_good() %>" >
-			<button class="w3-btn w3-amber " style="width:70px "><%=event.getList_good() %></button>
-		</a>
-		<!-- 싫어요 -->
-		<a href="HoneyControl?from=ranking&action=updateBad&list_n=<%= event.getList_n() %>&bad=<%= event.getList_bad() %>" >
-		<button class="w3-btn w3-brown " style="width:70px"><%=event.getList_bad() %></button> 
-		</a>
-	</div>
+	<ul class="w3-navbar w3-center w3-margin w3-round-xlarge" style="width:100% ">
+      	<!--번호-->
+      	<li class="w3-amber w3-padding-8" style="width:10%"><%=i+1%></li>
+      	<!--제목 -->
+      	<li class="w3-white" style="width:34%">
+      		<a href="HoneyControl?action=viewlist&from=newvideo&list_n=<%=event.getList_n() %>">
+      			<%=event.getList_title() %>
+      		</a>
+      	</li>
+      	<!--작성자-->
+      	<li class="w3-black w3-padding-8" style="width:16%"><%=event.getMember_name() %></li>
+      	<!--작성일-->
+	  	<li class="w3-white w3-padding-8" style="width:20%"><%=event.getList_time() %></li> 
+        <li style="width:10%">
+        	<a href="HoneyControl?from=ranking&action=updateGood&list_n=<%= event.getList_n() %>&good=<%= event.getList_good() %>" class="w3-amber w3-hover-yellow"><%=event.getList_good() %></a>
+        </li>
+        <li style="width:10%">
+        	<a href="HoneyControl?from=ranking&action=updateBad&list_n=<%= event.getList_n() %>&bad=<%= event.getList_bad() %>" class="w3-brown w3-hover-dark-gray"><%=event.getList_bad() %></a>
+        </li>
+   	</ul>
 
 	<% }
 	%>
@@ -90,15 +90,17 @@
 	}
 	%>
 	
+	<ul class="w3-pagination">
 	<% if(view_a-1>0){%>
-		<a href="?page_n=<%=view_a-1%>">이전</a>
+		<li><a href="?page_n=<%=view_a-1%>">&laquo;</a></li>
 	<%} %>
 	<%for(int s=view_a;s<view_a+remain_a;s++) {%>
-		<a href="?page_n=<%=s%>"><%=s%></a>
+		<li><a href="?page_n=<%=s%>"><%=s%></a></li>
 	<%} %>
 	<% if(all_p-view_a>10){%>
-		<a href="?page_n=<%=view_a+10%>">다음</a>
+		<li><a href="?page_n=<%=view_a+10%>">&raquo;</a></li>
 	<%} %>
+	</ul>
 </div>
 
 
