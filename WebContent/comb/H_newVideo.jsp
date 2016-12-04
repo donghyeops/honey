@@ -25,13 +25,13 @@
 <div class="w3-display-topmiddle w3-center w3-card-8 w3-round-large w3-sand w3-padding-16" style="margin: 150px 0px 0px 0px; width: 80%; height: 800px">
 	<br><br>
     
-  <ul class="w3-navbar w3-center w3-round-xlarge w3-hide-medium w3-hide-small" style="width:95%; margin:0px 2.5% 0px 2.5% ">
+  <ul class="w3-navbar w3-center w3-round-xlarge w3-margin-bottom w3-hide-medium w3-hide-small" style="width:95%; margin:0px 2.5% 0px 2.5% ">
       	<li class="w3-amber w3-padding-8" style="width:8%">번호</li>
-      	<li class="w3-white" style="width:30%">제목</li>
+      	<li class="w3-white w3-padding-8" style="width:30%">제목</li>
       	<li class="w3-black w3-padding-8" style="width:12%">작성자</li>
 	  	<li class="w3-white w3-padding-8" style="width:28%">작성일</li> 
-        <li style="width:11%">달아요</li>
-        <li style="width:11%">써요</li>
+        <li class="w3-amber w3-padding-8" style="width:11%">달아요</li>
+        <li class="w3-brown w3-padding-8" style="width:11%">써요</li>
   </ul>
 	<%
 		int rutin=10;
@@ -59,7 +59,7 @@
 		HoneyBean event = (HoneyBean)eventlist.get(i);
 	%>
 	<!-- //리스트 나열-->
-	<ul class="w3-navbar w3-center w3-round-xlarge w3-hide-medium w3-hide-small" style="width:95%; margin:0px 2.5% 0px 2.5% ">
+	<ul class="w3-navbar w3-center w3-round-xlarge w3-margin-bottom w3-hide-medium w3-hide-small" style="width:95%; margin:0px 2.5% 0px 2.5% ">
       	<!--번호-->
       	<li class="w3-amber w3-padding-8" style="width:8%"><%=i+1%></li>
       	<!--제목 -->
@@ -80,7 +80,7 @@
         </li>
    	</ul>  
     
-  	<ul class="w3-navbar w3-center w3-round-xlarge w3-margin w3-hide-large">
+  	<ul class="w3-navbar w3-center w3-round-xlarge w3-margin-bottom w3-margin w3-hide-large">
   		<li style="width:100%">
     		<ul class="w3-navbar w3-center">
     			<li class="w3-yellow w3-padding-16 w3-hide-small" style="width:12%"><%=i+1%></li>
