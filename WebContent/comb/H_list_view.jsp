@@ -76,7 +76,7 @@ function back(){
   			</ul>
   		</li>
      	<!-- 동영상 -->
-  		<li style="width:100%">
+  		<li style="width:100%; padding-bottom:75%">
   			<ul id="video" class="w3-navbar w3-light-gray w3-center" style="overflow:scroll; overflow-x:hidden">
   				<li style="width:100%; height:300px">
                 	<%
@@ -203,11 +203,7 @@ function back(){
                 			<b><input class="w3-btn w3-padding-8 w3-red w3-hover-pink"type="submit" value="x"></b>
                 		</li>
                     </form>
-					<%} else{%>
-						<li class="w3-black" style="width:5%">
-                			<b><hr></b>
-                		</li>
-					<%}%>
+					<%} else{}%>
 					</ul>
 					<%} %> 
              </div>
