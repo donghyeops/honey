@@ -11,10 +11,30 @@
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+function sendIt(){
+	var str2 = document.getElementById('pwd');
+	var str3 = document.getElementById('name');  		
+
+	if( str2.value.search(/\W|\s/g) > -1 ){
+	alert( '비밀번호에 특수문자 또는 공백을 입력할 수 없습니다.' );
+	str.focus();
+	exit;
+	}
+	if( str3.value.search(/[^(가-힣a-zA-Z0-9)]/) > -1 ){
+	alert( '이름에 특수문자 또는 공백을 입력할 수 없습니다.' );
+	str.focus();
+	exit;
+	}
+	document.up.submit();
+}
+
+
+</script>
 </head>
 <body>
 <div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand w3-padding-16" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
-  <form method="post" action="/honey/HoneyControl"> 
+  <form name="up" method="post" action="/honey/HoneyControl"> 
   <ul class="w3-navbar w3-center w3-round-xxlarge w3-margin">
   	<li style="width:100%">
     	<ul class="w3-navbar w3-center">
@@ -32,7 +52,7 @@
             	<b>변경할 비밀번호</b>
             </li>
     		<li style="width:60%">
-            	<input type="password" class="w3-input w3-white w3-padding-16" placeholder="New password" name="member_pwd1">
+            	<input type="password" class="w3-input w3-white w3-padding-16" placeholder="New password"id="pwd" name="member_pwd1">
             </li>
   		</ul>
     </li>
@@ -50,13 +70,13 @@
     		<li class="w3-padding-16" style="width:40%">
             	<b>닉네임</b>
             </li>
-    		<li style="width:60%"><input type="text" class="w3-input w3-white w3-padding-16" name="member_name" value="<%=member.getMember_name() %>">
+    		<li style="width:60%"><input type="text" class="w3-input w3-white w3-padding-16" id="name" name="member_name" value="<%=member.getMember_name() %>">
             </li>
   		</ul>
     </li>
   </ul>
   <input type="hidden" name="action" value="updatemember">
-  <input class="w3-btn w3-center w3-round-jumbo w3-green w3-margin" style="width:90%" type="submit" value="변경하기">
+  <input class="w3-btn w3-center w3-round-jumbo w3-green w3-margin" style="width:90%" onclick="sendIt()" value="변경하기">
   </form>
 </div> 
 		<%if(session.getAttribute("member_id")==null){ %>
