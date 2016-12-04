@@ -53,7 +53,9 @@ ul {
 		margin: 30px 1% 0px 1%;
 	}
 	
-		
+	#video {
+		height: width*70%;
+	}	
 /* 클래스 설정하는부분    class="" -class는 여러개를 사용가능 */
 	.w3-lobster {
     font-family: "Lobster", Sans-serif;
