@@ -187,7 +187,7 @@ function back(){
                 	<li class="w3-padding-12 w3-blue" style="width:15%">
                 		<b><%=comment_out.getMember_id() %></b>
                 	</li>
-                    <li class="w3-padding-12 w3-white" style="width:rest">
+                    <li class="w3-padding-12 w3-white" style="width:55%">
                 		<b><%=comment_out.getComment_contents() %></b>
                 	</li>
                     <li class="w3-padding-12 w3-white" style="width:25%">
@@ -198,12 +198,16 @@ function back(){
                     <form method="post" action="/honey/HoneyControl">
 						<input type="hidden" name="comment_n" value="<%=comment_out.getComment_n()%>">
 						<input type="hidden" name="action" value="deleteComment">
-						<input type="hidden" name="list_n" value="<%=list.getList_n() %>">
+						<input type="hidden" name="list_n" value="<%=list.getList_n() %>"> 
                         <li style="width:5%">
                 			<b><input class="w3-btn w3-padding-8 w3-red w3-hover-pink"type="submit" value="x"></b>
                 		</li>
                     </form>
-					<%} else{}%>
+					<%} else{%>
+						<li class="w3-padding-12 w3-black" style="width:5%">
+                			<b><hr></b>
+                		</li>
+					<%}%>
 					</ul>
 					<%} %> 
              </div>
