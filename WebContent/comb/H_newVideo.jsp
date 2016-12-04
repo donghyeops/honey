@@ -22,7 +22,7 @@
 <!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
 	
 
-<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-large w3-sand w3-padding-16" style="margin: 150px 0px 0px 0px; width: 80%; height: 800px; max-width: 800px">
+<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-large w3-sand w3-padding-16" style="margin: 150px 0px 0px 0px; width: 80%; height: 800px; max-width: 1200px">
 	<br><br>
     
   <ul class="w3-navbar w3-center w3-round-xlarge w3-margin-bottom w3-hide-medium w3-hide-small" style="width:95%; margin:0px 2.5% 0px 2.5% ">
