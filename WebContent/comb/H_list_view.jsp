@@ -204,7 +204,7 @@ function back(){
                 		</li>
                     </form>
 					<%} else{%>
-						<li class="w3-padding-8 w3-black" style="width:5%">
+						<li class="w3-black" style="width:5%">
                 			<b><hr></b>
                 		</li>
 					<%}%>
@@ -228,7 +228,7 @@ function back(){
 			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=s%>"><%=s%></a></li>
 			<%} %>
 			<% if(all_p-view_a>10){%>
-			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=view_a+10%>">&raquo;</a></li>
+			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=view_a+10%>">&raquo;</a></li> 
 			<%} %>
         </div>
 </div>
