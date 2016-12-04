@@ -184,7 +184,7 @@ function back(){
 			<form method="post" action="/honey/HoneyControl">
 				<input type="hidden" name="comment_n" value="<%=comment_out.getComment_n()%>">
 				<input type="hidden" name="action" value="deleteComment">
-				<input type="hidden" name="list_n" value="<%=comment_out.getList_n() %>">
+				<input type="hidden" name="list_n" value="<%=list.getList_n() %>">
 				<button class="w3-padding w3-btn w3-left w3-red" type="submit" style="height:50px;width:5px">x</button>
 			</form>
 			<%} else{}%>
