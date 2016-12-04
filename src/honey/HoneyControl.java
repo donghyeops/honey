@@ -158,7 +158,7 @@ public class HoneyControl extends HttpServlet {
 				String hc_pwd=dao.getHcpwd(hc_id); 									//해당 아이디의 비밀번호가져오기
 				String hc_pwd1=request.getParameter("hc_pwd");						//입력된 비밀번호 가져오기
 				
-				if(hc_pwd.equals(hc_pwd1)){						//쓴 비밀번호와비교
+				if(hc_pwd.equals(SHA1.sha1(hc_pwd1))){						//쓴 비밀번호와비교
 															//맞으면 추가하기
 					Mgr_bean HC = dao.getHC(hc_id);					//해당 hc아디이mgr가져오기
 								
@@ -169,7 +169,7 @@ public class HoneyControl extends HttpServlet {
 			
 					HC.setHc_id(newId);// 새로운hc_id 설정
 					HC.setMember_id(member_id);//자신의 아이디로 설정
-			
+					HC.setHc_pwd(request.getParameter("hc_pwd"));
 					dao.addHC(HC);						//해당 빈을 추가하기
 			
 					address="HoneyControl?action=myhoneycomb";
@@ -192,7 +192,7 @@ public class HoneyControl extends HttpServlet {
 				String hc_pwd1=request.getParameter("hc_pwd");						//입력된 비밀번호 가져오기
 			
 			
-				if(hc_pwd.equals(hc_pwd1)){						//쓴 비밀번호와비교 맞으면 리스트에 등록
+				if(hc_pwd.equals(SHA1.sha1(hc_pwd1))){						//쓴 비밀번호와비교 맞으면 리스트에 등록
 					HoneyBean event = new HoneyBean();
 					event.setMember_id(member_id);
 					event.setHc_id(hc_id);
@@ -257,7 +257,7 @@ public class HoneyControl extends HttpServlet {
 					if(dao.getHcpwd(hc_id)==null){									//유효하지 않은 hc_id
 					
 						address=src+"/fail_hcid.jsp";								
-					}else if(dao.getHcpwd(hc_id).equals(hc_pwd2)){		
+					}else if(dao.getHcpwd(hc_id).equals(SHA1.sha1(hc_pwd2))){		
 						hb.setList_n(list_n);
 						hb.setList_contents(list_contents);
 						hb.setList_title(list_title);

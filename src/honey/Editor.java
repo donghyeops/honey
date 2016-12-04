@@ -1,4 +1,4 @@
-ï»¿package honey;
+package honey;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -43,11 +43,11 @@ public class Editor extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-				// requestì˜ íŒŒë¼ë¯¸í„°
-				// 1. String hc_id : ë²Œì§‘ì˜ ì•„ì´ë””
-				// 2. String input_pwd : ì…ë ¥í•œ ë²Œì§‘ì˜ ë¹„ë°€ë²ˆí˜¸
-				// ìˆœì„œë„ : (ë²Œì§‘ ì•„ì´ë””ë¡œ Mgr_bean ê°€ì ¸ì˜´) -> (ë²Œì§‘ì˜ ë¹„ë°€ë²ˆí˜¸ì™€ ì…ë ¥ ë°›ì€ ë¹„ë°€ë²ˆí˜¸ ê°’ì„ ëŒ€ì¡°[í‹€ë¦¬ë©´ ë¹½])
-				//			-> (Mgr_beanì„ createHCë¡œ ë„˜ê¹€))
+				// requestÀÇ ÆÄ¶ó¹ÌÅÍ
+				// 1. String hc_id : ¹úÁıÀÇ ¾ÆÀÌµğ
+				// 2. String input_pwd : ÀÔ·ÂÇÑ ¹úÁıÀÇ ºñ¹Ğ¹øÈ£
+				// ¼ø¼­µµ : (¹úÁı ¾ÆÀÌµğ·Î Mgr_bean °¡Á®¿È) -> (¹úÁıÀÇ ºñ¹Ğ¹øÈ£¿Í ÀÔ·Â ¹ŞÀº ºñ¹Ğ¹øÈ£ °ªÀ» ´ëÁ¶[Æ²¸®¸é »ª])
+				//			-> (Mgr_beanÀ» createHC·Î ³Ñ±è))
 		response.setContentType("text/html; charset=UTF-8");
 		request.setCharacterEncoding("UTF-8");
 		String src="./comb";
@@ -55,7 +55,7 @@ public class Editor extends HttpServlet {
 		HoneyDAO DB = new DBHoneyDAO();
 		String input_hc_id = request.getParameter("hc_id");
 		String input_pwd = request.getParameter("input_pwd");
-		// ì…ë ¥ë°›ì€ ê°’ì´ ì—†ìœ¼ë©´ ë¹½
+		// ÀÔ·Â¹ŞÀº °ªÀÌ ¾øÀ¸¸é »ª
 		
 		
 		
@@ -68,23 +68,23 @@ public class Editor extends HttpServlet {
 		int hc_id = Integer.parseInt(input_hc_id);
 		Mgr_bean HC = DB.getHC(hc_id);	
 		
-		// hc_idì— í•´ë‹¹í•˜ëŠ” ê°’ì´ ì—†ìœ¼ë©´ ë¹½
+		// hc_id¿¡ ÇØ´çÇÏ´Â °ªÀÌ ¾øÀ¸¸é »ª
 		if (HC == null) {
-			out.println("<script>alert('í•´ë‹¹ hc_idëŠ” ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤');history.back();</script>");
+			out.println("<script>alert('ÇØ´ç hc_id´Â Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù');history.back();</script>");
 			out.flush();
 			return;
 		}
 		
-		// ë¹„ë°€ë²ˆí˜¸ê°€ ì•ˆë§ìœ¼ë©´ ë¹½
-		if (!HC.getHc_pwd().equals(input_pwd)) {
-			out.println("<script>alert('ë¹„ë°€ë²ˆí˜¸ê°€ í‹€ë ¸ìŠµë‹ˆë‹¤');history.back();</script>');history.back();</script>");
+		// ºñ¹Ğ¹øÈ£°¡ ¾È¸ÂÀ¸¸é »ª
+		if (!HC.getHc_pwd().equals(SHA1.sha1(input_pwd))) {
+			out.println("<script>alert('ºñ¹Ğ¹øÈ£°¡ Æ²·È½À´Ï´Ù');history.back();</script>');history.back();</script>");
 			out.flush();
 			return;
 		}
 		
 		HttpSession session = request.getSession();
-		session.setAttribute("HC", HC);	//ì„¸ì…˜ì— Mgr_bean ë“±ë¡
-		session.setAttribute("mode", "edit");	// ë¦¬í€˜ìŠ¤íŠ¸ì— edit ë“±ë¡
+		session.setAttribute("HC", HC);	//¼¼¼Ç¿¡ Mgr_bean µî·Ï
+		session.setAttribute("mode", "edit");	// ¸®Äù½ºÆ®¿¡ edit µî·Ï
 		// forward
 		String address = src+"/manager/createHC.jsp";
 		//RequestDispatcher dispatcher = request.getRequestDispatcher(address);

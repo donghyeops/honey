@@ -5,7 +5,7 @@ drop table hc;
 
 create table hc(
    hc_id int(11) not null primary key,
-   hc_pwd varchar (20) not null,
+   hc_pwd varchar (200) not null,
    hc_title varchar(50),
    member_id varchar(20) null
 );
@@ -19,8 +19,8 @@ create table video_list(
 );
 create table member(
    member_n int(11) not null auto_increment primary key,
-   member_id varchar(30) not null unique,
-   member_pwd varchar(20) not null,
+   member_id varchar(20) not null unique,
+   member_pwd varchar(200) not null,
    member_name varchar(20) not null
 );
 create table list(

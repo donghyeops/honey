@@ -34,18 +34,21 @@ public class DBHoneyDAO implements HoneyDAO{
 	public void addMember(HoneyBean event){
 		String sql="insert into member (member_id,member_pwd,member_name)values('"
 				+event.getMember_id()+"','"
-				+event.getMember_pwd()+"','"
+				+SHA1.sha1(event.getMember_pwd())+"','"
 				+event.getMember_name()+"')";
 		try{
 			connect();
 			stmt.executeUpdate(sql);
 			disconnect();
-		}catch(Exception e){}
+		}catch(Exception e){
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	//회원정보 변경
 	public void updateMember(HoneyBean event){
-		String sql ="update member set member_pwd='"+ event.getMember_pwd() + "',member_name='"+ event.getMember_name() + "'  where member_id='"+event.getMember_id()+"'";
+		// 암호화
+		String sql ="update member set member_pwd='"+ SHA1.sha1(event.getMember_pwd()) + "',member_name='"+ event.getMember_name() + "'  where member_id='"+event.getMember_id()+"'";
 		try{
 			connect();
 			stmt.executeUpdate(sql);
@@ -55,7 +58,7 @@ public class DBHoneyDAO implements HoneyDAO{
 	
 	//아이디가 있는지 없는지 검사하는 디비
 	public HoneyBean memberCheck(String member_id, String member_pwd){
-		String sql ="select * from member where member_id='"+ member_id + "' AND member_pwd='"+member_pwd+"'";
+		String sql ="select * from member where member_id='"+ member_id + "' AND member_pwd='"+SHA1.sha1(member_pwd)+"'";
 		HoneyBean event = new HoneyBean();
 		try{
 			connect();
@@ -285,7 +288,8 @@ public class DBHoneyDAO implements HoneyDAO{
 			if (bean.getMember_id() != null) {
 				member_id = "'" + bean.getMember_id() + "'";
 			}
-			String sql = "insert into hc values(" + hc_id + ", '" + bean.getHc_pwd() + "', '" + bean.getHc_title()
+			// 암호화
+			String sql = "insert into hc values(" + hc_id + ", '" + SHA1.sha1(bean.getHc_pwd()) + "', '" + bean.getHc_title()
 				+ "', " + member_id + ")";
 			
 			ArrayList<String> URLs = bean.getURLs();
