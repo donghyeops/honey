@@ -77,7 +77,7 @@ function back(){
   		</li>
      	<!-- 동영상 -->
   		<li style="width:100%">
-  			<ul id="video" class="w3-navbar w3-light-gray w3-center" style="overflow:scroll; overflow-x:hidden">
+  			<ul class="w3-navbar w3-light-gray w3-center" style="overflow:scroll; overflow-x:hidden">
   				<li style="width:100%; padding-bottom:5%; padding-top:5%">
                 	<%
 						if (HC.getURLs().size() == 0) {
@@ -86,7 +86,9 @@ function back(){
 						ArrayList<String> URLs = HC.getURLs(); 
 						for(String url : URLs) {
 					%>
+					<div class="embed-container">
 					<%=url%>
+					</div>
 					<br>
 				<%} %>
                </li>
@@ -183,14 +185,14 @@ function back(){
 					for(int i=view_p; i<(view_p+rutin); i++) {
 						HoneyBean comment_out = (HoneyBean)comment.get(i);	
 				%>
-                <ul class="w3-navbar w3-center w3-round-large w3-margin-bottom w3-white w3-border">
+                <ul class="w3-navbar w3-center w3-round-large w3-margin-bottom w3-white w3-border"> 
                 	<li class="w3-padding-12 w3-blue" style="width:15%">
                 		<b><%=comment_out.getMember_id() %></b>
                 	</li>
                     <li class="w3-padding-12 w3-white" style="width:55%">
                 		<b><%=comment_out.getComment_contents() %></b>
                 	</li>
-                    <li class="w3-padding-12 w3-white" style="width:25%">
+                    <li class="w3-padding-12 w3-black" style="width:25%">
                 		<b><%=comment_out.getComment_time() %></b>
                 	</li>
                     <%if(session.getAttribute("member_id")==null){}
