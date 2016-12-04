@@ -102,13 +102,13 @@ function back(){
 				else if(session.getAttribute("member_id").equals(list.getMember_id())){ %>
             <!-- 삭제 -->	
     		<li style="width:50%">
-            	<a href="#" class="w3-padding-8 w3-pink w3-hover-red" >
+            	<a href="HoneyControl?action=list_remove&list_n=<%= list.getList_n() %>" class="w3-padding-8 w3-pink w3-hover-red" >
                 	<b>삭제하기</b>
                 </a>
             </li>
             <!-- 수정 -->
     		<li style="width:50%">
-            	<a href="#" class="w3-padding-8 w3-indigo w3-hover-blue">
+            	<a href="HoneyControl?action=list_update_form&list_n=<%= list.getList_n() %>" class="w3-padding-8 w3-indigo w3-hover-blue">
                 	<b>수정하기</b>
                 </a>
             </li>
@@ -145,8 +145,7 @@ function back(){
         <!-- 달아 싫어요 끝 -->
 
 		<!-- 댓글 -->
-        <div class="w3-light-gray" style="height:220px; overflow:scroll; overflow-x:hidden">
-        	<ul class="w3-navbar w3-center w3-round-large w3-margin-bottom">
+		<ul class="w3-navbar w3-center w3-round-large w3-margin-bottom">
             	<form method="post" action="/honey/HoneyControl">
 				<input type="hidden" name="list_n" value="<%=list.getList_n()%>">
 				<input type="hidden" name="action" value="addCommment">
@@ -161,7 +160,8 @@ function back(){
                 	<b><input class="w3-btn w3-padding-8 w3-green w3-hover-teal"type="submit" value="작성하기"></b>
                 </li>
                 </form>
-  			</ul>
+  		</ul>
+        <div class="w3-light-gray" style="height:220px; overflow:scroll; overflow-x:hidden">
             <!-- 댓글 표시 -->
 			<div class="w3-row" style="width:100%">
 				<%
@@ -187,7 +187,7 @@ function back(){
                 	<li class="w3-padding-12 w3-blue" style="width:15%">
                 		<b><%=comment_out.getMember_id() %></b>
                 	</li>
-                    <li class="w3-padding-12 w3-white" style="width:55%">
+                    <li class="w3-padding-12 w3-white" style="width:rest">
                 		<b><%=comment_out.getComment_contents() %></b>
                 	</li>
                     <li class="w3-padding-12 w3-white" style="width:25%">
