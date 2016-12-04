@@ -35,7 +35,7 @@
   	<li style="width:100%">
   		<ul class="w3-navbar  w3-amber w3-center">
   			<li style="width:40%"><a href="#" class="w3-padding-16"><b>꿀통 비밀번호</b></a></li>
-  			<li style="width:60%"><input type="text" class="w3-input w3-white w3-padding-16" placeholder="Input Honeycomb Password" name="hc_pwd"></li>
+  			<li style="width:60%"><input type="password" class="w3-input w3-white w3-padding-16" placeholder="Input Honeycomb Password" name="hc_pwd"></li>
   		</ul>
   	</li>
   </ul>

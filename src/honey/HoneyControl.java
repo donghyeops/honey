@@ -163,8 +163,13 @@ public class HoneyControl extends HttpServlet {
 				String member_id=(String)session.getAttribute("member_id");			//로그인한 자신의 아이디가져오기
 				String hc_pwd=dao.getHcpwd(hc_id); 									//해당 아이디의 비밀번호가져오기
 				String hc_pwd1=request.getParameter("hc_pwd");						//입력된 비밀번호 가져오기
-				
-				if(hc_pwd.equals(SHA1.sha1(hc_pwd1))){						//쓴 비밀번호와비교
+				System.out.println(hc_pwd1);
+				System.out.println(SHA1.sha1(hc_pwd1));
+				System.out.println(hc_pwd);
+				if(hc_pwd==null){											//해당 벌꿀이 없는경우
+					address=src+"/fail_hcid.jsp";
+				}
+				else if(hc_pwd.equals(SHA1.sha1(hc_pwd1))){						//쓴 비밀번호와비교
 															//맞으면 추가하기
 					Mgr_bean HC = dao.getHC(hc_id);					//해당 hc아디이mgr가져오기
 								
