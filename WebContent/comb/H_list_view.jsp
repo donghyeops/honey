@@ -183,7 +183,7 @@ function back(){
 					for(int i=view_p; i<(view_p+rutin); i++) {
 						HoneyBean comment_out = (HoneyBean)comment.get(i);	
 				%>
-                <ul class="w3-navbar w3-center w3-round-large w3-margin-bottom">
+                <ul class="w3-navbar w3-center w3-round-large w3-margin-bottom w3-white w3-border">
                 	<li class="w3-padding-12 w3-blue" style="width:15%">
                 		<b><%=comment_out.getMember_id() %></b>
                 	</li>
