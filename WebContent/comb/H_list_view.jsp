@@ -222,13 +222,13 @@ function back(){
 	
 			<ul class="w3-pagination">
 			<% if(view_a-1>0){%>
-			<li><a href="?page_n=<%=view_a-1%>">&laquo;</a></li>
+			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=view_a-1%>">&laquo;</a></li>
 			<%} %>
 			<%for(int s=view_a;s<view_a+remain_a;s++) {%>
-			<li><a href="?page_n=<%=s%>"><%=s%></a></li>
+			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=s%>"><%=s%></a></li>
 			<%} %>
 			<% if(all_p-view_a>10){%>
-			<li><a href="?page_n=<%=view_a+10%>">&raquo;</a></li>
+			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=view_a+10%>">&raquo;</a></li>
 			<%} %>
         </div>
 </div>
