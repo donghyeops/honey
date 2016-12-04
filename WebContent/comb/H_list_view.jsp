@@ -154,7 +154,7 @@ function back(){
                 	<b>댓글</b>
                 </li>
     			<li style="width:70%">
-                <input type="text" class="w3-input w3-white w3-padding-8" name="comment_contents" placeholder="로그인후 사용해주세요">
+                <input type="text" class="w3-input w3-white w3-padding-8" name="comment_contents" placeholder="로그인후 사용해주세요"> 
                 </li>
                 <li style="width:15%">
                 	<b><input class="w3-btn w3-padding-8 w3-green w3-hover-teal"type="submit" value="작성하기"></b>
@@ -204,8 +204,8 @@ function back(){
                 		</li>
                     </form>
 					<%} else{}%>
+					</ul>
 					<%} %> 
-                 </ul>
              </div>
              <!-- 댓글표시끝 -->
              <%int remain_a=10;;%>
