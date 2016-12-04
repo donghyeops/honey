@@ -528,8 +528,19 @@ public class DBHoneyDAO implements HoneyDAO{
 			   }catch(Exception e){
 				   System.out.println("찍은 벌꿀통 추가하기실패");
 			   }
-			   
-			   
+		   }
+		   public void deleteFvhoneycomb(HoneyBean fvhoney){
+			   String sql="delete from hc_favorite where member_id='"+fvhoney.getMember_id()+"' AND hc_id="+fvhoney.getHc_id()+"";
+			   try{
+				   connect();
+				   
+				   stmt.executeUpdate(sql);
+				   
+				   disconnect();
+			   }catch(Exception e){
+				   System.out.println("찍은 벌꿀통 삭제하기실패");
+			   }
+		   
 		   }
 		   
 		   public ArrayList<HoneyBean> getFvhoneycomb(String member_id){					//찍어놓은 벌꿀집 리스트

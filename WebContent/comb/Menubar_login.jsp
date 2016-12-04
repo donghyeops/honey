@@ -64,25 +64,25 @@ function w3_Userclose() {
   <div class="w3-accordion w3-amber">
     <button onclick="myFunction('User')" class="w3-btn-block w3-left-align"><b><%=session.getAttribute("member_id")%>님</b></button>
     <div id="User" class="w3-accordion-content w3-container">
-      <a href="HoneyControl?action=myhoneycomb" class="w3-padding-8"><b>내 꿀통</b></a>
-  	  <a href="HoneyControl?action=favoritehoneycomb" class="w3-padding-8"><b>몰래 가져온 꿀통</b></a>
-  	  <a href="HoneyControl?action=mylist" class="w3-padding-8"><b>내 게시글</b></a>
+      <a href="/honey/HoneyControl?action=myhoneycomb" class="w3-padding-8"><b>내 꿀통</b></a>
+  	  <a href="/honey/HoneyControl?action=favoritehoneycomb" class="w3-padding-8"><b>몰래 가져온 꿀통</b></a>
+  	  <a href="/honey/HoneyControl?action=mylist" class="w3-padding-8"><b>내 게시글</b></a>
   	  <a onclick="document.getElementById('Password').style.display='block'" class="w3-padding-8"><b>정보수정</b></a>
-  	  <a href="HoneyControl?action=logout" class="w3-padding-8"><b>로그아웃</b></a>
+  	  <a href="/honey/HoneyControl?action=logout" class="w3-padding-8"><b>로그아웃</b></a>
     </div>
   </div>
-  <a href="HoneyControl?action=ranking"><b>랭킹</b></a>
-  <a href="HoneyControl?action=newvideo"><b>최신 영상</b></a>
-  <a href="HoneyControl?action=hccreate"><b>꿀통 작성</b></a>
-  <a href="HoneyControl?action=upload" ><b>업로드</b></a>
+  <a href="/honey/HoneyControl?action=ranking"><b>랭킹</b></a>
+  <a href="/honey/HoneyControl?action=newvideo"><b>최신 영상</b></a>
+  <a href="/honey/HoneyControl?action=hccreate"><b>꿀통 작성</b></a>
+  <a href="/honey/HoneyControl?action=upload" ><b>업로드</b></a>
 </nav>
  
 <nav class="w3-sidenav w3-white w3-card-2 w3-animate-right w3-center w3-bold" style="display:none; width:200px; height: 235px; right:0; top:86px" id="UserSidenav">
-  <a href="HoneyControl?action=myhoneycomb" class="w3-padding-8"><b>내 꿀통</b></a>
-  <a href="HoneyControl?action=favoritehoneycomb" class="w3-padding-8"><b>몰래 가져온 꿀통</b></a>
-  <a href="HoneyControl?action=mylist" class="w3-padding-8"><b>내 게시글</b></a>
+  <a href="/honey/HoneyControl?action=myhoneycomb" class="w3-padding-8"><b>내 꿀통</b></a>
+  <a href="/honey/HoneyControl?action=favoritehoneycomb" class="w3-padding-8"><b>몰래 가져온 꿀통</b></a>
+  <a href="/honey/HoneyControl?action=mylist" class="w3-padding-8"><b>내 게시글</b></a>
   <a onclick="document.getElementById('Password').style.display='block'" class="w3-padding-8"><b>정보수정</b></a>
-  <a href="HoneyControl?action=logout" class="w3-padding-8"><b>로그아웃</b></a>
+  <a href="/honey/HoneyControl?action=logout" class="w3-padding-8"><b>로그아웃</b></a>
   <a href="javascript:void(0)" onclick="w3_Userclose()"
   class="w3-closenav w3-large w3-padding-8">Close &times;</a>
 </nav>
@@ -94,13 +94,13 @@ function w3_Userclose() {
   <li class="w3-hide-medium w3-hide-large w3-black w3-opennav ">
     <a href="#" class="w3-opennav w3-xlarge" onclick="w3_open()" id="openNav">☰</a>
   </li>
-  <li class="w3-hide-small" style="width:100px"><a href="HoneyControl?action=ranking" class="w3-padding-32" ><b>랭킹</b></a></li>
-  <li class="w3-hide-small" style="width:100px"><a href="HoneyControl?action=newvideo" class="w3-padding-32" ><b>최신 영상</b></a></li>
+  <li class="w3-hide-small" style="width:100px"><a href="/honey/HoneyControl?action=ranking" class="w3-padding-32" ><b>랭킹</b></a></li>
+  <li class="w3-hide-small" style="width:100px"><a href="/honey/HoneyControl?action=newvideo" class="w3-padding-32" ><b>최신 영상</b></a></li>
   <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><input type="text" id="search1" name="search" class="w3-light-gray w3-input w3-padding-16" placeholder="키워드 검색" style="width:250px; height:60px"></li>
   <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><button type="submit" class="w3-btn w3-amber w3-padding-16" style="height:60px">Go</button></li>
   <li class="w3-hide-small w3-right w3-medium w3-opennav" style="width:100px"><a href="#" class="w3-padding-32" onclick="w3_Useropen()"><b><%=session.getAttribute("member_id")%>님</b></a></li>
-  <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="HoneyControl?action=upload" class="w3-padding-32"><b>업로드</b></a></li>
-  <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="HoneyControl?action=hccreate" class="w3-padding-32"><b>꿀통 작성</b></a></li>
+  <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="/honey/HoneyControl?action=upload" class="w3-padding-32"><b>업로드</b></a></li>
+  <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="/honey/HoneyControl?action=hccreate" class="w3-padding-32"><b>꿀통 작성</b></a></li>
   <li class="w3-hide-large w3-hide-small w3-dropdown-click w3-right">
       <a onclick="myFunction()" href="#" class="w3-padding-32" style="width: 10%"><i class="fa fa-search"></i></a>
       <div id="demo" class="w3-dropdown-content w3-white w3-card-4" style="width:50%; right:252px">

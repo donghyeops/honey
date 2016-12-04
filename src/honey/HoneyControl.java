@@ -355,6 +355,32 @@ public class HoneyControl extends HttpServlet {
 				address=src+"/fail_hcid.jsp";
 			}
 		}
+		else if(action.equals("deleteFavoritehc")){		
+			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){		//숫자로 꿀통 아이디 받은경우
+				String member_id=(String)session.getAttribute("member_id");			//세션으로 아이디 받기
+				int hc_id=Integer.parseInt(request.getParameter("hc_id"));
+			
+				if(member_id==null){												//비로그인인경우
+					address=src+"/fail_login_p.jsp";
+				}else if(dao.getHcpwd(hc_id)==null){								//hc_id가 없는경우
+					address=src+"/fail_hcid.jsp";
+			
+				}else{					
+					HoneyBean fvhoney = new HoneyBean();
+					fvhoney.setHc_id(hc_id);
+					fvhoney.setMember_id(member_id);
+					dao.deleteFvhoneycomb(fvhoney);
+					address="HoneyControl?action=favoritehoneycomb";
+				}
+			}else{
+				address=src+"/fail_hcid.jsp";
+			}
+			
+			
+		}
+		
+		
+		
 		else if(action.equals("viewlist")){
 			String from = request.getParameter("from");
 			int list_n = Integer.parseInt(request.getParameter("list_n"));
