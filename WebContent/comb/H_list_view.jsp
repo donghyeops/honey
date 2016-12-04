@@ -131,13 +131,12 @@ function back(){
     <!-- 퍼가기 버튼 끝 -->
 	<!-- 달아 써요부분 -->
     <ul class="w3-navbar w3-center w3-round-jumbo w3-margin-bottom" style="width:70%; margin:0px 15% 0px 15%">
-    	<li style="width:47.5%">
+    	<li style="width:50%">
             <a href="HoneyControl?action=updateGood&list_n=<%= list.getList_n() %>&good=<%= list.getList_good() %>" class="w3-padding-8 w3-amber w3-hover-yellow">
                 <b>달아요: <%=list.getList_good() %></b>
             </a>
         </li>
-        <li style="width:5%"><hr></li>
-    	<li style="width:47.5%">
+    	<li style="width:50%">
             <a href="HoneyControl?action=updateBad&list_n=<%= list.getList_n() %>&bad=<%= list.getList_bad() %>" class="w3-padding-8 w3-brown w3-hover-dark-gray">
                 <b>써요: <%=list.getList_bad() %></b>
             </a>
@@ -164,7 +163,7 @@ function back(){
                 </form>
   			</ul>
             <!-- 댓글 표시 -->
-			<div class="w3-row" style="margin:0px 2.5% 0px 2.5%;width:95%">
+			<div class="w3-row" style="width:100%">
 				<%
 					int rutin=10;
 					int page_n=1;
