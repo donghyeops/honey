@@ -23,14 +23,16 @@
 	
 
 <div class="w3-display-topmiddle w3-center w3-card-8 w3-round-large w3-sand w3-padding-16" style="margin: 150px 0px 0px 0px; width: 80%; height: 800px">
-  	<ul class="w3-navbar w3-center w3-margin w3-round-large" style="width:96%">
-    	<li class="w3-amber w3-padding-8" style="width:8%">번호</li>
-    	<li class="w3-white w3-padding-8" style="width:30%">제목</li>
-    	<li class="w3-black w3-padding-8" style="width:14%">작성자</li>
-    	<li class="w3-white w3-padding-8" style="width:28%">작성일</li>
-    	<li class="w3-amber w3-padding-8" style="width:10%">달아요</li>
-    	<li class="w3-brown w3-padding-8 " style="width:10%">써요</li>
-  	</ul>
+	<br><br>
+    
+  <ul class="w3-navbar w3-center w3-round-xlarge w3-hide-medium w3-hide-small" style="width:95%; margin:0px 2.5% 0px 2.5% ">
+      	<li class="w3-amber w3-padding-8" style="width:8%">번호</li>
+      	<li class="w3-white" style="width:30%">제목</li>
+      	<li class="w3-black w3-padding-8" style="width:12%">작성자</li>
+	  	<li class="w3-white w3-padding-8" style="width:28%">작성일</li> 
+        <li style="width:11%">달아요</li>
+        <li style="width:11%">써요</li>
+  </ul>
 	<%
 		int rutin=10;
 		int page_n=1;
@@ -57,7 +59,7 @@
 		HoneyBean event = (HoneyBean)eventlist.get(i);
 	%>
 	<!-- //리스트 나열-->
-	<ul class="w3-navbar w3-center w3-margin w3-round-xlarge" style="width:96% ">
+	<ul class="w3-navbar w3-center w3-round-xlarge w3-hide-medium w3-hide-small" style="width:95%; margin:0px 2.5% 0px 2.5% ">
       	<!--번호-->
       	<li class="w3-amber w3-padding-8" style="width:8%"><%=i+1%></li>
       	<!--제목 -->
@@ -67,17 +69,46 @@
       		</a>
       	</li>
       	<!--작성자-->
-      	<li class="w3-black w3-padding-8" style="width:14%"><%=event.getMember_name() %></li>
+      	<li class="w3-black w3-padding-8" style="width:12%"><%=event.getMember_name() %></li>
       	<!--작성일-->
 	  	<li class="w3-white w3-padding-8" style="width:28%"><%=event.getList_time() %></li> 
-        <li style="width:10%">
+        <li style="width:11%">
         	<a href="HoneyControl?from=ranking&action=updateGood&list_n=<%= event.getList_n() %>&good=<%= event.getList_good() %>" class="w3-amber w3-hover-yellow"><%=event.getList_good() %></a>
         </li>
-        <li style="width:10%">
+        <li style="width:11%">
         	<a href="HoneyControl?from=ranking&action=updateBad&list_n=<%= event.getList_n() %>&bad=<%= event.getList_bad() %>" class="w3-brown w3-hover-dark-gray"><%=event.getList_bad() %></a>
         </li>
-   	</ul>
-
+   	</ul>  
+    
+  	<ul class="w3-navbar w3-center w3-round-xlarge w3-margin w3-hide-large">
+  		<li style="width:100%">
+    		<ul class="w3-navbar w3-center">
+    			<li class="w3-yellow w3-padding-16 w3-hide-small" style="width:12%"><%=i+1%></li>
+            	<li class="w3-yellow w3-medium w3-hide-medium w3-hide-large" style="width:12%"><%=i+1%></li>
+    			<li class="w3-white" style="width:38%">
+            		<a href="HoneyControl?action=viewlist&from=newvideo&list_n=<%=event.getList_n() %>" class="w3-padding-16">
+                		<%=event.getList_title() %>
+                	</a>
+            	</li>
+    			<li class="w3-black w3-padding-16 w3-hide-small" style="width:20%"><%=event.getMember_name() %></li>
+    			<li class="w3-white w3-padding-16 w3-hide-small" style="width:30%"><%=event.getList_time() %></li>
+ 	 		</ul>
+  		</li>
+  		<li style="width:100%">
+    		<ul class="w3-navbar  w3-khaki w3-center">
+    			<li class="w3-amber w3-small" style="width:50%">
+            		<a href="HoneyControl?from=ranking&action=updateGood&list_n=<%= event.getList_n() %>&good=<%= event.getList_good() %>" class="w3-hover-yellow">
+                		<%=event.getList_good() %>
+                	</a>
+            	</li>
+    			<li class="w3-brown w3-small" style="width:50%">
+            		<a href="HoneyControl?from=ranking&action=updateBad&list_n=<%= event.getList_n() %>&bad=<%= event.getList_bad() %>"  class="w3-hover-dark-gray">
+                		<%=event.getList_bad() %>
+                	</a>
+            	</li>
+ 			</ul>
+  		</li>
+ 	</ul>
 	<% }
 	%>
 
