@@ -11,6 +11,7 @@
 <style type="text/css">
 @import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
 #list {text-align : center;}
+
 body {
         background: linear-gradient( to bottom, #EDCA35, #FFEDA0 );
       }
@@ -22,7 +23,7 @@ h1 {
 <body>
 
 <div id="list">
-<h1><a href="HoneyControl?action=Main"><img src="/honey/comb/img/HoneyComb.png" width=150 height=150></a><br><br><%=HC.getHc_title()%></h1> <br><hr><br>
+<h1><a href="HoneyControl?action=Main"><img src="/honey/comb/img/HoneyComb.png" width=150 height=150></a><br><br><%=HC.getHc_title()%></h1> <br><br>
 
 <!-- 벌꿀 즐겨찾기부분 -->
 <form method="post" action="/honey/HoneyControl">
@@ -41,7 +42,7 @@ h1 {
 	<input type="submit" value="편집">
 </form>
 
-<br><hr><br>
+<br><br>
 
 <%
 		if (HC.getURLs().size() == 0) {

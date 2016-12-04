@@ -41,6 +41,12 @@ public class HoneyControl extends HttpServlet {
 		
 		String action = request.getParameter("action");
 		
+		if (action!=null && !action.equals("hccreate")) {
+			session.removeAttribute("mode");
+			session.removeAttribute("HC");
+			session.removeAttribute("result");
+		}
+		
 		if(action==null||action.equals("Main")||action.equals("null")){				//일반 기본창
 			address="HoneyControl?action=newvideo";
 			String main="main";
