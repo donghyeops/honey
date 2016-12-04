@@ -75,6 +75,9 @@ public class Editor extends HttpServlet {
 			return;
 		}
 		
+		if (input_pwd.length() < 30) {
+			input_pwd = SHA1.sha1(input_pwd);
+		}
 		// 비밀번호가 안맞으면 빽
 		if (!HC.getHc_pwd().equals(input_pwd)) {
 			out.println("<script>alert('비밀번호가 틀렸습니다');history.back();</script>');history.back();</script>");
