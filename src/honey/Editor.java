@@ -76,7 +76,7 @@ public class Editor extends HttpServlet {
 		}
 		
 		// 비밀번호가 안맞으면 빽
-		if (!HC.getHc_pwd().equals(SHA1.sha1(input_pwd))) {
+		if (!HC.getHc_pwd().equals(input_pwd)) {
 			out.println("<script>alert('비밀번호가 틀렸습니다');history.back();</script>');history.back();</script>");
 			out.flush();
 			return;
@@ -86,7 +86,8 @@ public class Editor extends HttpServlet {
 		session.setAttribute("HC", HC);	//세션에 Mgr_bean 등록
 		session.setAttribute("mode", "edit");	// 리퀘스트에 edit 등록
 		// forward
-		String address = src+"/manager/createHC.jsp";
+		String address="HoneyControl?action=hccreate";
+		//String address = src+"/manager/createHC.jsp";
 		//RequestDispatcher dispatcher = request.getRequestDispatcher(address);
 		//dispatcher.forward(request, response);
 		response.sendRedirect(address);

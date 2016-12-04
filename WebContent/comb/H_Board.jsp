@@ -9,6 +9,13 @@
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 
+<style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+li {
+	font-family: 'Nanum Gothic', sans-serif;
+}
+</style>
+
 </head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 

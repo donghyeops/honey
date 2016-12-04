@@ -4,12 +4,19 @@
 <html>
 <head>
 <title>허니::honeycomb</title>
+
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" type="text/css" href="/honey/comb/css/HoneyStyle.css">
 	<link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <!-- background-color:rgba( 255, 255, 255, 0 );배경투명색 -->
+<style type="text/css">
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+b {
+	font-family: 'Nanum Gothic', sans-serif;
+}
+</style>
 <script  type = "text/javascript">
 function checkSearch() {
 	var str1 = document.getElementById('search1');
