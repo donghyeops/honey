@@ -26,9 +26,10 @@ function checkList1() {
 	
 	return true;
 }
-function checkList2(number) {
-	var str1 = document.getElementById('title'+number);
-	var str2 = document.getElementById('contents'+number);
+function checkList2() {
+	var str1 = document.getElementById('title2');
+	var str2 = document.getElementById('contents2');
+	
 			if( str1.value.replace(/^\s*|\s*$/g,'') == "" ){
 				alert("제목에 내용이 없습니다.");
 			    return false;
@@ -56,11 +57,99 @@ function checkList2(number) {
 
 <!-- 벌집 리스트 출력 -->
 <div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-width:400px; padding-bottom: 0%">
-	<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px" >누군가의 꿀통 업로드</div>
-		<div class="w3-btn-group" style="width: 80%">
-		<a onclick="document.getElementById('Upload').style.display='block'" style="margin: 10px 0px 20px 10px" class="w3-btn w3-amber">작성하기</a>
+	<ul class="w3-navbar  w3-margin-top">
+		<li class="w3-round-xlarge w3-center w3-padding-16" style="width:100%">
+			다른 사람의 꿀통 업로드
+  		</li>
+  		<li style="width:100%">
+  			<ul class="w3-navbar w3-center">
+  				<li style="width:100%">
+                	<a href="#" class="w3-amber w3-hover-yellow w3-padding-16" onclick="document.getElementById('Upload').style.display='block'"><b>게시물 작성하기</b></a>
+                <!-- 게시판번호 -->
+				<!-- 게시판제목 -->
+				<!-- 작성일 -->
+                </li>
+  			</ul>
+  		</li>
+  		<li style="width:100%">
+  			<ul class="w3-navbar w3-center">
+  				<li style="height:15px"><hr></li>
+            </ul>
+  		</li>
+  	</ul>
+  	<div class="w3-light-gray" style="max-height:660px; padding-bottom:0%; overflow:scroll; overflow-x:hidden">
+            <!-- 꿀통 표시 -->
+			<div class="w3-row" style="width:100%">
+				<%
+					int rutin=10;
+					int page_n=1;
+					if(request.getParameter("page_n")==null){
+						//out.println("/페이지못받음");
+						page_n=1;
+					}else{
+						//out.println("/페이지받음");
+						page_n=Integer.parseInt(request.getParameter("page_n"));//현재 페이지
+		
+					}
+					if(page_n==all_p&&remain_p!=0||eventlist.size()==0){//마지막 페이지인 경우
+						rutin=remain_p;
+					}else{
+						rutin=10;
+					}
+		
+					//out.println("/현재 출력행야하는 게시글"+rutin);
+					//out.println("/현재 페이지"+page_n);
+					//out.println("/총게시글"+eventlist.size());
+					int view_p=(1+(10*(page_n-1)))-1;
+					for(int i=view_p; i<(view_p+rutin); i++) {
+						HoneyBean event = (HoneyBean)eventlist.get(i);
+				%>
+				<ul class="w3-navbar w3-center w3-round-large w3-margin-bottom w3-white w3-border"> 
+                	<li class="w3-padding-12 w3-blue" style="width:15%">
+                		<b><%=event.getHc_id()%></b>
+                	</li>
+                    <li class="w3-padding-12 w3-white" style="width:55%">
+                		<b><%=event.getHc_title()%></b>
+                	</li>
+                    <li class="w3-padding-12 w3-black" style="width:25%">
+                		<b><a onclick="document.getElementById('Upload<%=i%>').style.display='block'" class="w3-btn-floating w3-small w3-amber">+</a></b>
+                	</li>
+                </ul>
+				<%}%>	
+				<%int remain_a=10;;%>
+				<%int view_a=(((page_n-1)/10)*10+1);%>
+	
+				<%if(all_p-view_a<10) {
+					remain_a=all_p-view_a+1;
+				}%>
+	
+				<ul class="w3-pagination">
+					<% if(view_a-1>0){%>
+						<li><a href="?action=upload&page_n=<%=view_a-1%>">&laquo;</a></li>
+					<%} %>
+					<%for(int s=view_a;s<view_a+remain_a;s++) {
+						if(s==page_n){%>
+							<li><a href="?action=upload&page_n=<%=s%>" class="w3-green"><%=s%></a></li>
+						<%}else{ %>
+							<li><a href="?action=upload&page_n=<%=s%>" class="w3-white w3-hover-red"><%=s%></a></li>
+						<%}} %>
+					<% if(all_p-view_a>10){%>
+						<li><a href="?action=upload&page_n=<%=view_a+10%>">&raquo;</a></li> 
+					<%} %>
+				</ul>
+			</div>
 	</div>
-	<div id="Upload" class="w3-modal">
+</div>
+
+<%if(session.getAttribute("member_id")==null){ %>
+<script> alert("로그인 해주십쇼."); location.replace("/honey/HoneyControl"); </script>
+<%} else {%>
+<%@ include file="Menubar_login.jsp"%>
+<%} %>	
+
+<div style="margin: 1000px 0px 0px 0px; width:1000px; height: 200px"></div>
+
+<div id="Upload" class="w3-modal">
     	<div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width: 600px">
       		<div class="w3-center">
 				<span onclick="document.getElementById('Upload').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
@@ -80,98 +169,7 @@ function checkList2(number) {
     			</form>
      		</div>
     	</div>
-    </div>
-<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px">내 꿀통 업로드</div>
-	<div class="w3-btn-group" style="width: 900px; margin: 0px 0px 10px 0px">
-		<button class="w3-btn w3-padding w3-amber w3-small" style="width:100px">꿀통 아이디</button>
-		<button class="w3-btn w3-white w3-text-black" style="width:80%">꿀통 제목</button>
-	</div>
-	<%
-		int rutin=10;
-		int page_n=1;
-		if(request.getParameter("page_n")==null){
-			//out.println("/페이지못받음");
-			page_n=1;
-		}else{
-			//out.println("/페이지받음");
-		page_n=Integer.parseInt(request.getParameter("page_n"));//현재 페이지
-		
-		}
-		
-		if(page_n==all_p&&remain_p!=0||eventlist.size()==0){//마지막 페이지인 경우
-			rutin=remain_p;
-		}else{
-			rutin=10;
-		}
-		
-		//out.println("/현재 출력행야하는 게시글"+rutin);
-		//out.println("/현재 페이지"+page_n);
-		//out.println("/총게시글"+eventlist.size());
-		int view_p=(1+(10*(page_n-1)))-1;
-		for(int i=view_p; i<(view_p+rutin); i++) {
-		HoneyBean event = (HoneyBean)eventlist.get(i);
-	%>
-	<div class="w3-btn-group" style="width: 900px; margin: 0px 0px 0px 0px">
-		<button class="w3-btn w3-padding w3-amber w3-small" style="width:100px"><%=event.getHc_id()%></button>
-		<a href="Viewer?hc_id=<%=event.getHc_id()%>" target="_blank">
-			<button class="w3-btn w3-white" style="width:80%"><%=event.getHc_title()%></button>
-		</a>
-		<a onclick="document.getElementById('Upload<%=i%>').style.display='block'" class="w3-btn-floating w3-amber">+</a>
-	</div>
-	
-	<div id="Upload<%=i%>" class="w3-modal">
-    	<div class="w3-modal-content w3-card-8 w3-animate-zoom" style="max-width: 600px">
-      		<div class="w3-center">
-				<span onclick="document.getElementById('Upload<%=i%>').style.display='none'" class="w3-closebtn w3-hover-red w3-container w3-padding-8 w3-display-topright" title="Close Modal">×</span>
-    			<form class="w3-container" method="post" action="/honey/HoneyControl"  onSubmit="return checkList2(<%=i+2%>)">
-      				<div class="w3-section">
-        				<label><b>제목</b></label>
-        				<input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Title" id="title<%=i+2%>" name="list_title" required>
-        				<label><b>본문 내용</b></label>
-        				<input class="w3-input w3-border" type="text" placeholder="Enter Contents" id="contents<%=i+2%>" name="list_contents" required>
-        				<input type="hidden" name="action" value="list_upload">
-        				<input type="hidden" name="hc_id" value=<%=event.getHc_id() %>>
-        				<button class="w3-btn-block w3-amber w3-section w3-padding" type="submit">게시판에 업로드</button>
-      				</div>
-    			</form>
-     		</div>
-    	</div>
-    </div>
-	<%}
-	%>	
-	
-	
-	<%int remain_a=10;;%>
-	<%int view_a=(((page_n-1)/10)*10+1);%>
-	
-	<%if(all_p-view_a<10) {
-		remain_a=all_p-view_a+1;
-	}
-	%>
-	
-	<ul class="w3-pagination">
-		<% if(view_a-1>0){%>
-			<li><a href="?action=upload&page_n=<%=view_a-1%>">&laquo;</a></li>
-		<%} %>
-		<%for(int s=view_a;s<view_a+remain_a;s++) {
-			if(s==page_n){%>
-			<li><a href="?action=upload&page_n=<%=s%>" class="w3-green"><%=s%></a></li>
-		<%}else{ %>
-			<li><a href="?action=upload&page_n=<%=s%>" class="w3-white w3-hover-red"><%=s%></a></li>
-		<%}} %>
-		<% if(all_p-view_a>10){%>
-			<li><a href="?action=upload&page_n=<%=view_a+10%>">&raquo;</a></li> 
-		<%} %>
-	</ul>
-	
 </div>
-<%if(session.getAttribute("member_id")==null){ %>
-<script> alert("로그인 해주십쇼."); location.replace("/honey/HoneyControl"); </script>
-<%} else {%>
-<%@ include file="Menubar_login.jsp"%>
-<%} %>	
-
-<div style="margin: 1000px 0px 0px 0px; width:1000px; height: 200px"></div>
 
 </body>
 </html>
