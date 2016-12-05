@@ -47,40 +47,40 @@ public class HoneyControl extends HttpServlet {
 			session.removeAttribute("result");
 		}
 		
-		if(action==null||action.equals("Main")||action.equals("null")){				//ÀÏ¹Ý ±âº»Ã¢
+		if(action==null||action.equals("Main")||action.equals("null")){				//ï¿½Ï¹ï¿½ ï¿½âº»Ã¢
 			address="HoneyControl?action=newvideo";
 			String main="main";
 			request.setAttribute("main",main);
 			System.out.println(action);
-			System.out.println("¸ÞÀÎÀ¸·Î");	
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");	
 		}
 		
-		else if(action.equals("logout")){						//·Î±×¾Æ¿ô½Ã ¼¼¼ÇÁ¾·ùÈÄ ±âº»Ã¢À¸·Î
+		else if(action.equals("logout")){						//ï¿½Î±×¾Æ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº»Ã¢ï¿½ï¿½ï¿½ï¿½
 			session.invalidate();
 			address="HoneyControl?action=newvideo";
 		}
 		
-		else if(action.equals("login")){						//·Î±×ÀÎ½Ã ¼¼¼Ç»ý¼ºÈÄ ·Î±×ÀÎ±âº»Ã¢À¸·Î 
+		else if(action.equals("login")){						//ï¿½Î±ï¿½ï¿½Î½ï¿½ ï¿½ï¿½ï¿½Ç»ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½Î±âº»Ã¢ï¿½ï¿½ï¿½ï¿½ 
 			String member_id = request.getParameter("member_id");	
 			String member_pwd = request.getParameter("member_pwd");
 			HoneyBean event = dao.memberCheck(member_id, member_pwd);			
-			if(event.getMember_id()==null){	//¾ÆÀÌµð°¡ ¾øÀ»½Ã ·Î±×ÀÎ ½ÇÆÐ Ã¢À¸·Î
+			if(event.getMember_id()==null){	//ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½
 				address=src+"/fail_login.jsp";
-			}else{							//·Î±×ÀÎ ¼º°ø½Ã ·Î±×ÀÎ±âº»Ã¢À¸·Î	
+			}else{							//ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½Î±âº»Ã¢ï¿½ï¿½ï¿½ï¿½	
 			session.setAttribute("member_id", member_id);	
 			session.setAttribute("member_pwd", member_pwd);
-			//¼¼¼Ç¿¡ id¿Ípwd¸¦ ¼³Á¤ÇÑ´Ù.
+			//ï¿½ï¿½ï¿½Ç¿ï¿½ idï¿½ï¿½pwdï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 			address="HoneyControl?action=newvideo";
 			}
 		}
 		
-		else if(action.equals("gojoin")){//					È¸¿ø°¡ÀÔ½Ã ¾ÆÀÌµð Ã¼Å©ÈÄ ¾ø´Â ¾ÆÀÌµðÀÌ¸é È¸¿ø°¡ÀÔ		
+		else if(action.equals("gojoin")){//					È¸ï¿½ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ Ã¼Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½Ì¸ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½		
 			String member_id = request.getParameter("member_id");
 			
-			String member_pwd = request.getParameter("member_pwd");		//ºñ¹Ð¹øÈ£ È®ÀÎ
+			String member_pwd = request.getParameter("member_pwd");		//ï¿½ï¿½Ð¹ï¿½È£ È®ï¿½ï¿½
 			String member_pwd2 = request.getParameter("member_pwd2");
 			
-			if(member_pwd.equals(member_pwd2)){							//ºñ¹Ð¹øÈ£ È®ÀÎ¿Ï·á
+			if(member_pwd.equals(member_pwd2)){							//ï¿½ï¿½Ð¹ï¿½È£ È®ï¿½Î¿Ï·ï¿½
 				HoneyBean check = dao.joinCheck(member_id);
 				if(check.getMember_id()==null){
 					HoneyBean event = new HoneyBean();
@@ -89,59 +89,59 @@ public class HoneyControl extends HttpServlet {
 					event.setMember_name(request.getParameter("member_name"));
 					dao.addMember(event);
 					address="HoneyControl?action=newvideo";
-				}else{					//Áßº¹µÈ ¾ÆÀÌµðÀÏ½Ã °¡ÀÔ½ÇÆÐ Ã¢À¸·Î
+				}else{					//ï¿½ßºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½Ï½ï¿½ ï¿½ï¿½ï¿½Ô½ï¿½ï¿½ï¿½ Ã¢ï¿½ï¿½ï¿½ï¿½
 					address=src+"/fail_join.jsp";
 				}
 			}
-			else{														//ºñ¹Ð¹øÈ£ È®ÀÎ ½ÇÆÐ
+			else{														//ï¿½ï¿½Ð¹ï¿½È£ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					address=src+"/fail_pwd2.jsp";
 			}			
 		}
 		
-		else if(action.equals("mylist")){						//³»°¡ °Ô½ÃÇÑ °Ô½Ã¹°°ü¸®
+		else if(action.equals("mylist")){						//ï¿½ï¿½ï¿½ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½
 			String member_id = (String)session.getAttribute("member_id");
 			ArrayList<HoneyBean> mylist = dao.getMylist(member_id);
 			request.setAttribute("mylist", mylist);		
 			address=src+"/H_mylist.jsp";
 		}
 		
-		else if(action.equals("myhoneycomb")){					//³»°¡ ¸¸µç ¹ú²ÜÅë
+		else if(action.equals("myhoneycomb")){					//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			String member_id = (String)session.getAttribute("member_id");
 			ArrayList<HoneyBean> myhoney = dao.getMyhoneycomb(member_id);
 			request.setAttribute("myhoney", myhoney);		
 			address=src+"/H_myhoneycomb.jsp";
 		}
 		
-		else if(action.equals("modmember")){					//³ªÀÇ Á¤º¸ Ã¼Å©ºÎºÐ
+		else if(action.equals("modmember")){					//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©ï¿½Îºï¿½
 			String member_id=(String)session.getAttribute("member_id");			
-			String member_pwd=(String)session.getAttribute("member_pwd");//¼¼¼ÇÀ¸·Î ¾ÆÀÌµð ºñ¹ø ¹Þ±â
-			String member_pwd2=request.getParameter("member_pwd2");			//ºñ¹Ð¹øÈ£ ´Ù½Ã¹Þ±â
+			String member_pwd=(String)session.getAttribute("member_pwd");//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½
+			String member_pwd2=request.getParameter("member_pwd2");			//ï¿½ï¿½Ð¹ï¿½È£ ï¿½Ù½Ã¹Þ±ï¿½
 			
-			if(member_pwd.equals(member_pwd2)){		//ºñ¹Ð¹øÈ£ È®ÀÎ ¿Ï·á
-				HoneyBean member= dao.memberCheck(member_id, member_pwd);	//ÀÚ½ÅÀÇ Á¤º¸¸¦ ¹Þ¾Æ¿Â´Ù.
-				request.setAttribute("member", member);						//ÀÚ½ÅÀÇ Á¤º¸¸¦ º¸³½´Ù.
+			if(member_pwd.equals(member_pwd2)){		//ï¿½ï¿½Ð¹ï¿½È£ È®ï¿½ï¿½ ï¿½Ï·ï¿½
+				HoneyBean member= dao.memberCheck(member_id, member_pwd);	//ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿Â´ï¿½.
+				request.setAttribute("member", member);						//ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½.
 				address=src+"/H_updatemember.jsp";
-			}else{										//ºñ¹Ð¹øÈ£ È®ÀÎ Åë°ú ¸øÇÑ°æ¿ì
+			}else{										//ï¿½ï¿½Ð¹ï¿½È£ È®ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ°ï¿½ï¿½
 				address=src+"/fail_pwd2.jsp";	
 			}	
 		}
 		
-		else if(action.equals("updatemember")){								//³ªÀÇ Á¤º¸ ¼öÁ¤¹Þ¾Æ¼­ ÇÏ´ÂºÎºÐ
+		else if(action.equals("updatemember")){								//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Þ¾Æ¼ï¿½ ï¿½Ï´ÂºÎºï¿½
 			String member_id=(String)session.getAttribute("member_id");
-			String member_pwd=(String)session.getAttribute("member_pwd");//¼¼¼ÇÀ¸·Î ¾ÆÀÌµð ºñ¹ø ¹Þ±â
+			String member_pwd=(String)session.getAttribute("member_pwd");//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½
 			String member_pwd1=request.getParameter("member_pwd1");
 			String member_pwd2=request.getParameter("member_pwd2");
 			if(member_pwd1.equals(member_pwd2)){
-				if(member_pwd1.length()==0){										//ºñ¹Ð¹øÈ£ ¼öÁ¤ ¾ÈÇÒ½Ã
+				if(member_pwd1.length()==0){										//ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ò½ï¿½
 					HoneyBean event = new HoneyBean();
 					event.setMember_id(member_id);
-					event.setMember_pwd(member_pwd);								//¿ø ºñ¹Ð¹øÈ£
+					event.setMember_pwd(member_pwd);								//ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£
 					event.setMember_name(request.getParameter("member_name"));		
 					dao.updateMember(event);
-				}else{															//ºñ¹Ð¹øÈ£ ¼öÁ¤½Ã
+				}else{															//ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					HoneyBean event = new HoneyBean();
 					event.setMember_id(member_id);
-					event.setMember_pwd(member_pwd1);							//¹ø°æ ºñ¹Ð¹øÈ£
+					event.setMember_pwd(member_pwd1);							//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£
 					session.setAttribute("member_pwd", member_pwd1);
 					event.setMember_name(request.getParameter("member_name"));
 					dao.updateMember(event);
@@ -156,54 +156,54 @@ public class HoneyControl extends HttpServlet {
 		
 		}
 		
-		else if(action.equals("addhc")){										//ÀÚ½ÅÀÇ °èÁ¤¿¡ hc¸¦ Ãß°¡ÇÑ´Ù.
-			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){//¼ýÀÚ·Î ÀÔ·ÂÇÑ°æ¿ì
-				int hc_id=Integer.parseInt(request.getParameter("hc_id"));			//¿ø·¡hc_id°®°í¿À±â
+		else if(action.equals("addhc")){										//ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ hcï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ñ´ï¿½.
+			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){//ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½Ô·ï¿½ï¿½Ñ°ï¿½ï¿½
+				int hc_id=Integer.parseInt(request.getParameter("hc_id"));			//ï¿½ï¿½ï¿½ï¿½hc_idï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				int newId = 0;
-				String member_id=(String)session.getAttribute("member_id");			//·Î±×ÀÎÇÑ ÀÚ½ÅÀÇ ¾ÆÀÌµð°¡Á®¿À±â
-				String hc_pwd=dao.getHcpwd(hc_id); 									//ÇØ´ç ¾ÆÀÌµðÀÇ ºñ¹Ð¹øÈ£°¡Á®¿À±â
-				String hc_pwd1=request.getParameter("hc_pwd");						//ÀÔ·ÂµÈ ºñ¹Ð¹øÈ£ °¡Á®¿À±â
+				String member_id=(String)session.getAttribute("member_id");			//ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				String hc_pwd=dao.getHcpwd(hc_id); 									//ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				String hc_pwd1=request.getParameter("hc_pwd");						//ï¿½Ô·Âµï¿½ ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				System.out.println(hc_pwd1);
 				System.out.println(SHA1.sha1(hc_pwd1));
 				System.out.println(hc_pwd);
-				if(hc_pwd==null){											//ÇØ´ç ¹ú²ÜÀÌ ¾ø´Â°æ¿ì
+				if(hc_pwd==null){											//ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ï¿½
 					address=src+"/fail_hcid.jsp";
 				}
-				else if(hc_pwd.equals(SHA1.sha1(hc_pwd1))){						//¾´ ºñ¹Ð¹øÈ£¿Íºñ±³
-															//¸ÂÀ¸¸é Ãß°¡ÇÏ±â
-					Mgr_bean HC = dao.getHC(hc_id);					//ÇØ´ç hc¾ÆµðÀÌmgr°¡Á®¿À±â
+				else if(hc_pwd.equals(SHA1.sha1(hc_pwd1))){						//ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ï¿½Íºï¿½
+															//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï±ï¿½
+					Mgr_bean HC = dao.getHC(hc_id);					//ï¿½Ø´ï¿½ hcï¿½Æµï¿½ï¿½ï¿½mgrï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								
 					do {
-						newId = (int) (Math.random() * 100000);		//hc¾ÆÀÌµð¸¦ ´Ù½Ã ¼³Á¤ÇØ¼­ ¿¬°á½ÃÄÑÁØ´Ù
-					} while (!(dao.isGoodHC_ID(newId)));			// id »ý¼º& Áßº¹°Ë»ç
+						newId = (int) (Math.random() * 100000);		//hcï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ù½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½
+					} while (!(dao.isGoodHC_ID(newId)));			// id ï¿½ï¿½ï¿½ï¿½& ï¿½ßºï¿½ï¿½Ë»ï¿½
 
 			
-					HC.setHc_id(newId);// »õ·Î¿îhc_id ¼³Á¤
-					HC.setMember_id(member_id);//ÀÚ½ÅÀÇ ¾ÆÀÌµð·Î ¼³Á¤
+					HC.setHc_id(newId);// ï¿½ï¿½ï¿½Î¿ï¿½hc_id ï¿½ï¿½ï¿½ï¿½
+					HC.setMember_id(member_id);//ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 					HC.setHc_pwd(request.getParameter("hc_pwd"));
-					dao.addHC(HC);						//ÇØ´ç ºóÀ» Ãß°¡ÇÏ±â
+					dao.addHC(HC);						//ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½ï¿½Ï±ï¿½
 			
 					address="HoneyControl?action=myhoneycomb";
 			
 				}else{								
-					//´Ù¸£¸é µ¹·Áº¸³¿
+					//ï¿½Ù¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					address=src+"/fail_pwd2.jsp";
 				}	
-			}else{//¹®ÀÚ¸¦ ÀÔ·ÂÇÑ°æ¿ì
+			}else{//ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½Ô·ï¿½ï¿½Ñ°ï¿½ï¿½
 				address=src+"/fail_hcid.jsp";
 			}
 																			
 		}
 		
-		else if(action.equals("list_upload_anyhc")){							//¾Æ¹« hc¸¦ ÀÚ½ÅÀÇ °Ô½Ã±Û·Î ¾÷·Îµå			
-			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){		//¼ýÀÚ·Î ²ÜÅë ¾ÆÀÌµð ¹ÞÀº°æ¿ì
-				String member_id=(String)session.getAttribute("member_id");			//¼¼¼ÇÀ¸·Î ¾ÆÀÌµð ¹Þ±â		
-				int hc_id=Integer.parseInt(request.getParameter("hc_id"));			//¿ø·¡hc_id°®°í¿À±â
-				String hc_pwd=dao.getHcpwd(hc_id); 									//ÇØ´ç ¾ÆÀÌµðÀÇ ºñ¹Ð¹øÈ£°¡Á®¿À±â
-				String hc_pwd1=request.getParameter("hc_pwd");						//ÀÔ·ÂµÈ ºñ¹Ð¹øÈ£ °¡Á®¿À±â
+		else if(action.equals("list_upload_anyhc")){							//ï¿½Æ¹ï¿½ hcï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ô½Ã±Û·ï¿½ ï¿½ï¿½ï¿½Îµï¿½			
+			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){		//ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				String member_id=(String)session.getAttribute("member_id");			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Þ±ï¿½		
+				int hc_id=Integer.parseInt(request.getParameter("hc_id"));			//ï¿½ï¿½ï¿½ï¿½hc_idï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				String hc_pwd=dao.getHcpwd(hc_id); 									//ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				String hc_pwd1=request.getParameter("hc_pwd");						//ï¿½Ô·Âµï¿½ ï¿½ï¿½Ð¹ï¿½È£ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			
 			
-				if(hc_pwd.equals(SHA1.sha1(hc_pwd1))){						//¾´ ºñ¹Ð¹øÈ£¿Íºñ±³ ¸ÂÀ¸¸é ¸®½ºÆ®¿¡ µî·Ï
+				if(hc_pwd.equals(SHA1.sha1(hc_pwd1))){						//ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ï¿½Íºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½
 					HoneyBean event = new HoneyBean();
 					event.setMember_id(member_id);
 					event.setHc_id(hc_id);
@@ -215,22 +215,22 @@ public class HoneyControl extends HttpServlet {
 				}else{
 					address=src+"/fail_pwd2.jsp";
 				}
-			}else{															//¹®ÀÚ¸¦ ÀÔ·ÂÇÑ°æ¿ì
+			}else{															//ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½Ô·ï¿½ï¿½Ñ°ï¿½ï¿½
 				address=src+"/fail_hcid.jsp";
 			}
 		}
 		
 		else if(action.equals("list_remove")){
-			System.out.println("»èÁ¦ºÎºÐ");
-			System.out.println("ÇÁ·Ò");
-			String member_id=(String)session.getAttribute("member_id");			//¼¼¼ÇÀ¸·Î ¾ÆÀÌµð ¹Þ±â
-			System.out.println("¼¼¼Ç");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½");
+			String member_id=(String)session.getAttribute("member_id");			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Þ±ï¿½
+			System.out.println("ï¿½ï¿½ï¿½ï¿½");
 			int list_n = Integer.parseInt(request.getParameter("list_n"));
-			System.out.println("°Ô½ÃÆÇ¹øÈ£"+list_n);
-			String member_id2=dao.getListMemberid(list_n);							//ÀÛ¼ºÀÚ ¾ÆÀÌµð
+			System.out.println("ï¿½Ô½ï¿½ï¿½Ç¹ï¿½È£"+list_n);
+			String member_id2=dao.getListMemberid(list_n);							//ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
 			
-			if(member_id.equals(member_id2)){									//ÀÛ¼ºÀÚ¿Í ÇöÀç ·Î±×ÀÎÇÑ ¸â¹ö°¡ °°À¸¸é »èÁ¦
-				System.out.println("°°´Ù");
+			if(member_id.equals(member_id2)){									//ï¿½Û¼ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				System.out.println("ï¿½ï¿½ï¿½ï¿½");
 				dao.removeList(list_n);
 				address="HoneyControl?action=newvideo";
 			}else{
@@ -241,10 +241,10 @@ public class HoneyControl extends HttpServlet {
 		
 		else if(action.equals("list_update_form")){
 			int list_n = Integer.parseInt(request.getParameter("list_n"));			
-			String member_id=(String)session.getAttribute("member_id");			//¼¼¼ÇÀ¸·Î ¾ÆÀÌµð ¹Þ±â
-			String member_id2=dao.getListMemberid(list_n);							//ÀÛ¼ºÀÚ ¾ÆÀÌµð
-			if(member_id.equals(member_id2)){									//ÀÛ¼ºÀÚ¿Í ÇöÀç ·Î±×ÀÎÇÑ ¸â¹ö°¡ °°À¸¸é ¼öÁ¤
-				HoneyBean honey= dao.getList(list_n);							//ÇØ´ç ¸®½ºÆ® ºÒ·¯¿À±â
+			String member_id=(String)session.getAttribute("member_id");			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Þ±ï¿½
+			String member_id2=dao.getListMemberid(list_n);							//ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+			if(member_id.equals(member_id2)){									//ï¿½Û¼ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+				HoneyBean honey= dao.getList(list_n);							//ï¿½Ø´ï¿½ ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½
 				request.setAttribute("honey",honey);
 				address=src+"/H_listupdate.jsp";
 			}else{
@@ -253,92 +253,93 @@ public class HoneyControl extends HttpServlet {
 		}
 		
 		else if(action.equals("list_update")){
-			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){		//¼ýÀÚ·Î ²ÜÅë ¾ÆÀÌµð ¹ÞÀ»¶§
+			//if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){		//ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				int list_n = Integer.parseInt(request.getParameter("list_n"));			
-				String member_id=(String)session.getAttribute("member_id");			//¼¼¼ÇÀ¸·Î ¾ÆÀÌµð ¹Þ±â
-				String member_id2=dao.getListMemberid(list_n);							//ÀÛ¼ºÀÚ ¾ÆÀÌµð
-				String hc_pwd2=request.getParameter("hc_pwd");						//ºñ¹Ð¹øÈ£¸¦ ¹Þ´Â´Ù.
+				String member_id=(String)session.getAttribute("member_id");			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Þ±ï¿½
+				String member_id2=dao.getListMemberid(list_n);							//ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+				//String hc_pwd2=request.getParameter("hc_pwd");						//ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½Þ´Â´ï¿½.
 	
-				if(member_id.equals(member_id2)){									//ÀÛ¼ºÀÚ¿Í ÇöÀç ·Î±×ÀÎÇÑ ¸â¹ö°¡ °°À¸¸é ¼öÁ¤
+				if(member_id.equals(member_id2)){									//ï¿½Û¼ï¿½ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Î±ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
 					HoneyBean hb= new HoneyBean();
 					String list_title = request.getParameter("list_title");
 					String list_contents = request.getParameter("list_contents");
-					int hc_id=Integer.parseInt(request.getParameter("hc_id"));
-					if(dao.getHcpwd(hc_id)==null){									//À¯È¿ÇÏÁö ¾ÊÀº hc_id
+					//int hc_id=Integer.parseInt(request.getParameter("hc_id"));
+					//if(dao.getHcpwd(hc_id)==null){									//ï¿½ï¿½È¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ hc_id
 					
-						address=src+"/fail_hcid.jsp";								
-					}else if(dao.getHcpwd(hc_id).equals(SHA1.sha1(hc_pwd2))){		
+					//	address=src+"/fail_hcid.jsp";								
+					//}else 
+						//if(dao.getHcpwd(hc_id).equals(SHA1.sha1(hc_pwd2))){		
 						hb.setList_n(list_n);
 						hb.setList_contents(list_contents);
 						hb.setList_title(list_title);
-						hb.setHc_id(hc_id);
+						//hb.setHc_id(hc_id);
 					
 						dao.updateList(hb);
 						address="HoneyControl?action=viewlist&list_n="+list_n;				
-					}else {														//¸ÂÁö¾ÊÀº ºñ¹Ð¹øÈ£
-						address=src+"/fail_pwd2.jsp";
-					}
+					//}else {														//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£
+					//	address=src+"/fail_pwd2.jsp";
+					//}
 				}else{
 					address=src+"/fail_login2.jsp";
 					
 				}	
-			}else{
-				address=src+"/fail_hcid.jsp";
-			}
+			//}else{
+				//address=src+"/fail_hcid.jsp";
+			//}
 			
 		}
 		
-		else if(action.equals("addCommment")){									//´ñ±ÛÃß°¡						//¾îµð¼­¿Ô´ÂÁö
+		else if(action.equals("addCommment")){									//ï¿½ï¿½ï¿½ï¿½ß°ï¿½						//ï¿½ï¿½ð¼­¿Ô´ï¿½ï¿½ï¿½
 			String from = request.getParameter("from");
-			String member_id=(String)session.getAttribute("member_id");			//¼¼¼ÇÀ¸·Î ¾ÆÀÌµð ¹Þ±â
+			String member_id=(String)session.getAttribute("member_id");			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Þ±ï¿½
 			int list_n=Integer.parseInt(request.getParameter("list_n"));
 			String comment_contents = request.getParameter("comment_contents");
-			System.out.println("´ñ±ÛÃß°¡");
-			System.out.println("³ªÀÇ ¾ÆÀÌµð"+member_id);
-			System.out.println("ÇØ´ç °Ô½ÃÆÇ ¹øÈ£"+list_n);
-			System.out.println("´ñ±Û ³»¿ë"+comment_contents);
-			if(member_id==null){//·Î±×ÀÎ¾ÈÇÑ°æ¿ì
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ß°ï¿½");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½"+member_id);
+			System.out.println("ï¿½Ø´ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½È£"+list_n);
+			System.out.println("ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½"+comment_contents);
+			if(member_id==null){//ï¿½Î±ï¿½ï¿½Î¾ï¿½ï¿½Ñ°ï¿½ï¿½
 				address=src+"/fail_login_p.jsp";
-			}else if(comment_contents==null){//ÀÛ¼ºÀ»¾ÈÇÑ°æ¿ì
+			}else if(comment_contents==null){//ï¿½Û¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½ï¿½
 				address=src+"/fail_contents.jsp";
 			}else{
 			HoneyBean comment=new HoneyBean();
 			comment.setComment_contents(comment_contents);
 			comment.setList_n(list_n);
 			comment.setMember_id(member_id);
-			System.out.println("µðºñÁ¢¼Ó");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			dao.addComment(comment);
-			System.out.println("Á¢¼Ó¿Ï·á");
+			System.out.println("ï¿½ï¿½ï¿½Ó¿Ï·ï¿½");
 			request.setAttribute("from", from);
 			address="HoneyControl?action=viewlist&list_n="+list_n;
 			}			
 		}
 		
-		else if(action.equals("deleteComment")){									//´ñ±Û »èÁ¦
-			int list_n = Integer.parseInt(request.getParameter("list_n"));							//¾îµð¼­¿Ô´ÂÁö
+		else if(action.equals("deleteComment")){									//ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+			int list_n = Integer.parseInt(request.getParameter("list_n"));							//ï¿½ï¿½ð¼­¿Ô´ï¿½ï¿½ï¿½
 			int comment_n=Integer.parseInt(request.getParameter("comment_n"));
-			System.out.println("´ñ±ÛÁö¿ì±â");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 			dao.deleteComment(comment_n);
 			address="HoneyControl?action=viewlist&list_n="+list_n;
 		}
 		
-		else if(action.equals("favoritehoneycomb")){							//Âï¾î³õÀº ¹úÄôÅë¸ñ·Ï
-			String member_id=(String)session.getAttribute("member_id");			//¼¼¼ÇÀ¸·Î ¾ÆÀÌµð ¹Þ±â
+		else if(action.equals("favoritehoneycomb")){							//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			String member_id=(String)session.getAttribute("member_id");			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Þ±ï¿½
 			ArrayList<HoneyBean> fvhoney = dao.getFvhoneycomb(member_id);
 			request.setAttribute("fvhoney",fvhoney);
 			address=src+"/H_favoritehoneycomb.jsp";
 		}
 		
-		else if(action.equals("addFavoritehc")){								//Âï¾î³õÀº ¹úÄôÅë¿¡ Ãß°¡ÇÏ±â
-			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){		//¼ýÀÚ·Î ²ÜÅë ¾ÆÀÌµð ¹ÞÀº°æ¿ì
-				String from = request.getParameter("from");							//¾îµð¼­¿Ô´ÂÁö
-				String member_id=(String)session.getAttribute("member_id");			//¼¼¼ÇÀ¸·Î ¾ÆÀÌµð ¹Þ±â
+		else if(action.equals("addFavoritehc")){								//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ë¿¡ ï¿½ß°ï¿½ï¿½Ï±ï¿½
+			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){		//ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				String from = request.getParameter("from");							//ï¿½ï¿½ð¼­¿Ô´ï¿½ï¿½ï¿½
+				String member_id=(String)session.getAttribute("member_id");			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Þ±ï¿½
 				int hc_id=Integer.parseInt(request.getParameter("hc_id"));
 			
-				if(member_id==null){												//ºñ·Î±×ÀÎÀÎ°æ¿ì
+				if(member_id==null){												//ï¿½ï¿½Î±ï¿½ï¿½ï¿½ï¿½Î°ï¿½ï¿½
 					address=src+"/fail_login_p.jsp";
-				}else if(dao.getHcpwd(hc_id)==null){								//hc_id°¡ ¾ø´Â°æ¿ì
+				}else if(dao.getHcpwd(hc_id)==null){								//hc_idï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ï¿½
 					address=src+"/fail_hcid.jsp";
 			
 				}else{					
@@ -346,13 +347,13 @@ public class HoneyControl extends HttpServlet {
 					fvhoney.setHc_id(hc_id);
 					fvhoney.setMember_id(member_id);
 					
-					if(dao.checkFvhoneycomb(fvhoney)){			//ÇØ´ç¹ú²ÜÀ» ÁñÃ£Çß´ÂÁö Ã¼Å© ÀÖÀ¸¸é true¾øÀ¸¸éfalse
+					if(dao.checkFvhoneycomb(fvhoney)){			//ï¿½Ø´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã£ï¿½ß´ï¿½ï¿½ï¿½ Ã¼Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ trueï¿½ï¿½ï¿½ï¿½ï¿½ï¿½false
 						address=src+"/fail_samefv.jsp";
 					}else{
 						dao.addFvhoneycomb(fvhoney);
 				
 						String ok = "ok";
-						request.setAttribute("fvhcok",ok);					//¼º°øÇß´Ù°í ¾Ë¸²
+						request.setAttribute("fvhcok",ok);					//ï¿½ï¿½ï¿½ï¿½ï¿½ß´Ù°ï¿½ ï¿½Ë¸ï¿½
 						address=from;
 					}
 				}
@@ -361,13 +362,13 @@ public class HoneyControl extends HttpServlet {
 			}
 		}
 		else if(action.equals("deleteFavoritehc")){		
-			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){		//¼ýÀÚ·Î ²ÜÅë ¾ÆÀÌµð ¹ÞÀº°æ¿ì
-				String member_id=(String)session.getAttribute("member_id");			//¼¼¼ÇÀ¸·Î ¾ÆÀÌµð ¹Þ±â
+			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){		//ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+				String member_id=(String)session.getAttribute("member_id");			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Þ±ï¿½
 				int hc_id=Integer.parseInt(request.getParameter("hc_id"));
 			
-				if(member_id==null){												//ºñ·Î±×ÀÎÀÎ°æ¿ì
+				if(member_id==null){												//ï¿½ï¿½Î±ï¿½ï¿½ï¿½ï¿½Î°ï¿½ï¿½
 					address=src+"/fail_login_p.jsp";
-				}else if(dao.getHcpwd(hc_id)==null){								//hc_id°¡ ¾ø´Â°æ¿ì
+				}else if(dao.getHcpwd(hc_id)==null){								//hc_idï¿½ï¿½ ï¿½ï¿½ï¿½Â°ï¿½ï¿½
 					address=src+"/fail_hcid.jsp";
 			
 				}else{					
@@ -389,16 +390,16 @@ public class HoneyControl extends HttpServlet {
 		else if(action.equals("viewlist")){
 			String from = request.getParameter("from");
 			int list_n = Integer.parseInt(request.getParameter("list_n"));
-			System.out.println("°Ô½ÃÆÇº¸±â"+from);
+			System.out.println("ï¿½Ô½ï¿½ï¿½Çºï¿½ï¿½ï¿½"+from);
 			if(from==null){
-				System.out.println("¾Æ¹«°Íµµ ¾øÀ½1");
+				System.out.println("ï¿½Æ¹ï¿½ï¿½Íµï¿½ ï¿½ï¿½ï¿½ï¿½1");
 			}else if(from.equals("ranking")){
-				System.out.println("·©Å·");
+				System.out.println("ï¿½ï¿½Å·");
 				ArrayList<HoneyBean> list = dao.getHoneyRanking();
 				request.setAttribute("eventlist", list);
 			}
 			else if(from.equals("newvideo")){
-				System.out.println("ÃÖ½Å");
+				System.out.println("ï¿½Ö½ï¿½");
 				ArrayList<HoneyBean> list = dao.getHoneyVideo();
 				request.setAttribute("eventlist", list);
 			}
@@ -413,72 +414,72 @@ public class HoneyControl extends HttpServlet {
 			request.setAttribute("from", from);
 			address = src+"/H_list_view.jsp";
 		}
-		//ÁÖ½ÄÀÌ ¸¸µç ºÎºÐ+³»°¡Ãß°¡ÇÔ
-		else if(action.equals("ranking")) {									//ÁÖ			 ·©Å·Ã¢À¸·Î
+		//ï¿½Ö½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½+ï¿½ï¿½ï¿½ï¿½ï¿½ß°ï¿½ï¿½ï¿½
+		else if(action.equals("ranking")) {									//ï¿½ï¿½			 ï¿½ï¿½Å·Ã¢ï¿½ï¿½ï¿½ï¿½
 			ArrayList<HoneyBean> list = dao.getHoneyRanking();
 			request.setAttribute("eventlist", list);
 			address = src+"/H_Board.jsp";
 		}
 		
 		else if(action.equals("newvideo")){
-			ArrayList<HoneyBean> list = dao.getHoneyVideo();					//ÁÖ			ÃÖ½Åºñµð¿À·Î	
+			ArrayList<HoneyBean> list = dao.getHoneyVideo();					//ï¿½ï¿½			ï¿½Ö½Åºï¿½ï¿½ï¿½ï¿½ï¿½	
 			String main=request.getParameter("main");
 			request.setAttribute("main",main);
 			request.setAttribute("eventlist", list);
 			address = src+"/H_Board.jsp";
 		}
 		
-		else if(action.equals("updateGood")){									//ÁÖ 			ÁÁ¾Æ¿ä ´õÇÏ±â
-			String member_id=(String)session.getAttribute("member_id");		//¼¼¼ÇÀ¸·Î ¾ÆÀÌµð ºñ¹ø ¹Þ±â	
+		else if(action.equals("updateGood")){									//ï¿½ï¿½ 			ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
+			String member_id=(String)session.getAttribute("member_id");		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½	
 			System.out.println(member_id);
 			int list_n = Integer.parseInt(request.getParameter("list_n"));
 			int good=Integer.parseInt(request.getParameter("good"));	
-			String list_member_id=dao.getListMemberid(list_n);				//°Ô½ÃÆÇ¾´ ¾ÆÀÌµð
-			if(member_id==null){										//·Î±×ÀÎ ¾ÈÇÑ°æ¿ì
+			String list_member_id=dao.getListMemberid(list_n);				//ï¿½Ô½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+			if(member_id==null){										//ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ°ï¿½ï¿½
 				address =src+"/fail_login_p.jsp";
 			}
-			else if(member_id.equals(list_member_id)){							//ÀÛ¼ºÀÚ º»ÀÎÀÎ°æ¿ì
+			else if(member_id.equals(list_member_id)){							//ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½ï¿½
 				address =src+"/fail_goodbad_id.jsp";	
 			}
-			else if(dao.checkgoodbad(member_id,list_n).equals("true")){					//ÀÌ¹Ì Æò°¡ Çß´ÂÁö Ã¼Å©
+			else if(dao.checkgoodbad(member_id,list_n).equals("true")){					//ï¿½Ì¹ï¿½ ï¿½ï¿½ ï¿½ß´ï¿½ï¿½ï¿½ Ã¼Å©
 				address = src+"/fail_goodbad2.jsp";
 				
 			}else{
-				dao.updategoodbad(member_id,list_n);						//Çß´Ù°í goodbadÅ×ÀÌºí¿¡ Ãß°¡
+				dao.updategoodbad(member_id,list_n);						//ï¿½ß´Ù°ï¿½ goodbadï¿½ï¿½ï¿½Ìºï¿½ ï¿½ß°ï¿½
 				good=good+1;			
 				dao.updateGood(list_n, good);
 				address="HoneyControl?action=viewlist&list_n="+list_n;
 			}
-		}else if(action.equals("updateBad")){									//ÁÖ 			½È¾î¿ä ´õÇÏ±â
-			String member_id=(String)session.getAttribute("member_id");		//¼¼¼ÇÀ¸·Î ¾ÆÀÌµð ºñ¹ø ¹Þ±â	
+		}else if(action.equals("updateBad")){									//ï¿½ï¿½ 			ï¿½È¾ï¿½ï¿½ ï¿½ï¿½ï¿½Ï±ï¿½
+			String member_id=(String)session.getAttribute("member_id");		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½ï¿½ï¿½ ï¿½Þ±ï¿½	
 			int list_n = Integer.parseInt(request.getParameter("list_n"));
 			int bad=Integer.parseInt(request.getParameter("bad"));	
-			String list_member_id=dao.getListMemberid(list_n);				//°Ô½ÃÆÇ¾´ ¾ÆÀÌµð
-			if(member_id==null){										//·Î±×ÀÎ ¾ÈÇÑ°æ¿ì
+			String list_member_id=dao.getListMemberid(list_n);				//ï¿½Ô½ï¿½ï¿½Ç¾ï¿½ ï¿½ï¿½ï¿½Ìµï¿½
+			if(member_id==null){										//ï¿½Î±ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ñ°ï¿½ï¿½
 				address =src+"/fail_login_p.jsp";
 			}
-			else if(member_id.equals(list_member_id)){							//ÀÛ¼ºÀÚ º»ÀÎÀÎ°æ¿ì
+			else if(member_id.equals(list_member_id)){							//ï¿½Û¼ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Î°ï¿½ï¿½
 				address =src+"/fail_goodbad_id.jsp";	
 			}
-			else if(dao.checkgoodbad(member_id,list_n).equals("true")){					//ÀÌ¹Ì Æò°¡ Çß´ÂÁö Ã¼Å©
+			else if(dao.checkgoodbad(member_id,list_n).equals("true")){					//ï¿½Ì¹ï¿½ ï¿½ï¿½ ï¿½ß´ï¿½ï¿½ï¿½ Ã¼Å©
 				address = src+"/fail_goodbad2.jsp";
 				
 			}else{
-				dao.updategoodbad(member_id,list_n);						//Çß´Ù°í goodbadÅ×ÀÌºí¿¡ Ãß°¡
+				dao.updategoodbad(member_id,list_n);						//ï¿½ß´Ù°ï¿½ goodbadï¿½ï¿½ï¿½Ìºï¿½ ï¿½ß°ï¿½
 				bad=bad+1;			
 				dao.updateBad(list_n, bad);
 				address="HoneyControl?action=viewlist&list_n="+list_n;
 			}
-		}else if(action.equals("upload")){									//ÁÖ °Ô½ÃÆÇ ¾÷·Îµå
-			String member_id=(String)session.getAttribute("member_id");		//¼¼¼ÇÀ¸·Î ¾ÆÀÌµð ¹Þ±â		
+		}else if(action.equals("upload")){									//ï¿½ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½
+			String member_id=(String)session.getAttribute("member_id");		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Þ±ï¿½		
 			ArrayList<HoneyBean> list = dao.getMyhoneycomb(member_id);
 			request.setAttribute("eventlist", list);
 			address = src+"/H_listUpload.jsp";
 		}
-		else if(action.equals("list_upload")){							//ÁÖ °Ô½ÃÆÇ ¾÷·Îµå
-			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){//¼ýÀÚ·Î ÀÔ·ÂÇÑ°æ¿ì
+		else if(action.equals("list_upload")){							//ï¿½ï¿½ ï¿½Ô½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½
+			if(Pattern.matches("^[0-9]+$",request.getParameter("hc_id"))){//ï¿½ï¿½ï¿½Ú·ï¿½ ï¿½Ô·ï¿½ï¿½Ñ°ï¿½ï¿½
 				HoneyBean event = new HoneyBean();
-				String member_id=(String)session.getAttribute("member_id");		//¼¼¼ÇÀ¸·Î ¾ÆÀÌµð ¹Þ±â		
+				String member_id=(String)session.getAttribute("member_id");		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Þ±ï¿½		
 			
 				event.setMember_id(member_id);
 				event.setHc_id(Integer.parseInt(request.getParameter("hc_id")));
@@ -491,7 +492,7 @@ public class HoneyControl extends HttpServlet {
 				address=src+"/fail_hcid.jsp";
 			}
 			
-		}else if(action.equals("hccreate")){														//µ¿ ²ÜÁý Á¦ÀÛ
+		}else if(action.equals("hccreate")){														//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			address=src+"/manager/createHC.jsp";
 		}
 		

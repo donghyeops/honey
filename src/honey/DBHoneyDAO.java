@@ -403,12 +403,12 @@ public class DBHoneyDAO implements HoneyDAO{
 		   }
 		   
 		   public void updateList(HoneyBean event){				//해당 리스트 수정
-			   int hc_id=event.getHc_id();
+			   //int hc_id=event.getHc_id();
 			   int list_n=event.getList_n();
 			   String list_contents=event.getList_contents();		   
 			   String list_title=event.getList_title();
 			   
-			   String sql ="update list set list_title='" + list_title+"', list_contents='"+list_contents+"', list_time = now(), hc_id="+hc_id+"  where list_n="+list_n;
+			   String sql ="update list set list_title='" + list_title+"', list_contents='"+list_contents+"', list_time = now() where list_n="+list_n;
 			   System.out.println(sql);
 			   try{
 				   connect();
