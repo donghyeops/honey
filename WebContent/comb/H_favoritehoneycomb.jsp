@@ -42,7 +42,7 @@
     <li class="w3-amber w3-padding-8" style="width:20%">꿀통 아이디</li>
     <li class="w3-white w3-padding-8" style="width:50%">꿀통 제목</li>
     <li class="w3-black w3-padding-8" style="width:15%">링크</li>
-    <li class="w3-blue w3-padding-8" style="width:15%">편집</li>
+    <li class="w3-blue w3-padding-8" style="width:15%">삭제</li> 
     </ul>
     
 			<!-- //리스트 길이만큼 반복-->
