@@ -31,7 +31,7 @@
   </ul>
   <input type="hidden" name="from" value="HoneyControl?action=favoritehoneycomb">
   <input type="hidden" name="action" value="addFavoritehc">
-  <input class="w3-btn-block w3-round-jumbo w3-green " type="submit" value="추가하기">
+  <input class="w3-btn w3-round-jumbo w3-green " style="90%" type="submit" value="추가하기">
   </form>
 </div>
 <!-- 추가 끝 -->
