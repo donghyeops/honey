@@ -14,6 +14,7 @@
 <link rel="stylesheet" href="/honey/comb/css/HoneyStyle.css">
 <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script> 
 <!--
@@ -29,17 +30,7 @@ function copy_trackback(trb) {
 function back(){
 	history.go(-1);
 }
-function checkComment() {
-	var str1 = document.getElementById('comment');
-	
-	if(str1.value.replace(/^\s*|\s*$/g,'') == ""){
-		alert("한글자 이상 써주세요.");
-	    return false;
-	}
 
-	
-	return true;
-}
 //-->
 
 function myFunction(id) {
@@ -63,7 +54,7 @@ function myFunction(id) {
 <% int remain_p=comment.size()%10;  %>
 <!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
 
-<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-width:400px; padding-bottom: 0%">
+<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 60%; max-width:1200px; min-width:400px; padding-bottom: 0%">
 	<!-- 이전 다음 -->
     <ul class="w3-navbar w3-center w3-round-xlarge">
   		<li style="width:100%">
@@ -170,7 +161,7 @@ function myFunction(id) {
 
 		<!-- 댓글 -->
 		<ul class="w3-navbar w3-center w3-round-large w3-margin-bottom">
-            	<form method="post" action="/honey/HoneyControl"  onSubmit="return checkComment()">
+            	<form method="post" action="/honey/HoneyControl">
 				<input type="hidden" name="list_n" value="<%=list.getList_n()%>">
 				<input type="hidden" name="action" value="addCommment">
 				<input type="hidden" name="from" value="<%=request.getParameter("from")%>">
@@ -178,7 +169,7 @@ function myFunction(id) {
                 	<b>댓글</b>
                 </li>
     			<li style="width:70%">
-                <input type="text" class="w3-input w3-white w3-padding-8" id="comment" name="comment_contents" placeholder="로그인후 사용해주세요"> 
+                <input type="text" class="w3-input w3-white w3-padding-8" name="comment_contents" placeholder="로그인후 사용해주세요"> 
                 </li>
                 <li style="width:15%">
                 	<b><input class="w3-btn w3-padding-8 w3-green w3-hover-teal"type="submit" value="작성하기"></b>

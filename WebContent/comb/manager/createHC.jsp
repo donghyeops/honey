@@ -11,6 +11,18 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script>
+function checkUrl() {
+	var str1 = document.getElementById('inurl');
+	
+	if( str1.value.replace(/^\s*|\s*$/g,'') == "" ){
+		alert("내용이 없습니다.");
+	    return false;
+	}
+	
+	return true;
+}
+</script>
 </head>
 <body>
 
@@ -57,32 +69,29 @@
 </div>
 <!-- 입력 -->
 <div class="w3-panel">
-<form name="url_form" action="/honey/Creator" method="post">		
+<form name="url_form" action="/honey/Creator" method="post" onSubmit="return checkUrl()">		
 			<input type="hidden" name="type" value="addUrl">
 			<input type="hidden" name="mode" value=<%=mode%>>
-			<input type="text" id="url" name="URL" class="w3-light-gray w3-input w3-padding-16 w3-border" placeholder="공유코드입력" style="height:38px"></li>
+			<input type="text" id="inurl" name="URL" class="w3-light-gray w3-input w3-padding-16 w3-border" placeholder="공유코드입력" style="height:38px"></li>
 			<button type="submit" class="w3-btn w3-amber w3-padding">추가</button></li>
 	</form>
 </div>
 <!-- 입력 끝 -->
 <div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px; width: 100%; max-width:1200px; min-width:350px" >미리보기</div>
 <!-- 표시 -->
-<div class="w3-container w3" style="overflow:scroll;overflow-x:hidden;width:100%;height:400px">
+<div class="w3-container w3-row" style="overflow:scroll;overflow-x:hidden;width:100%;height:400px">
 		<%
 		int i=0;
 		ArrayList<String> list = HC.getURLs(); 
 		for(String url : list) {
 		%>
-		<div class="embed-container">
 		<%=url%>
-		</div>
-			<form name="del" action="/honey/Creator" method="post">
+		<form name="del" action="/honey/Creator" method="post">
 				<input type="hidden" name="type" value="delUrl">
 				<input type="hidden" name="mode" value=<%=mode%>>
 				<input type="hidden" name="index" value=<%=i++%>>
-				<button class="w3-btn" type=submit>제거</button>
+				<button class="w3-btn-block w3-red" style="width:590px" type=submit>제거</button>
 		</form>
-
 		<%} %>
 </div>
 <!-- 표시 끝 -->
