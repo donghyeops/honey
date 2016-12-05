@@ -29,7 +29,8 @@ function copy_trackback(trb) {
 function back(){
 	history.go(-1);
 }
--->
+
+//-->
 </script> 
 </head>
 <body>
@@ -221,8 +222,11 @@ function back(){
 			<% if(view_a-1>0){%>
 			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=view_a-1%>">&laquo;</a></li>
 			<%} %>
-			<%for(int s=view_a;s<view_a+remain_a;s++) {%>
-			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=s%>"><%=s%></a></li>
+			<%for(int s=view_a;s<view_a+remain_a;s++) {
+				if(s==page_n){%>
+			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=s%>" class="w3-green"><%=s%></a></li>
+			<%}else{ %>
+			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=s%>" class="w3-white w3-hover-red"><%=s%></a></li>
 			<%} %>
 			<% if(all_p-view_a>10){%>
 			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=view_a+10%>">&raquo;</a></li> 
