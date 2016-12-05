@@ -80,12 +80,15 @@ function checkList2(number) {
   	<div class="w3-light-gray" style="max-height:660px; padding-bottom:0%; overflow:scroll; overflow-x:hidden">
             <!-- 꿀통 표시 -->
 			<div class="w3-row" style="width:100%">
-			<ul class="w3-navbar w3-center w3-round-large w3-margin-bottom w3-white w3-border" style="width:90%; padding:0%, 5%, 0%, 5%" > 
+			<ul class="w3-navbar w3-center w3-round-large w3-margin-bottom w3-white w3-border" style="width:90%; margin:0%, 5%, 0%, 5%" > 
                 	<li class="w3-padding-12 w3-blue" style="width:30%">
                 		<b>>꿀통 아이디</b>
                 	</li>
                     <li class="w3-padding-12 w3-white" style="width:60%">
                 		<b>꿀통 제목</b>
+                	</li>
+                	<li class="w3-padding-12 w3-black" style="width:10%">
+                		<hr>
                 	</li>
            </ul>
 				<%
