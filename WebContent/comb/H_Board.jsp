@@ -29,8 +29,7 @@ li {
 	
 
 <div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-width:400px; padding-bottom: 0%">
-	<br><br>
-    
+	<br>
   <ul class="w3-navbar w3-center w3-round-xlarge w3-margin-bottom w3-hide-medium w3-hide-small" style="width:95%; margin:0px 2.5% 0px 2.5% ">
       	<li class="w3-amber w3-padding-8" style="width:8%">번호</li>
       	<li class="w3-white w3-padding-8" style="width:30%">제목</li>
