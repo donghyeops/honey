@@ -21,8 +21,7 @@
 <% int remain_p=mylist.size()%10;  %>
 <!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
 
-<div>
-<div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
+<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-width:400px; padding-bottom: 0%">
 	<div class="w3-btn-group w3-center w3-margin" style="height:30px"> <!-- // 리스트 속성 설명-->
 		<button class="w3-btn w3-amber" style="height:30px;width:70px">번호</button>
   		<button class="w3-btn w3-white" style="height:30px;width:340px">제목</button>
@@ -99,15 +98,20 @@
 	}
 	%>
 	
-	<% if(view_a-1>0){%>
-		<a href="?action=mylist&page_n=<%=view_a-1%>">이전</a>
-	<%} %>
-	<%for(int s=view_a;s<view_a+remain_a;s++) {%>
-		<a href="?action=mylist&page_n=<%=s%>"><%=s%></a>
-	<%} %>
-	<% if(all_p-view_a>10){%>
-		<a href="?action=mylist&page_n=<%=view_a+10%>">다음</a>
-	<%} %>
+	<ul class="w3-pagination">
+		<% if(view_a-1>0){%>
+			<li><a href="?action=mylist&page_n=<%=view_a-1%>">&laquo;</a></li>
+		<%} %>
+		<%for(int s=view_a;s<view_a+remain_a;s++) {
+			if(s==page_n){%>
+			<li><a href="?action=mylist&page_n=<%=s%>" class="w3-green"><%=s%></a></li>
+		<%}else{ %>
+			<li><a href="?action=mylist&page_n=<%=s%>" class="w3-white w3-hover-red"><%=s%></a></li>
+		<%}} %>
+		<% if(all_p-view_a>10){%>
+			<li><a href="?action=mylist&page_n=<%=view_a+10%>">&raquo;</a></li> 
+		<%} %>
+	</ul>
 		
 </div>
 
@@ -118,6 +122,8 @@
 <%} else {%>
 <%@ include file="Menubar_login.jsp"%>
 <%} %>
-</div>
+
+<div style="margin: 1000px 0px 0px 0px; width:1000px; height: 200px"></div>
+
 </body>
 </html>

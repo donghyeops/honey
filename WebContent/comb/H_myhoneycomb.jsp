@@ -21,7 +21,7 @@
 <!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
 
 
-<div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand w3-padding-16" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
+<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-width:400px; padding-bottom: 0%">
 <!-- 꿀통 추가하기 -->
 <div class="w3-container w3-center">
 <form method="post" action="/honey/HoneyControl"> 
@@ -35,7 +35,7 @@
   	<li style="width:100%">
   		<ul class="w3-navbar  w3-amber w3-center">
   			<li style="width:40%"><a href="#" class="w3-padding-16"><b>꿀통 비밀번호</b></a></li>
-  			<li style="width:60%"><input type="password" class="w3-input w3-white w3-padding-16" placeholder="Input Honeycomb Password" name="hc_pwd"></li>
+  			<li style="width:60%"><input type="text" class="w3-input w3-white w3-padding-16" placeholder="Input Honeycomb Password" name="hc_pwd"></li>
   		</ul>
   	</li>
   </ul>
@@ -110,16 +110,20 @@
 	}
 	%>
 	
-	<% if(view_a-1>0){%>
-		<a href="?action=myhoneycomb&page_n=<%=view_a-1%>">이전</a>
-	<%} %>
-	<%for(int s=view_a;s<view_a+remain_a;s++) {%>
-		<a href="?action=myhoneycomb&page_n=<%=s%>"><%=s%></a>
-	<%} %>
-	<% if(all_p-view_a>10){%>
-		<a href="?action=myhoneycomb&page_n=<%=view_a+10%>">다음</a>
-	<%} %>
-		
+	<ul class="w3-pagination">
+		<% if(view_a-1>0){%>
+			<li><a href="?action=myhoneycomb&page_n=<%=view_a-1%>">&laquo;</a></li>
+		<%} %>
+		<%for(int s=view_a;s<view_a+remain_a;s++) {
+			if(s==page_n){%>
+			<li><a href="?action=myhoneycomb&page_n=<%=s%>" class="w3-green"><%=s%></a></li>
+		<%}else{ %>
+			<li><a href="?action=myhoneycomb&page_n=<%=s%>" class="w3-white w3-hover-red"><%=s%></a></li>
+		<%}} %>
+		<% if(all_p-view_a>10){%>
+			<li><a href="?action=myhoneycomb&page_n=<%=view_a+10%>">&raquo;</a></li> 
+		<%} %>
+	</ul>	
 
 </div>
 <!-- 꿀통 표시끝 -->

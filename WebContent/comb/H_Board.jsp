@@ -28,7 +28,7 @@ li {
 <!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
 	
 
-<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-large w3-sand w3-padding-16" style="margin: 150px 0px 0px 0px; width: 80%; height: 800px; max-width: 1200px">
+<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-width:400px; padding-bottom: 0%">
 	<br><br>
     
   <ul class="w3-navbar w3-center w3-round-xlarge w3-margin-bottom w3-hide-medium w3-hide-small" style="width:95%; margin:0px 2.5% 0px 2.5% ">
@@ -128,15 +128,18 @@ li {
 	%>
 	
 	<ul class="w3-pagination">
-	<% if(view_a-1>0){%>
-		<li><a href="?page_n=<%=view_a-1%>">&laquo;</a></li>
-	<%} %>
-	<%for(int s=view_a;s<view_a+remain_a;s++) {%>
-		<li><a href="?page_n=<%=s%>"><%=s%></a></li>
-	<%} %>
-	<% if(all_p-view_a>10){%>
-		<li><a href="?page_n=<%=view_a+10%>">&raquo;</a></li>
-	<%} %>
+		<% if(view_a-1>0){%>
+			<li><a href="?page_n=<%=view_a-1%>">&laquo;</a></li>
+		<%} %>
+		<%for(int s=view_a;s<view_a+remain_a;s++) {
+			if(s==page_n){%>
+				<li><a href="?page_n=<%=s%>" class="w3-green"><%=s%></a></li>
+		<%}else{ %>
+				<li><a href="?page_n=<%=s%>" class="w3-white w3-hover-red"><%=s%></a></li>
+		<%}} %>
+		<% if(all_p-view_a>10){%>
+				<li><a href="?page_n=<%=view_a+10%>">&raquo;</a></li> 
+		<%} %>
 	</ul>
 </div>
 
@@ -146,13 +149,7 @@ li {
 <%} else {%>
 <%@ include file="Menubar_login.jsp"%>
 <%} %>
-
-
-
-
-
-
-		
+	
 <div style="margin: 1000px 0px 0px 0px; width:1000px; height: 200px"></div> <!-- //하단 여백 -->
 
 </body>

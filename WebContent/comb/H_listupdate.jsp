@@ -14,7 +14,7 @@
 
 
 <body>
-<div class="w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
+<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-width:400px; padding-bottom: 0%">
 <form method="post" action="/honey/HoneyControl">
 <table>
 <tr>
@@ -49,6 +49,8 @@
 <%} else {%>
 <%@ include file="Menubar_login.jsp"%>
 <%} %>
+
+<div style="margin: 1000px 0px 0px 0px; width:1000px; height: 200px"></div>
 
 </body>
 </html>

@@ -56,7 +56,7 @@ function checkList2() {
 
 
 <!-- 벌집 리스트 출력 -->
-<div class="w3-container w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
+<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-width:400px; padding-bottom: 0%">
 	<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px" >누군가의 꿀통 업로드</div>
 		<div class="w3-btn-group" style="width: 80%">
 		<a onclick="document.getElementById('Upload').style.display='block'" style="margin: 10px 0px 20px 10px" class="w3-btn w3-amber">작성하기</a>
@@ -150,15 +150,20 @@ function checkList2() {
 	}
 	%>
 	
-	<% if(view_a-1>0){%>
-		<a href="?action=upload&page_n=<%=view_a-1%>">이전</a>
-	<%} %>
-	<%for(int s=view_a;s<view_a+remain_a;s++) {%>
-		<a href="?action=upload&page_n=<%=s%>"><%=s%></a>
-	<%} %>
-	<% if(all_p-view_a>10){%>
-		<a href="?action=upload&page_n=<%=view_a+10%>">다음</a>
-	<%} %>
+	<ul class="w3-pagination">
+		<% if(view_a-1>0){%>
+			<li><a href="?action=upload&page_n=<%=view_a-1%>">&laquo;</a></li>
+		<%} %>
+		<%for(int s=view_a;s<view_a+remain_a;s++) {
+			if(s==page_n){%>
+			<li><a href="?action=upload&page_n=<%=s%>" class="w3-green"><%=s%></a></li>
+		<%}else{ %>
+			<li><a href="?action=upload&page_n=<%=s%>" class="w3-white w3-hover-red"><%=s%></a></li>
+		<%}} %>
+		<% if(all_p-view_a>10){%>
+			<li><a href="?action=upload&page_n=<%=view_a+10%>">&raquo;</a></li> 
+		<%} %>
+	</ul>
 	
 </div>
 <%if(session.getAttribute("member_id")==null){ %>

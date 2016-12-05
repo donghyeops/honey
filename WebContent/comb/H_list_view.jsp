@@ -53,7 +53,7 @@ function myFunction(id) {
 <% int remain_p=comment.size()%10;  %>
 <!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
 
-<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; padding-bottom: 0%">
+<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-width:400px; padding-bottom: 0%">
 	<!-- 이전 다음 -->
     <ul class="w3-navbar w3-center w3-round-xlarge">
   		<li style="width:100%">
@@ -144,7 +144,7 @@ function myFunction(id) {
   	</ul>
     <!-- 퍼가기 버튼 끝 -->
 	<!-- 달아 써요부분 -->
-    <ul class="w3-navbar w3-center w3-round-jumbo w3-margin-bottom" style="width:70%; min-width:300px; margin:0px 15% 0px 15%">
+    <ul class="w3-navbar w3-center w3-round-jumbo w3-margin-bottom" style="width:70%; margin:0px 15% 0px 15%">
     	<li style="width:50%">
             <a href="HoneyControl?action=updateGood&list_n=<%= list.getList_n() %>&good=<%= list.getList_good() %>" class="w3-padding-8 w3-amber w3-hover-yellow">
                 <b>달아요: <%=list.getList_good() %></b>
@@ -249,6 +249,7 @@ function myFunction(id) {
 			<% if(all_p-view_a>10){%>
 			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=view_a+10%>">&raquo;</a></li> 
 			<%} %>
+			</ul>
         </div>
 </div>
 		<%if(session.getAttribute("member_id")==null){ %>
@@ -256,6 +257,8 @@ function myFunction(id) {
 		<%} else {%>
 		<%@ include file="Menubar_login.jsp"%>
 		<%} %>
+
+<div style="margin: 1000px 0px 0px 0px; width:1000px; height: 200px"></div> <!-- //하단 여백 -->
 
 </body>
 </html>
