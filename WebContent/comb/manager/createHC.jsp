@@ -90,7 +90,7 @@ function checkUrl() {
 				<input type="hidden" name="type" value="delUrl">
 				<input type="hidden" name="mode" value=<%=mode%>>
 				<input type="hidden" name="index" value=<%=i++%>>
-				<button class="w3-btn-block w3-red" style="width:590px" type=submit>제거</button>
+				<button class="w3-btn-block w3-red" style="width:590px;margin:0px 0px 20px 0px" type=submit>제거</button>
 		</form>
 		<%} %>
 </div>

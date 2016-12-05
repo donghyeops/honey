@@ -91,7 +91,7 @@ function myFunction(id) {
      	<!-- 동영상 -->
   		<li style="width:100%">
   			<ul class="w3-navbar w3-light-gray w3-center" style="overflow:scroll; overflow-x:hidden">
-  				<li style="width:100%; padding-bottom:5%; padding-top:5%">
+  				<li style="width:100%;padding-top:0%; padding-left:0%; padding-right:0%">
                 	<%
 						if (HC.getURLs().size() == 0) {
 							out.println("존재하지 않는 페이지 입니다.");
