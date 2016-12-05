@@ -80,6 +80,14 @@ function checkList2(number) {
   	<div class="w3-light-gray" style="max-height:660px; padding-bottom:0%; overflow:scroll; overflow-x:hidden">
             <!-- 꿀통 표시 -->
 			<div class="w3-row" style="width:100%">
+			<ul class="w3-navbar w3-center w3-round-large w3-margin-bottom w3-white w3-border" style="width:90%; padding:0%, 5%, 0%, 5%" > 
+                	<li class="w3-padding-12 w3-blue" style="width:30%">
+                		<b>>꿀통 아이디</b>
+                	</li>
+                    <li class="w3-padding-12 w3-white" style="width:60%">
+                		<b>꿀통 제목</b>
+                	</li>
+           </ul>
 				<%
 					int rutin=10;
 					int page_n=1;
@@ -104,12 +112,12 @@ function checkList2(number) {
 					for(int i=view_p; i<(view_p+rutin); i++) {
 						HoneyBean event = (HoneyBean)eventlist.get(i);
 				%>
-				<ul class="w3-navbar w3-center w3-round-large w3-margin-bottom w3-white w3-border" style="width:100%" > 
+				<ul class="w3-navbar w3-center w3-round-large w3-margin-bottom w3-white w3-border" style="width:90%; padding:0%, 5%, 0%, 5%" > 
                 	<li class="w3-padding-12 w3-blue" style="width:30%">
-                		<b>4</b>
+                		<b>><%=event.getHc_id()%></b>
                 	</li>
                     <li class="w3-padding-12 w3-white" style="width:60%">
-                		<b>5</b>
+                		<b><%=event.getHc_title()%></b>
                 	</li>
                     <li class="w3-center" style="width:10%">
                 		<a onclick="document.getElementById('Upload<%=i%>').style.display='block'" class="w3-btn w3-center w3-amber w3-hover-yellow w3-padding-12"><b>+</b></a>
