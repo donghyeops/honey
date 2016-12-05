@@ -31,6 +31,18 @@ function back(){
 }
 
 //-->
+
+function myFunction(id) {
+    var x = document.getElementById(id);
+    if (x.className.indexOf("w3-show") == -1) {
+        x.className += " w3-show";
+        x.previousElementSibling.className += " w3-blue";
+    } else { 
+        x.className = x.className.replace(" w3-show", "");
+        x.previousElementSibling.className = 
+        x.previousElementSibling.className.replace(" w3-blue", "");
+    }
+}
 </script> 
 </head>
 <body>
@@ -132,7 +144,7 @@ function back(){
   	</ul>
     <!-- 퍼가기 버튼 끝 -->
 	<!-- 달아 써요부분 -->
-    <ul class="w3-navbar w3-center w3-round-jumbo w3-margin-bottom" style="width:70%; margin:0px 15% 0px 15%">
+    <ul class="w3-navbar w3-center w3-round-jumbo w3-margin-bottom" style="width:70%; min-width:300px; margin:0px 15% 0px 15%">
     	<li style="width:50%">
             <a href="HoneyControl?action=updateGood&list_n=<%= list.getList_n() %>&good=<%= list.getList_good() %>" class="w3-padding-8 w3-amber w3-hover-yellow">
                 <b>달아요: <%=list.getList_good() %></b>
@@ -207,6 +219,12 @@ function back(){
                     </form>
 					<%} else{}%>
 					</ul>
+					<div class="w3-accordion w3-white w3-hide-medium w3-hide-large">
+    					<button onclick="myFunction('Comment<%=comment_out.getMember_id() %><%=comment_out.getComment_time() %>')" class="w3-border w3-btn-block w3-padding-8 w3-left-align"><%=comment_out.getMember_id() %>의 댓글</button>
+    					<div id="Comment<%=comment_out.getMember_id() %><%=comment_out.getComment_time() %>" class="w3-accordion-content w3-container">
+      					<p><%=comment_out.getComment_contents() %></p>
+    					</div>
+                    </div>
 					<%} %> 
              </div>
              <!-- 댓글표시끝 -->
@@ -227,7 +245,7 @@ function back(){
 			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=s%>" class="w3-green"><%=s%></a></li>
 			<%}else{ %>
 			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=s%>" class="w3-white w3-hover-red"><%=s%></a></li>
-			<%} %>
+			<%}} %>
 			<% if(all_p-view_a>10){%>
 			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=view_a+10%>">&raquo;</a></li> 
 			<%} %>
