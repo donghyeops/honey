@@ -111,7 +111,7 @@ function checkList2(number) {
 				%>
 				<ul class="w3-navbar w3-round-large w3-margin-bottom w3-white w3-border" style="width:90%; padding:0%, 5%, 0%, 5%" > 
                 	<li class="w3-padding-12 w3-blue" style="width:30%">
-                		<b>><%=event.getHc_id()%></b>
+                		<b><%=event.getHc_id()%></b>
                 	</li>
                     <li class="w3-padding-12 w3-white" style="width:60%">
                 		<b><%=event.getHc_title()%></b>
