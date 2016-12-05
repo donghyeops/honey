@@ -40,7 +40,7 @@
   	</li>
   </ul>
   <input type="hidden" name="action" value="addhc">
-  <input class="w3-btn w3-round-jumbo w3-green" style="width:90%" type="submit" value="추가하기">
+  <input class="w3-btn w3-round-jumbo w3-green" style="width:100%" type="submit" value="추가하기">
   </form>
 </div>
 <!-- 꿀통추가 끝 -->

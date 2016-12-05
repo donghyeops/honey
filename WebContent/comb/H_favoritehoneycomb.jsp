@@ -27,11 +27,11 @@
 <form method="post" action="/honey/HoneyControl">    
   <ul class="w3-navbar w3-center w3-yellow w3-round-jumbo w3-margin">
     <li style="width:33.3%"><a href="#" class="w3-padding-16"><b>추가할 꿀동 ID</b></a></li>
-    <li style="width:66.6%"><input type="text" name="hc_id" class="w3-input w3-light-grey w3-padding-16" placeholder="Input Honeycomb ID.."></li>
+    <li style="width:66.6%"><input type="text" class="w3-input w3-light-grey w3-padding-16" placeholder="Input Honeycomb ID.."></li>
   </ul>
   <input type="hidden" name="from" value="HoneyControl?action=favoritehoneycomb">
   <input type="hidden" name="action" value="addFavoritehc">
-  <input class="w3-btn w3-round-jumbo w3-green " style="90%" type="submit" value="추가하기">
+  <input class="w3-btn w3-round-jumbo w3-green " style="width:100%" type="submit" value="추가하기">
   </form>
 </div>
 <!-- 추가 끝 -->
