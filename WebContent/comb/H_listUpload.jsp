@@ -57,14 +57,14 @@ function checkList2(number) {
 
 <!-- 벌집 리스트 출력 -->
 <div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-height:400px; padding-bottom: 0%">
-	<ul class="w3-navbar  w3-margin-top"> 
-		<li class="w3-round-xlarge w3-center w3-padding-16" style="width:100%">
+	<ul class="w3-navbar"> 
+		<li class="w3-round-xlarge w3-center w3-padding-8 w3-yellow w3-margin-bottom" style="width:100%">
 			다른 사람의 꿀통 업로드 
 		</li> 
 		<li style="width:100%"> 
 			<ul class="w3-navbar w3-center"> 
 				<li style="width:100%"> 
-					<a href="#" class="w3-amber w3-hover-yellow w3-padding-16" onclick="document.getElementById('Upload').style.display='block'"><b>게시물 작성하기</b></a> 
+					<a href="#" class="w3-amber w3-hover-yellow w3-padding-12" onclick="document.getElementById('Upload').style.display='block'"><b>게시물 작성하기</b></a> 
 				</li> 
 			</ul> 
 		</li> 
@@ -77,7 +77,7 @@ function checkList2(number) {
   	<div class="w3-light-gray" style="max-height:660px; padding-bottom:0%; overflow:scroll; overflow-x:hidden">
             <!-- 꿀통 표시 -->
 			<div class="w3-row" style="width:100%">
-			<ul class="w3-navbar w3-round-large w3-margin-bottom w3-white w3-border" style="width:90%; margin:0%, 5%, 0%, 5%" > 
+			<ul class="w3-navbar w3-center w3-round-large w3-margin-bottom w3-white w3-border" style="width:90%; margin:0px, 5%, 0px, 5%" > 
                 	<li class="w3-padding-12 w3-blue" style="width:30%">
                 		<b>>꿀통 아이디</b>
                 	</li>
@@ -109,12 +109,14 @@ function checkList2(number) {
 					for(int i=view_p; i<(view_p+rutin); i++) {
 						HoneyBean event = (HoneyBean)eventlist.get(i);
 				%>
-				<ul class="w3-navbar w3-round-large w3-margin-bottom w3-white w3-border" style="width:90%; padding:0%, 5%, 0%, 5%" > 
+				<ul class="w3-navbar w3-center w3-round-large w3-margin-bottom w3-white w3-border" style="width:90%; margin:0px, 5%, 0px, 5%" > 
                 	<li class="w3-padding-12 w3-blue" style="width:30%">
                 		<b><%=event.getHc_id()%></b>
                 	</li>
                     <li class="w3-padding-12 w3-white" style="width:60%">
+                		<a href="Viewer?hc_id=<%=event.getHc_id()%>" target="_blank"> 
                 		<b><%=event.getHc_title()%></b>
+                		</a>
                 	</li>
                     <li class="w3-center" style="width:10%">
                 		<a onclick="document.getElementById('Upload<%=i%>').style.display='block'" class="w3-btn w3-center w3-amber w3-hover-yellow w3-padding-12"><b>+</b></a>
