@@ -21,13 +21,13 @@
 
 
 
-<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-width:400px; padding-bottom: 0%">
+<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand" style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-width:400px; padding-bottom: 0%">
 <!-- 꿀통 추가 -->
 <div>
 <form method="post" action="/honey/HoneyControl">    
-  <ul class="w3-navbar w3-center w3-yellow w3-round-jumbo w3-margin-bottom">
+  <ul class="w3-navbar w3-center w3-yellow w3-round-jumbo w3-margin">
     <li style="width:33.3%"><a href="#" class="w3-padding-16"><b>추가할 꿀동 ID</b></a></li>
-    <li style="width:66.6%"><input type="text" name="hc_id" class="w3-input w3-light-grey w3-padding-16" placeholder="Input Honeycomb ID.."></li>
+    <li style="width:66.6%"><input type="text" class="w3-input w3-light-grey w3-padding-16" placeholder="Input Honeycomb ID.."></li>
   </ul>
   <input type="hidden" name="from" value="HoneyControl?action=favoritehoneycomb">
   <input type="hidden" name="action" value="addFavoritehc">
@@ -42,7 +42,7 @@
     <li class="w3-amber w3-padding-8" style="width:20%">꿀통 아이디</li>
     <li class="w3-white w3-padding-8" style="width:50%">꿀통 제목</li>
     <li class="w3-black w3-padding-8" style="width:15%">링크</li>
-    <li class="w3-blue w3-padding-8" style="width:15%">삭제</li>
+    <li class="w3-blue w3-padding-8" style="width:15%">편집</li>
     </ul>
     
 			<!-- //리스트 길이만큼 반복-->
@@ -71,9 +71,10 @@
 		for(int i=view_p; i<(view_p+rutin); i++) {
 				HoneyBean event =(HoneyBean)fvhoney.get(i);
 		%>
-		<form  method="post" action="/honey/HoneyControl">
-			<input type="hidden" name="action" value="deleteFavoritehc">
+		<form  method="post" action="/honey/Editor">
+   			<input type="hidden" name="type" value="edit">
    			<input type="hidden" name="hc_id" value=<%=event.getHc_id()%>>
+   			<input type="hidden" name="input_pwd" value="<%=event.getHc_pwd() %>">
    			<ul class="w3-navbar w3-center w3-margin">
       		<!-- 꿀통 아이디-->
       		<li class="w3-amber w3-padding-8" style="width:20%"><%=event.getHc_id() %></li>
@@ -83,7 +84,7 @@
       		<li style="width:15%"><a href="Viewer?hc_id=<%=event.getHc_id()%>" class="w3-black w3-hover-amber">이동</a></li>
       		<!-- 편집 -->
 	  		<li style="width:15%">
-	  			<input class="w3-btn w3-blue w3-hover-indigo"type="submit" value="삭제">
+	  			<input class="w3-btn w3-blue w3-hover-indigo"type="submit" value="편집">
 	 		</li> 
    			</ul>
    		</form>
