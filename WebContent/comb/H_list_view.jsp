@@ -53,7 +53,7 @@ function myFunction(id) {
 <% int remain_p=comment.size()%10;  %>
 <!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
 
-<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 0px 0px; width: 80%; max-width:1200px; padding-bottom: 0%">
+<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; padding-bottom: 0%">
 	<!-- 이전 다음 -->
     <ul class="w3-navbar w3-center w3-round-xlarge">
   		<li style="width:100%">
@@ -175,7 +175,7 @@ function myFunction(id) {
                 </li>
                 </form>
   		</ul>
-        <div class="w3-light-gray" style="height:660px; overflow:scroll; overflow-x:hidden">
+        <div class="w3-light-gray" style="max-height:660px; padding-bottom:0%; overflow:scroll; overflow-x:hidden">
             <!-- 댓글 표시 -->
 			<div class="w3-row" style="width:100%">
 				<%
