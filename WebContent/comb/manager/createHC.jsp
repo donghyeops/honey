@@ -30,14 +30,14 @@
 
 
 
-<div class="w3-container w3-display-topmiddle w3-card-8 w3-round-large w3-sand" style="margin: 150px 0px 0px 0px; width: 1000px; height: 800px">
+<div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand w3-padding" style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-width:400px; padding-bottom: 0%">
 
 <!-- 제작 -->
 <% if (!mode.equals("edit")) { %>
-	<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px" >생성</div>
+	<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px; width: 100%; max-width:1200px; min-width:350p" >생성</div>
 	<input type="button" class="w3-btn w3-text-black w3-hover-orange" style="background:rgba( 255, 179, 35, 100 )" value="꿀통 만들기" onclick="document.getElementById('HC_CREATE').style.display='block'">
 <% } else {%>
-<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px" >수정</div>
+<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px; width: 100%; max-width:1200px; min-width:350p" >수정</div>
 	<input type="button" class="w3-btn w3-text-black w3-hover-orange" style="background:rgba( 255, 179, 35, 100 )" value="꿀통 다듬기" onclick="document.getElementById('HC_CREATE').style.display='block'">
 <%} %>
 <div>
@@ -52,46 +52,38 @@
 	<% } %>
 </div>
 <!-- 제작 끝 -->
-<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px" >소스입력&nbsp&nbsp&nbsp&nbsp
+<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px; width: 100%; max-width:1200px; min-width:350px" >소스입력
 <input type="button" class="w3-btn w3-text-black w3-hover-orange w3-middle" style="background:rgba( 255, 179, 35, 100 ); width:40px" value="?" onclick="document.getElementById('HC_GUIDE').style.display='block'">
 </div>
 <!-- 입력 -->
-<div>
-<form name="url_form" action="/honey/Creator" method="post">
-		<fieldset>
-			<legend>공유소스입력</legend>
+<div class="w3-panel">
+<form name="url_form" action="/honey/Creator" method="post">		
 			<input type="hidden" name="type" value="addUrl">
 			<input type="hidden" name="mode" value=<%=mode%>>
-			<input type="text" name="URL">
-			<input type="submit" value="추가">
-		</fieldset>
+			<input type="text" id="url" name="URL" class="w3-light-gray w3-input w3-padding-16 w3-border" placeholder="공유코드입력" style="height:38px"></li>
+			<button type="submit" class="w3-btn w3-amber w3-padding">추가</button></li>
 	</form>
 </div>
 <!-- 입력 끝 -->
-<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px;width:900px" >미리보기</div>
+<div class="w3-panel w3-text-black w3-orange" style="margin: 0px 0px 0px 0px; width: 100%; max-width:1200px; min-width:350px" >미리보기</div>
 <!-- 표시 -->
-<div style="overflow:scroll;margin:0px 0px 0px 50px;height:400px">
-
-
-<table border=1>
+<div class="w3-container w3" style="overflow:scroll;overflow-x:hidden;width:100%;height:400px">
 		<%
 		int i=0;
 		ArrayList<String> list = HC.getURLs(); 
 		for(String url : list) {
 		%>
-		<tr>
-			<td><%=url%></td>
-			<td>
-				<form name="del" action="/honey/Creator" method="post">
-					<input type="hidden" name="type" value="delUrl">
-					<input type="hidden" name="mode" value=<%=mode%>>
-					<input type="hidden" name="index" value=<%=i++%>>
-					<input type=submit value="제거">
-				</form>
-			</td>
-		</tr>
+		<div class="embed-container">
+		<%=url%>
+		</div>
+			<form name="del" action="/honey/Creator" method="post">
+				<input type="hidden" name="type" value="delUrl">
+				<input type="hidden" name="mode" value=<%=mode%>>
+				<input type="hidden" name="index" value=<%=i++%>>
+				<button class="w3-btn" type=submit>제거</button>
+		</form>
+
 		<%} %>
-	</table>
 </div>
 <!-- 표시 끝 -->
 </div>
@@ -131,6 +123,7 @@
     
       <div class="w3-section">
         <label><b><center>iframe 태그를 추가해 주십시오</center></b></label>
+        	<img src="http://localhost:8081/honey/comb/img/help.PNG" style="max-width:600px">
         <button class="w3-btn-block w3-amber w3-section w3-padding" onclick="document.getElementById('HC_GUIDE').style.display='none'">확인</button>
       </div>
 
