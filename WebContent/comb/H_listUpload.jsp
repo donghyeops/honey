@@ -111,8 +111,8 @@ function checkList2(number) {
                     <li class="w3-padding-12 w3-white" style="width:55%">
                 		<b><%=event.getHc_title()%></b>
                 	</li>
-                    <li class="w3-padding-12 w3-black" style="width:25%">
-                		<b><a href="#" onclick="document.getElementById('Upload<%=i%>').style.display='block'" class="w3-btn-floating w3-small w3-amber w3-hover-yellow">+</a></b>
+                    <li class="w3-center" style="width:25%">
+                		<b><a onclick="document.getElementById('Upload<%=i%>').style.display='block'" class="w3-btn-floating w3-small w3-amber w3-hover-yellow">+</a></b>
                 	</li>
                 </ul>
                 
