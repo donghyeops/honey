@@ -57,8 +57,8 @@ function checkList2(number) {
 
 <!-- 벌집 리스트 출력 -->
 <div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-height:400px; padding-bottom: 0%">
-	<ul class="w3-navbar  w3-margin-top">
-		<li class="w3-round-xlarge w3-center w3-padding-16" style="width:100%">
+	<ul class="w3-navbar">
+		<li class="w3-round-xlarge w3-center w3-yellow w3-padding-16" style="width:100%">
 			다른 사람의 꿀통 업로드
   		</li>
   		<li style="width:100%">
