@@ -30,7 +30,17 @@ function copy_trackback(trb) {
 function back(){
 	history.go(-1);
 }
+function checkComment() {
+	var str1 = document.getElementById('comment');
+	
+	if(str1.value.replace(/^\s*|\s*$/g,'') == ""){
+		alert("한글자 이상 써주세요.");
+	    return false;
+	}
 
+	
+	return true;
+}
 //-->
 
 function myFunction(id) {
@@ -161,7 +171,7 @@ function myFunction(id) {
 
 		<!-- 댓글 -->
 		<ul class="w3-navbar w3-center w3-round-large w3-margin-bottom">
-            	<form method="post" action="/honey/HoneyControl">
+            	<form method="post" action="/honey/HoneyControl" onSubmit="return checkComment()">
 				<input type="hidden" name="list_n" value="<%=list.getList_n()%>">
 				<input type="hidden" name="action" value="addCommment">
 				<input type="hidden" name="from" value="<%=request.getParameter("from")%>">
@@ -169,7 +179,7 @@ function myFunction(id) {
                 	<b>댓글</b>
                 </li>
     			<li style="width:70%">
-                <input type="text" class="w3-input w3-white w3-padding-8" name="comment_contents" placeholder="로그인후 사용해주세요"> 
+                <input type="text" id="comment"  class="w3-input w3-white w3-padding-8" name="comment_contents" placeholder="로그인후 사용해주세요"> 
                 </li>
                 <li style="width:15%">
                 	<b><input class="w3-btn w3-padding-8 w3-green w3-hover-teal"type="submit" value="작성하기"></b>

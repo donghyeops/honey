@@ -48,20 +48,19 @@ function checkJoinForm() {
 	
 	if( str1.value.search(/\W|\s/g) > -1 ){
 	alert( '아이디에 특수문자 또는 공백을 입력할 수 없습니다.' );
-	str.focus();
-	return false;
+	return exit;
 	}
 	if( str2.value.search(/\W|\s/g) > -1 ){
 	alert( '비밀번호에 특수문자 또는 공백을 입력할 수 없습니다.' );
-	str.focus();
-	return false;
+	return exit;
 	}
 	if( str3.value.search(/\W|\s/g) > -1 ){
 	alert( '이름에 특수문자 또는 공백을 입력할 수 없습니다.' );
-	str.focus();
-	return false;
+	return exit;
 	}
-	return true;
+	document.join.submit();	
+	
+	
 }
 </script>
 	
@@ -165,17 +164,12 @@ function checkJoinForm() {
     		"toolbar=no, location=no, status=no, menubar=no, scrollbasrs=no,resizable=no,width=310, height=180");
     
     }
-    function checkJoinForm() {
-    	if (document.join.isCheck.value == "false") {
-    		return false;
-    	}
-    }
     </script>
     --%>
     
     
      <!-- 회원가입 폼 -->
-    <form class="w3-container" name="join" method="post" action="/honey/HoneyControl" onSubmit="return checkJoinForm()">
+    <form class="w3-container" name="join" method="post" action="/honey/HoneyControl">
       <div class="w3-section">
         <label><b>아이디</b></label>
         <input class="w3-input w3-border w3-margin-bottom" style="width:90%" type="text" placeholder="Enter ID" id="id" name="member_id" required>
@@ -195,8 +189,8 @@ function checkJoinForm() {
          --%>
          
          <input type="hidden" name="action" value="gojoin">
-        <button class="w3-btn-block w3-amber w3-section w3-padding" type="submit">회원가입</button>
-      </div>
+        <input type="button" class="w3-btn-block w3-amber w3-section w3-padding" onclick="javascript:checkJoinForm()" value="회원가입">
+              </div>
     </form>
 
     <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
