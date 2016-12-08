@@ -74,10 +74,10 @@ function checkList2(number) {
 			</ul> 
 		</li> 
 	</ul> 
-  	<div class="w3-gray" style="max-height:660px; padding-bottom:0%; overflow:scroll; overflow-x:hidden">
-  			<li class="w3-center w3-padding-8 w3-yellow w3-margin-bottom" style="width:100%">
+	<div class="w3-panel w3-center w3-padding-8 w3-yellow w3-margin-bottom" style="width:100%">
 			내 꿀통 업로드 
-			</li> 
+	</div>
+  	<div class="w3-khaki" style="max-height:660px; padding-bottom:0%; overflow:scroll; overflow-x:hidden"> 
             <!-- 꿀통 표시 -->
 			<div class="w3-row" style="width:100%">
 			<ul class="w3-navbar w3-center w3-round-large w3-margin-bottom w3-white w3-border" style="width:90%; margin:0px 5% 0px 5%" > 
