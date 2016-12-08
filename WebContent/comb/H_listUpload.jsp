@@ -63,7 +63,7 @@ function checkList2(number) {
 		</li> 
 		<li style="width:100%"> 
 			<ul class="w3-navbar w3-center"> 
-				<li style="width:40%"> 
+				<li style="width:40%; margin:0% 30% 0% 30%"> 
 					<a href="#" class="w3-amber w3-hover-yellow w3-round-xlarge w3-padding-12" onclick="document.getElementById('Upload').style.display='block'"><b>게시물 작성하기</b></a> 
 				</li> 
 			</ul> 
