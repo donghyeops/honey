@@ -34,14 +34,14 @@ create table list(
    member_id varchar(30) references member(member_id)
 );
 create table goodbad(
-	list_n int(11) references list(list_n),
+	list_n int(11) references list(list_n) ON DELETE CASCADE,
 	member_id varchar(30) references member(member_id)
 );
 create table comment(
 	comment_n int(50) not null auto_increment primary key,
 	comment_contents varchar(800),
 	comment_time datetime,
-	list_n int(11) references list(list_n),
+	list_n int(11) references list(list_n) ON DELETE CASCADE,
 	member_id varchar(30) references member(member_id)
 
 );

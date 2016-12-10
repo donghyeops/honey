@@ -25,7 +25,7 @@ li {
 <body>
 	<!-- 게시글 페이지수 -->
 <!--총 페이지수 -->
-<% int page_show=20; %><!-- 게시판이 목록이 보여지는 갯수설정 -->
+<% int page_show=15; %><!-- 게시판이 목록이 보여지는 갯수설정 -->
 <% int all_p=((eventlist.size()-1)/page_show)+1; %>
 <!--남은 게시글수 -->
 <% int remain_p=eventlist.size()%page_show;  %>

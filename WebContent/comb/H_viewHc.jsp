@@ -52,7 +52,7 @@ h1 {
 		for(String url : URLs) {
 		%>
 			<%=url%>
-			<br>
+			<br><br>
 		<%} %>
 </div>
 </body>

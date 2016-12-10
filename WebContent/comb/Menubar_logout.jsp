@@ -47,15 +47,15 @@ function checkJoinForm() {
 
 	
 	if( str1.value.search(/\W|\s/g) > -1 ){
-	alert( '아이디에 특수문자 또는 공백을 입력할 수 없습니다.' );
+	alert( '아이디에 한글, 특수문자 또는 공백을 입력할 수 없습니다.' );
 	return exit;
 	}
 	if( str2.value.search(/\W|\s/g) > -1 ){
 	alert( '비밀번호에 특수문자 또는 공백을 입력할 수 없습니다.' );
 	return exit;
 	}
-	if( str3.value.search(/\W|\s/g) > -1 ){
-	alert( '이름에 특수문자 또는 공백을 입력할 수 없습니다.' );
+	if( str3.value.replace(/^\s*|\s*$/g,'') == ""){
+	alert( '이름을 작성해주세요' );
 	return exit;
 	}
 	document.join.submit();	
