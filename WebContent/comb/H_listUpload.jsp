@@ -57,27 +57,14 @@ function checkList2(number) {
 
 <!-- 벌집 리스트 출력 -->
 <div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-height:400px; padding-bottom: 0%">
+	
+	
 	<ul class="w3-navbar w3-round-xlarge"> 
-		<li class="w3-center w3-padding-8 w3-yellow w3-margin-bottom" style="width:100%">
-			다른 사람의 꿀통 업로드 
+		<li class="w3-amber w3-center w3-padding-8 w3-yellow w3-margin-bottom" style="width:100%; margin:2% 0px 2% 0px">
+			내 꿀통 업로드
 		</li> 
-		<li style="width:100%"> 
-			<ul class="w3-navbar w3-center"> 
-				<li style="width:40%; margin:0% 30% 0% 30%"> 
-					<a href="#" class="w3-amber w3-hover-yellow w3-round-xlarge w3-padding-12" onclick="document.getElementById('Upload').style.display='block'"><b>게시물 작성하기</b></a> 
-				</li> 
-			</ul> 
-		</li> 
-		<li style="width:100%"> 
-			<ul class="w3-navbar w3-center"> 
-				<li style="height:40px"><hr></li> 
-			</ul> 
-		</li> 
-	</ul> 
-	<div class="w3-panel w3-center w3-padding-8 w3-yellow w3-margin-bottom" style="width:100%">
-			내 꿀통 업로드 
-	</div>
-  	<div class="w3-khaki" style="max-height:660px; padding-bottom:0%; overflow:scroll; overflow-x:hidden"> 
+	</ul>
+  	<div class="w3-khaki" style="max-height:660px; padding-top:2%; overflow:scroll; overflow-x:hidden"> 
             <!-- 꿀통 표시 -->
 			<div class="w3-row" style="width:100%">
 			<ul class="w3-navbar w3-center w3-round-large w3-margin-bottom w3-white w3-border" style="width:90%; margin:0px 5% 0px 5%" > 
@@ -166,6 +153,26 @@ function checkList2(number) {
 	
 			</div>
 	</div>
+	
+	
+	<ul class="w3-navbar w3-round-xlarge"> 
+		<li class="w3-amber w3-center w3-padding-8 w3-yellow w3-margin-bottom" style="width:100%; margin:2% 0px 0px 0px">
+			다른 사람의 꿀통 업로드 
+		</li> 
+		<li style="width:100%"> 
+			<ul class="w3-navbar w3-center"> 
+				<li style="width:40%; margin:0% 30% 0% 30%"> 
+					<a href="#" class="w3-amber w3-hover-yellow w3-round-xlarge w3-padding-12" onclick="document.getElementById('Upload').style.display='block'"><b>게시물 작성하기</b></a> 
+				</li> 
+			</ul> 
+		</li> 
+		<li style="width:100%"> 
+			<ul class="w3-navbar w3-center"> 
+				<li style="height:40px"><hr></li> 
+			</ul> 
+		</li> 
+	</ul> 
+	
 </div>
 <%if(session.getAttribute("member_id")==null){ %>
 <script> alert("로그인 해주십쇼."); location.replace("/honey/HoneyControl"); </script>
