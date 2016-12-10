@@ -5,7 +5,13 @@
 <jsp:useBean id="list" class="honey.HoneyBean" scope="request" />				<%--해당게시판내용 --%>
 <jsp:useBean id="comment" class="java.util.ArrayList" scope="request"/>				<%--댓글 --%>
 <jsp:useBean id="HC" class="honey.Mgr_bean" scope="request"/>					<%--영상 --%>
-
+<%
+String action = request.getParameter("action"); 	
+String from = request.getParameter("from"); 	
+String from_page = request.getParameter("from_page"); 
+String searchs = request.getParameter("searchs"); 
+System.out.println("게시글에서"+action);
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -70,7 +76,11 @@ function myFunction(id) {
   		<li style="width:100%">
   			<ul class="w3-navbar w3-center">
   				<li style="width:100%">
-                	<a href="#" class="w3-green w3-hover-red w3-padding-8" onclick="back()"><b>목록으로</b></a>
+                	<%if(from.equals("search")){ %>
+                		<a href="/honey/Search?search=<%=searchs %>&page_n=<%=from_page%>" class="w3-green w3-hover-red w3-padding-8"><b>목록으로</b></a>
+                	<%}else{ %>
+                		<a href="/honey/HoneyControl?action=<%=from %>&page_n=<%=from_page%>" class="w3-green w3-hover-red w3-padding-8"><b>목록으로</b></a>
+                	<%} %>
                 <!-- 게시판번호 -->
 				<!-- 게시판제목 -->
 				<!-- 작성일 -->
@@ -100,7 +110,7 @@ function myFunction(id) {
   		</li>
      	<!-- 동영상 -->
   		<li style="width:100%">
-  			<ul class="w3-navbar w3-light-gray w3-center" style="overflow:scroll; overflow-x:hidden">
+  			<ul class="w3-navbar w3-light-gray w3-center" style="overflow:scroll; overflow-x:hidden;height:500px">
   				<li style="width:100%;padding-top:0%; padding-left:0%; padding-right:0%">
                 	<%
 						if (HC.getURLs().size() == 0) {
@@ -133,7 +143,7 @@ function myFunction(id) {
             </li>
             <!-- 수정 -->
     		<li style="width:50%">
-            	<a href="HoneyControl?action=list_update_form&list_n=<%= list.getList_n() %>" class="w3-padding-8 w3-indigo w3-hover-blue">
+            	<a href="HoneyControl?action=list_update_form&from_page=<%=from_page %>&from=<%=from %>&searchs=<%=searchs %>&list_n=<%= list.getList_n() %>" class="w3-padding-8 w3-indigo w3-hover-blue">
                 	<b>수정하기</b>
                 </a>
             </li>
@@ -146,7 +156,7 @@ function myFunction(id) {
             </li>
             <form method="post" action="/honey/HoneyControl">
 					<input type="hidden" name="hc_id" value="<%=HC.getHc_id()%>">
-					<input type="hidden" name="from" value="HoneyControl?action=viewlist&list_n=<%=list.getList_n()%>">
+					<input type="hidden" name="from" value="HoneyControl?action=viewlist&from_page=<%=from_page %>&from=<%=from %>&searchs=<%=searchs %>&list_n=<%=list.getList_n()%>">
 					<input type="hidden" name="action" value="addFavoritehc">
     		<li style="width:50%"><b>
             	<input class="w3-btn w3-padding-8 w3-brown w3-hover-dark-gray"type="submit" value="꿀통 몰래 훔치기"></b>
@@ -157,12 +167,12 @@ function myFunction(id) {
 	<!-- 달아 써요부분 -->
     <ul class="w3-navbar w3-center w3-round-jumbo w3-margin-bottom" style="width:70%; margin:0px 15% 0px 15%">
     	<li style="width:50%">
-            <a href="HoneyControl?action=updateGood&list_n=<%= list.getList_n() %>&good=<%= list.getList_good() %>" class="w3-padding-8 w3-amber w3-hover-yellow">
+            <a href="HoneyControl?action2=<%=action %>&from_page=<%=from_page %>&from=<%=from %>&searchs=<%=searchs %>&action=updateGood&list_n=<%= list.getList_n() %>&good=<%= list.getList_good() %>" class="w3-padding-8 w3-amber w3-hover-yellow">
                 <b>달아요: <%=list.getList_good() %></b>
             </a>
         </li>
     	<li style="width:50%">
-            <a href="HoneyControl?action=updateBad&list_n=<%= list.getList_n() %>&bad=<%= list.getList_bad() %>" class="w3-padding-8 w3-brown w3-hover-dark-gray">
+            <a href="HoneyControl?action2=<%=action %>&from_page=<%=from_page %>&from=<%=from %>&searchs=<%=searchs %>&action=updateBad&list_n=<%= list.getList_n() %>&bad=<%= list.getList_bad() %>" class="w3-padding-8 w3-brown w3-hover-dark-gray">
                 <b>써요: <%=list.getList_bad() %></b>
             </a>
         </li>
@@ -174,7 +184,9 @@ function myFunction(id) {
             	<form method="post" action="/honey/HoneyControl" onSubmit="return checkComment()">
 				<input type="hidden" name="list_n" value="<%=list.getList_n()%>">
 				<input type="hidden" name="action" value="addCommment">
-				<input type="hidden" name="from" value="<%=request.getParameter("from")%>">
+				<input type="hidden" name="from" value="<%=from%>">
+				<input type="hidden" name="from_page" value="<%=from_page%>">
+				<input type="hidden" name="searchs" value="<%=searchs %>">
     			<li class="w3-padding-8 w3-green" style="width:15%">
                 	<b>댓글</b>
                 </li>
@@ -223,7 +235,10 @@ function myFunction(id) {
                     <form method="post" action="/honey/HoneyControl">
 						<input type="hidden" name="comment_n" value="<%=comment_out.getComment_n()%>">
 						<input type="hidden" name="action" value="deleteComment">
-						<input type="hidden" name="list_n" value="<%=list.getList_n() %>"> 
+						<input type="hidden" name="list_n" value="<%=list.getList_n() %>">
+						<input type="hidden" name="from" value="<%=from%>">
+						<input type="hidden" name="from_page" value="<%=from_page%>"> 
+						<input type="hidden" name="searchs" value="<%=searchs %>">
                         <li style="width:5%">
                 			<b><input class="w3-btn w3-padding-12 w3-red w3-hover-pink"type="submit" value="x"></b>
                 		</li>
@@ -249,16 +264,16 @@ function myFunction(id) {
 	
 			<ul class="w3-pagination">
 			<% if(view_a-1>0){%>
-			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=view_a-1%>">&laquo;</a></li>
+			<li><a href="?action=viewlist&from_page=<%=from_page %>&from=<%=from %>&searchs=<%=searchs %>&list_n=<%=list.getList_n() %>&page_n=<%=view_a-1%>">&laquo;</a></li>
 			<%} %>
 			<%for(int s=view_a;s<view_a+remain_a;s++) {
 				if(s==page_n){%>
-			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=s%>" class="w3-green"><%=s%></a></li>
+			<li><a href="?action=viewlist&from_page=<%=from_page %>&from=<%=from %>&searchs=<%=searchs %>&list_n=<%=list.getList_n() %>&page_n=<%=s%>" class="w3-green"><%=s%></a></li>
 			<%}else{ %>
-			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=s%>" class="w3-white w3-hover-red"><%=s%></a></li>
+			<li><a href="?action=viewlist&from_page=<%=from_page %>&from=<%=from %>&searchs=<%=searchs %>&list_n=<%=list.getList_n() %>&page_n=<%=s%>" class="w3-white w3-hover-red"><%=s%></a></li>
 			<%}} %>
 			<% if(all_p-view_a>10){%>
-			<li><a href="?action=viewlist&list_n=<%=list.getList_n() %>&page_n=<%=view_a+10%>">&raquo;</a></li> 
+			<li><a href="?action=viewlist&from_page=<%=from_page %>&from=<%=from %>&searchs=<%=searchs %>&list_n=<%=list.getList_n() %>&page_n=<%=view_a+10%>">&raquo;</a></li> 
 			<%} %>
 			</ul>
         </div>

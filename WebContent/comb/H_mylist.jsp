@@ -4,6 +4,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <jsp:useBean id="mylist" class="java.util.ArrayList" scope="request"/>
+<%String from = request.getParameter("action"); %>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -52,7 +53,7 @@
 		}else{
 			rutin=10;
 		}
-		
+		String from_page=String.valueOf(page_n);
 		//out.println("/현재 출력행야하는 게시글"+rutin);
 		//out.println("/현재 페이지"+page_n);
 		//out.println("/총게시글"+eventlist.size());
@@ -67,7 +68,7 @@
 		<button class="w3-btn w3-amber" style="width:70px"><%=i+1%></button>
 		<!-- 제목 -->
 		
-  		<button class="w3-btn w3-white" style="width:340px"><a href="HoneyControl?action=viewlist&from=ranking&list_n=<%=event.getList_n() %>"><%=event.getList_title() %></a></button>
+  		<button class="w3-btn w3-white" style="width:340px"><a href="HoneyControl?action=viewlist&from_page=<%=from_page %>&from=<%=from %>&list_n=<%=event.getList_n() %>"><%=event.getList_title() %></a></button>
 		
 		<!-- 꿀통링크 -->
 		
@@ -79,7 +80,7 @@
 		<button class="w3-btn w3-amber " style="width:70px "><%=event.getList_good() %>/<%=event.getList_bad() %></button>
 		<!-- 삭제 -->
 		
-		<button class="w3-btn w3-red " style="width:70px"><a href="HoneyControl?from=mylist&action=list_remove&list_n=<%=event.getList_n()%>">삭제</a></button>
+		<button class="w3-btn w3-red " style="width:70px"><a href="HoneyControl?from=<%=from %>&action=list_remove&list_n=<%=event.getList_n()%>">삭제</a></button>
 		
 		<!-- 수정 -->
 		

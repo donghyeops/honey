@@ -67,7 +67,8 @@ public class Search extends HttpServlet {
 			eventlist.addAll(hashList.values());
 			
 			request.setAttribute("eventlist", eventlist); // 검색 결과 등록
-			address = src + "/H_Board.jsp";
+			request.setAttribute("search",search);
+			address = src + "/H_search_result.jsp";
 		}
 		
 		

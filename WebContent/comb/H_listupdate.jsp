@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <jsp:useBean id="honey" class="honey.HoneyBean" scope="request"/>
+<%
+String from = request.getParameter("from"); 	
+String from_page = request.getParameter("from_page"); 
+String searchs = request.getParameter("searchs"); 
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -55,6 +60,9 @@
  --%>
 <input type="hidden" name="list_n" value=<%=honey.getList_n() %>>
 <input type="hidden" name="action" value="list_update">
+<input type="hidden" name="from" value="<%=from%>">
+<input type="hidden" name="from_page" value="<%=from_page%>">
+<input type="hidden" name="searchs" value="<%=searchs%>">
 <div style="margin: 50px 0px 0px 0px"></div>
 <input class="w3-btn w3-round-jumbo w3-green " style="width:50%; height:50px" type="submit" value="수정하기">
 <%--<input type="submit" value="수정하기"> --%>
