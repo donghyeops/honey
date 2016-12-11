@@ -299,7 +299,7 @@ public class HoneyControl extends HttpServlet {
 		
 		else if(action.equals("addCommment")){									//占쏙옙占쏙옙煞占�						//占쏙옙兆�왔댐옙占쏙옙
 			String from = request.getParameter("from");
-			String member_id=(String)session.getAttribute("member_id");			//占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占싱듸옙 占쌨깍옙
+			String member_id=(String)session.getAttribute("member_id");
 			int list_n=Integer.parseInt(request.getParameter("list_n"));
 			String comment_contents = request.getParameter("comment_contents");
 			System.out.println("댓글추가");
@@ -309,8 +309,11 @@ public class HoneyControl extends HttpServlet {
 				address=src+"/fail_contents.jsp";
 			}else{
 			HoneyBean comment=new HoneyBean();
+			String member_name= dao.getname(member_id);			//占쏙옙占쏙옙占쏙옙占쏙옙 占쏙옙占싱듸옙 占쌨깍옙
+			System.out.println(member_name);
 			comment.setComment_contents(comment_contents);
 			comment.setList_n(list_n);
+			comment.setMember_name(member_name);
 			comment.setMember_id(member_id);
 			dao.addComment(comment);
 			request.setAttribute("from", from);

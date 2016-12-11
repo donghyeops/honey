@@ -14,6 +14,7 @@ public interface HoneyDAO {
 	public HoneyBean memberCheck(String member_id, String member_pwd);	//로그인체크 	로그인시 아이디와 비밀번호 체크
 	public HoneyBean joinCheck(String member_id);						//회원가입체크	회원가입시 아이디 중복여부 체크
 	
+	public String getname(String member_id);
 	//벌꿀집
 	public ArrayList<HoneyBean> getHoneytitle(String search);			//벌꿀집 제목 검색
 	 
@@ -55,7 +56,6 @@ public interface HoneyDAO {
 	//댓글
 	public ArrayList<HoneyBean> getComment(int list_n);					//댓글 불러오기
 	public void addComment(HoneyBean comment);							//댓글 입력
-	public void updateComment(HoneyBean comment);						//댓글 수정
 	public void deleteComment(int comment_n);							//댓글 삭제
 
 	

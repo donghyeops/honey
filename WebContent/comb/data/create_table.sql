@@ -42,8 +42,8 @@ create table comment(
 	comment_contents varchar(800),
 	comment_time datetime,
 	list_n int(11) references list(list_n) ON DELETE CASCADE,
+	member_name varchar(30) references member(member_name),
 	member_id varchar(30) references member(member_id)
-
 );
 create table hc_favorite(
 	hc_id int (11) references hc(hc_id),

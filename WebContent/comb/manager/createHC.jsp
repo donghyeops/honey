@@ -132,7 +132,7 @@ function checkUrl() {
     
       <div class="w3-section">
         <label><b><center>iframe 태그를 추가해 주십시오</center></b></label>
-        	<img src="http://localhost:8081/honey/comb/img/help.PNG" style="max-width:600px">
+        	<img src="http://hcvideo.mooo.com:8081/honey/comb/img/help.PNG" style="max-width:600px">
         <button class="w3-btn-block w3-amber w3-section w3-padding" onclick="document.getElementById('HC_GUIDE').style.display='none'">확인</button>
       </div>
 

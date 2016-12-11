@@ -23,6 +23,7 @@
 <!--  페이지에 따라 시작하는 번호 1+(10*(page_n-1)) -->
 
 <div class="w3-display-topmiddle w3-center w3-card-8 w3-round-xlarge w3-sand " style="margin: 150px 0px 50px 0px; width: 80%; max-width:1200px; min-width:400px; padding-bottom: 0%">
+<%-- 
 	<div class="w3-btn-group w3-center w3-margin" style="height:30px"> <!-- // 리스트 속성 설명-->
 		<button class="w3-btn w3-amber" style="height:30px;width:70px">번호</button>
   		<button class="w3-btn w3-white" style="height:30px;width:340px">제목</button>
@@ -32,7 +33,16 @@
 		<button class="w3-btn w3-red" style="height:30px;width:70px">삭제</button>
 		<button class="w3-btn w3-blue" style="height:30px;width:70px">수정</button>
 	</div>
-
+--%>
+<div class="w3-btn-group w3-center w3-margin" style="height:30px"> <!-- // 리스트 속성 설명-->
+		<button class="w3-btn w3-amber" style="height:30px;width:8%">번호</button>
+  		<button class="w3-btn w3-white" style="height:30px;width:30%">제목</button>
+		<button class="w3-btn w3-black" style="height:30px;width:10%">꿀통링크</button>
+  		<button class="w3-btn w3-white" style="height:30px;width:20%">작성일</button>
+		<button class="w3-btn w3-amber" style="height:30px;width:9%">평가</button>
+		<button class="w3-btn w3-red" style="height:30px;width:10%">삭제</button>
+		<button class="w3-btn w3-blue" style="height:30px;width:10%">수정</button>
+	</div>
 
 
 	
@@ -65,26 +75,26 @@
 	<!-- //리스트 나열-->
 	<div class="w3-btn-group w3-center w3-margin" style="height:30px">
 		<!-- 번호-->
-		<button class="w3-btn w3-amber" style="width:70px"><%=i+1%></button>
+		<button class="w3-btn w3-amber" style="width:8%"><%=i+1%></button>
 		<!-- 제목 -->
 		
-  		<button class="w3-btn w3-white" style="width:340px"><a href="HoneyControl?action=viewlist&from_page=<%=from_page %>&from=<%=from %>&list_n=<%=event.getList_n() %>"><%=event.getList_title() %></a></button>
+  		<button class="w3-btn w3-white" style="width:30%"><a href="HoneyControl?action=viewlist&from_page=<%=from_page %>&from=<%=from %>&list_n=<%=event.getList_n() %>"><%=event.getList_title() %></a></button>
 		
 		<!-- 꿀통링크 -->
 		
-  		<button class="w3-btn w3-black " style="width:100px"><a href="Viewer?hc_id=<%=event.getHc_id()%>"><%=event.getHc_id()%></a></button>
+  		<button class="w3-btn w3-black " style="width:10%"><a href="Viewer?hc_id=<%=event.getHc_id()%>"><%=event.getHc_id()%></a></button>
 		  		
 		<!-- 작성일 -->
-		<button class="w3-btn w3-white " style="width:220px"><%=event.getList_time() %></button>
+		<button class="w3-btn w3-white " style="width:20%"><%=event.getList_time() %></button>
 		<!-- 평가 -->
-		<button class="w3-btn w3-amber " style="width:70px "><%=event.getList_good() %>/<%=event.getList_bad() %></button>
+		<button class="w3-btn w3-amber " style="width:9%"><%=event.getList_good() %>/<%=event.getList_bad() %></button>
 		<!-- 삭제 -->
 		
-		<button class="w3-btn w3-red " style="width:70px"><a href="HoneyControl?from=<%=from %>&action=list_remove&list_n=<%=event.getList_n()%>">삭제</a></button>
+		<button class="w3-btn w3-red " style="width:10%"><a href="HoneyControl?from=<%=from %>&action=list_remove&list_n=<%=event.getList_n()%>">삭제</a></button>
 		
 		<!-- 수정 -->
 		
-		<button class="w3-btn w3-blue " style="width:70px"><a href="HoneyControl?action=list_update_form&list_n=<%=event.getList_n()%>">수정</a></button>
+		<button class="w3-btn w3-blue " style="width:10%"><a href="HoneyControl?action=list_update_form&list_n=<%=event.getList_n()%>">수정</a></button>
 	
 	</div>
 		<%} %>

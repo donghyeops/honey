@@ -451,14 +451,11 @@ public class DBHoneyDAO implements HoneyDAO{
 		   
 		   //addcomment 댓글 추가
 		   public void addComment(HoneyBean comment){
-			   String sql="insert into comment (list_n,member_id,comment_contents,comment_time) values("+comment.getList_n()+",'"+comment.getMember_id()+"','"+comment.getComment_contents()+"',now())";
+			   String sql="insert into comment (list_n,member_id,member_name,comment_contents,comment_time) values("+comment.getList_n()+",'"+comment.getMember_id()+"','"+comment.getMember_name()+"','"+comment.getComment_contents()+"',now())";
 			   System.out.println(sql);
 			   try{
-				   System.out.println("접속");
 				   connect();
-				   System.out.println("실행");
 				   stmt.executeUpdate(sql);	
-				   System.out.println("완료 접속종료");
 				   disconnect();
 			   }catch(Exception e){
 				   System.out.println("댓글작성실패");
@@ -476,18 +473,6 @@ public class DBHoneyDAO implements HoneyDAO{
 				   System.out.println("댓글삭제실패");
 			   }
 		   }
-		   //updatecomment
-		   public void updateComment(HoneyBean comment){
-			   String sql="update comment set comment_contents='"+comment.getComment_contents()+"' where comment_n="+comment.getComment_n();
-			   System.out.println(sql);
-			   try{
-				   connect();
-				   stmt.executeUpdate(sql);				   
-				   disconnect();
-			   }catch(Exception e){
-				   System.out.println("댓글수정실패");
-			   }
-		   }
 		   //getcomment 댓글 불러오기
 		   public ArrayList<HoneyBean> getComment(int list_n){
 			   String sql="select * from comment where list_n="+list_n;
@@ -495,19 +480,14 @@ public class DBHoneyDAO implements HoneyDAO{
 			   System.out.println("이게 댓글불러오기 명령어"+sql);
 			   try{
 				   connect();
-				   System.out.println("실행전");
 				   ResultSet rs = stmt.executeQuery(sql);
-				   System.out.println("실행");
 				   while(rs.next()){
 					   HoneyBean honey = new HoneyBean();
 					   honey.setComment_n(rs.getInt("comment_n"));
-					   System.out.println("실행"+rs.getInt("comment_n"));
 					   honey.setComment_contents(rs.getString("comment_contents"));
-					   System.out.println("실행"+rs.getString("comment_contents"));
 					   honey.setComment_time(rs.getString("comment_time"));
-					   System.out.println("실행"+rs.getString("comment_time"));
+					   honey.setMember_name(rs.getString("member_name"));
 					   honey.setMember_id(rs.getString("member_id"));
-					   System.out.println("실행"+rs.getString("member_id"));
 					   comment.add(honey);
 				   }   
 				   rs.close();
@@ -656,7 +636,23 @@ public class DBHoneyDAO implements HoneyDAO{
 			}
 		   
 		   
-		    
-		
+
+		   public String getname(String member_id){
+			   String sql = "select member_name from member where member_id='"+member_id+"'";
+				System.out.println(sql);
+				String name=null;
+				try{
+					connect();
+					ResultSet rs = stmt.executeQuery(sql);
+					while(rs.next()){
+						name=rs.getString("member_name");
+					}
+					rs.close();
+					disconnect();
+				}catch(Exception e){
+					 System.out.println("이름 가져오기실패");
+				}
+				return name;
+		   }
 
 }

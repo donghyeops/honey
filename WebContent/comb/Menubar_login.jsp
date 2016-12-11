@@ -62,7 +62,7 @@ function w3_Userclose() {
   onclick="w3_close()"
   class="w3-closenav w3-large w3-black"><b>Close &times;</b></a>
   <div class="w3-accordion w3-amber">
-    <button onclick="myFunction('User')" class="w3-btn-block w3-left-align"><b><%=session.getAttribute("member_id")%>님</b></button>
+    <button onclick="myFunction('User')" class="w3-btn-block w3-left-align" ><b><%=session.getAttribute("member_id")%>님</b></button>
     <div id="User" class="w3-accordion-content w3-container">
       <a href="/honey/HoneyControl?action=myhoneycomb" class="w3-padding-8"><b>내 꿀통</b></a>
   	  <a href="/honey/HoneyControl?action=favoritehoneycomb" class="w3-padding-8"><b>몰래 가져온 꿀통</b></a>
@@ -98,7 +98,7 @@ function w3_Userclose() {
   <li class="w3-hide-small" style="width:100px"><a href="/honey/HoneyControl?action=newvideo" class="w3-padding-32" ><b>최신 영상</b></a></li>
   <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><input type="text" id="search1" name="search" class="w3-light-gray w3-input w3-padding-16" placeholder="키워드 검색" style="width:250px; height:60px"></li>
   <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><button type="submit" class="w3-btn w3-amber w3-padding-16" style="height:60px">Go</button></li>
-  <li class="w3-hide-small w3-right w3-medium w3-opennav" style="width:100px"><a href="#" class="w3-padding-32" onclick="w3_Useropen()"><b><%=session.getAttribute("member_id")%>님</b></a></li>
+  <li class="w3-hide-small w3-right w3-medium w3-opennav" style="width:150px"><a href="#" class="w3-padding-32" onclick="w3_Useropen()"><b><%=session.getAttribute("member_id")%>님</b></a></li>
   <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="/honey/HoneyControl?action=upload" class="w3-padding-32"><b>업로드</b></a></li>
   <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="/honey/HoneyControl?action=hccreate" class="w3-padding-32"><b>꿀통 작성</b></a></li>
   <li class="w3-hide-large w3-hide-small w3-dropdown-click w3-right">

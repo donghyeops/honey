@@ -222,7 +222,7 @@ function myFunction(id) {
 				%>
                 <ul class="w3-navbar w3-center w3-round-large w3-margin-bottom w3-white w3-border"> 
                 	<li class="w3-padding-12 w3-blue" style="width:15%">
-                		<b><%=comment_out.getMember_id() %></b>
+                		<b><%=comment_out.getMember_name() %></b>
                 	</li>
                     <li class="w3-padding-12 w3-white" style="width:55%">
                 		<b><%=comment_out.getComment_contents() %></b>

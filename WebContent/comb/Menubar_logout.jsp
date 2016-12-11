@@ -89,7 +89,7 @@ function checkJoinForm() {
   <li class="w3-hide-small" style="width:100px"><a href="HoneyControl?action=newvideo" class="w3-padding-32" ><b>최신 영상</b></a></li>
   <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><input type="text" id="search1" name="search" class="w3-light-gray w3-input w3-padding-16" placeholder="키워드 검색" style="width:250px; height:60px"></li>
   <li class="w3-hide-small w3-hide-medium" style="padding:12px 0px 12px 0px"><button type="submit" class="w3-btn w3-amber w3-padding-16" style="height:60px">Go</button>  </li>
-  <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="#" class="w3-padding-32" value="로그인" onclick="document.getElementById('LogIn').style.display='block'"><b>로그인</b></a></li>
+  <li class="w3-hide-small w3-right w3-medium" style="width:150px"><a href="#" class="w3-padding-32" value="로그인" onclick="document.getElementById('LogIn').style.display='block'"><b>로그인</b></a></li>
   <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="#" class="w3-padding-32" value="업로드" onclick="document.getElementById('LogIn').style.display='block'"><b>업로드</b></a></li>
   <li class="w3-hide-small w3-right w3-medium" style="width:100px"><a href="HoneyControl?action=hccreate" class="w3-padding-32"><b>꿀통 작성</b></a></li>
   <li class="w3-hide-large w3-hide-small w3-dropdown-click w3-right">
